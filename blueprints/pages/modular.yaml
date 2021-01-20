@@ -1,0 +1,20 @@
+extends@: modular
+
+form:
+  fields:
+    tabs:
+      fields:
+        content:
+          modular_title:
+            title: THIS IS A CUSTOM TITLE
+          header.content.custom:
+              type: text
+              label: CUSTOM FIELD
+              size: small
+
+        header_element_tab:
+          fields:
+            header.element.tab.basics:
+              fields:
+                header.element.layout:           
+                  unset@: true

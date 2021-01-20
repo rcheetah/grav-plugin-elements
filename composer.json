@@ -1,0 +1,29 @@
+{
+  "name": "rcheetah/elements",
+  "type": "grav-plugin",
+  "description": "Build grav sites easier by using content elements (modules) for your page contents.",
+  "keywords": ["plugin"],
+  "homepage": "https://github.com/rcheetah/grav-plugin-elements",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Roman Gebath",
+      "email": "Roman.Gebath@gmail.com",
+      "role": "Developer"
+    }
+  ],
+  "require": {
+    "php": ">=7.1.3"
+  },
+  "autoload": {
+    "psr-4": {
+      "Grav\\Plugin\\Elements\\": "classes/"
+    },
+    "classmap":  ["elements.php"]
+  },
+  "config": {
+    "platform": {
+      "php": "7.1.3"
+    }
+  }
+}

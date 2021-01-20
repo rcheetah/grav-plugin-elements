@@ -1,0 +1,53 @@
+
+
+// 
+// SASS mixin for responsive css rules
+// Values are based on the variable $media-beakpoints (set in _variables.scss)
+// Code based on: https://glennmccomb.com/articles/useful-sass-scss-media-query-mixins-for-bootstrap/
+// 
+
+@mixin device-larger($breakpoint) {
+    // If the breakpoint exists in the map.
+    @if map-has-key($media-breakpoints, $breakpoint) { 
+        // Get the breakpoint value.
+        $breakpoint-value: map-get($media-breakpoints, $breakpoint);
+        // Write the media query.
+        @media (min-width: $breakpoint-value) {
+            @content;
+        }
+    } 
+    // If the breakpoint doesn't exist in the map.
+    @else {
+        @warn 'Invalid breakpoint: #{$breakpoint}.';
+    }
+}
+
+@mixin device-smaller($breakpoint) {
+    @if map-has-key($media-breakpoints, $breakpoint) { 
+        $breakpoint-value: map-get($media-breakpoints, $breakpoint);
+        @media (max-width: $breakpoint-value - 1) {
+            @content;
+        }
+    } @else {
+        @warn 'Invalid breakpoint: #{$breakpoint}.';
+    }
+}
+
+@mixin device-between($min, $max) {
+
+    @if map-has-key($media-breakpoints, $min) and map-has-key($media-breakpoints, $max) {
+        $min-breakpoint: map-get($media-breakpoints, $min);
+        $max-breakpoint: map-get($media-breakpoints, $max);
+
+        @media (min-width: $min-breakpoint) and (max-width: ($max-breakpoint - 1)) {
+            @content;
+        }
+    } @else {
+        @if (map-has-key($media-breakpoints, $min) == false) {
+            @warn 'Your lower breakpoint was invalid: #{$min}.';
+        }
+        @if (map-has-key($media-breakpoints, $max) == false) {
+            @warn 'Your upper breakpoint was invalid: #{$max}.';
+        }
+    }
+}

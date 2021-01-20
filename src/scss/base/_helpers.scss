@@ -1,0 +1,41 @@
+/*
+    LAYOUT HELPERS
+*/
+
+
+.full-width { 
+    width: 100% !important; 
+    max-width: none !important; 
+}
+
+.text-left    { text-align: left    !important; }
+.text-center  { text-align: center  !important; }
+.text-right   { text-align: right   !important; }
+.text-justify { text-align: justify !important; }
+
+
+
+// Background color by classes
+@each $name, $color in $colors {
+    .bg-#{$name} {
+        background-color: $color !important;
+    }
+}
+
+// padding and margin helpers
+@each $key, $value in $spacings {
+    .pt-#{$key} { padding-top:    $value !important; }
+    .pb-#{$key} { padding-bottom: $value !important; }
+    .pl-#{$key} { padding-left:   $value !important; }
+    .pr-#{$key} { padding-right:  $value !important; }
+    .mt-#{$key} { margin-top:     $value !important; }
+    .mb-#{$key} { margin-bottom:  $value !important; }
+    .ml-#{$key} { margin-left:    $value !important; }
+    .mr-#{$key} { margin-right:   $value !important; }
+}
+
+
+// grid gap helpers
+@each $key, $value in $spacings {
+    .gridgap-#{$key} { grid-gap: $value !important; }
+}

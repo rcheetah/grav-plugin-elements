@@ -1,0 +1,40 @@
+/*
+    GENERAL LAYOUT FORMATS.
+    Define css layouts used overall the page, like a card.
+*/
+
+.container  { 
+    max-width: $media-breakpoint-xl; 
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 $space-md;
+    @include device-smaller(xs) { padding: 0 $space-sm; }
+}
+
+
+// GRID SYSTEM
+.columns {
+    // This dead simple grid system is not based on flexboxes, but on css-grids
+    // That makes it possible for the grid to be self aware if if should create new lines
+    // A col has a specified min-width (minmax-function). The grid tries to fit in as many
+    // cols as possible without a col being smaller that that width. As long as no
+    // new cols fit into the row, it stretches the cols to fit the whole row.
+    // To overwrite the minimal size of the columns one can overwrite the grid-template-columns line.
+    // Browser support should be between 93.05%	and	94.22%.
+    // Flexbox with flex-wrap reaches between 94.67% and 95.78% and thus is barely better.
+    display: grid;
+    grid-template-columns: repeat( auto-fit, minmax(18rem, 1fr) );
+    grid-gap: $space-lg;
+    @include device-larger(xl) { grid-gap: $space-xl; }
+}
+
+
+section.module {
+    margin-bottom: $space-md;
+}
+
+.color-negative {
+    color: white;
+}
+
+

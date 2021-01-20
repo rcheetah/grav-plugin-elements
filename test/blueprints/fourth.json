@@ -1,0 +1,666 @@
+Grav\Common\Data\Blueprint {#1572
+  #context: "blueprints://pages"
+  #scope: null
+  #blueprintSchema: null
+  #object: null
+  #defaults: null
+  #handlers: array:2 [
+    "data" => Closure(array &$field, $property, array &$call) {#540
+      class: "Grav\Framework\Flex\FlexDirectory"
+      this: Grav\Framework\Flex\FlexDirectory {#182 …}
+      file: "/Users/roman/Sites/gravdev/system/src/Grav/Framework/Flex/FlexDirectory.php"
+      line: "755 to 757"
+    }
+    "flex" => Closure(array &$field, $property, array &$call) {#536
+      class: "Grav\Framework\Flex\FlexDirectory"
+      this: Grav\Framework\Flex\FlexDirectory {#182 …}
+      file: "/Users/roman/Sites/gravdev/system/src/Grav/Framework/Flex/FlexDirectory.php"
+      line: "758 to 760"
+    }
+  ]
+  #items: array:6 [
+    "title" => "Pages (Admin)"
+    "rules" => array:1 [
+      "slug" => array:3 [
+        "pattern" => "[a-zA-Zа-яA-Я0-9_\-]+"
+        "min" => 1
+        "max" => 200
+      ]
+    ]
+    "form" => array:2 [
+      "validation" => "loose"
+      "fields" => array:3 [
+        "tabs" => array:4 [
+          "type" => "tabs"
+          "active" => 1
+          "fields" => array:4 [
+            "content" => array:4 [
+              "type" => "tab"
+              "title" => "PLUGIN_ADMIN.CONTENT"
+              "fields" => array:8 [
+                "xss_check" => array:2 [
+                  "type" => "xss"
+                  "name" => "xss_check"
+                ]
+                "header.title" => array:5 [
+                  "type" => "text"
+                  "autofocus" => true
+                  "style" => "vertical"
+                  "label" => "PLUGIN_ADMIN.TITLE"
+                  "name" => "header.title"
+                ]
+                "content" => array:3 [
+                  "type" => "tinymce"
+                  "validate" => array:1 [
+                    "type" => "textarea"
+                  ]
+                  "name" => "content"
+                ]
+                "header.media_order" => array:3 [
+                  "type" => "pagemedia"
+                  "label" => "PLUGIN_ADMIN.PAGE_MEDIA"
+                  "name" => "header.media_order"
+                ]
+                "modular_title" => array:3 [
+                  "type" => "spacer"
+                  "title" => "PLUGIN_ADMIN.MODULE_SETUP"
+                  "name" => "modular_title"
+                ]
+                "header.content.items" => array:5 [
+                  "type" => "text"
+                  "label" => "PLUGIN_ADMIN.ITEMS"
+                  "default" => "@self.modular"
+                  "size" => "medium"
+                  "name" => "header.content.items"
+                ]
+                "header.content.order.by" => array:6 [
+                  "type" => "text"
+                  "label" => "PLUGIN_ADMIN.ORDER_BY"
+                  "placeholder" => "date"
+                  "help" => null
+                  "size" => "small"
+                  "name" => "header.content.order.by"
+                ]
+                "header.content.order.dir" => array:6 [
+                  "type" => "text"
+                  "label" => "PLUGIN_ADMIN.ORDER"
+                  "help" => ""desc" or "asc" are valid values"
+                  "placeholder" => "desc"
+                  "size" => "small"
+                  "name" => "header.content.order.dir"
+                ]
+              ]
+              "name" => "content"
+            ]
+            "options" => array:4 [
+              "type" => "tab"
+              "title" => "PLUGIN_ADMIN.OPTIONS"
+              "fields" => array:2 [
+                "publishing" => array:5 [
+                  "type" => "section"
+                  "title" => "PLUGIN_ADMIN.PUBLISHING"
+                  "underline" => true
+                  "fields" => array:5 [
+                    "header.published" => array:9 [
+                      "type" => "toggle"
+                      "toggleable" => true
+                      "label" => "PLUGIN_ADMIN.PUBLISHED"
+                      "help" => "PLUGIN_ADMIN.PUBLISHED_HELP"
+                      "highlight" => 1
+                      "size" => "medium"
+                      "options" => array:2 [
+                        1 => "PLUGIN_ADMIN.YES"
+                        0 => "PLUGIN_ADMIN.NO"
+                      ]
+                      "validate" => array:1 [
+                        "type" => "bool"
+                      ]
+                      "name" => "header.published"
+                    ]
+                    "header.date" => array:5 [
+                      "type" => "datetime"
+                      "label" => "PLUGIN_ADMIN.DATE"
+                      "toggleable" => true
+                      "help" => "PLUGIN_ADMIN.DATE_HELP"
+                      "name" => "header.date"
+                    ]
+                    "header.publish_date" => array:5 [
+                      "type" => "datetime"
+                      "label" => "PLUGIN_ADMIN.PUBLISHED_DATE"
+                      "toggleable" => true
+                      "help" => "PLUGIN_ADMIN.PUBLISHED_DATE_HELP"
+                      "name" => "header.publish_date"
+                    ]
+                    "header.unpublish_date" => array:5 [
+                      "type" => "datetime"
+                      "label" => "PLUGIN_ADMIN.UNPUBLISHED_DATE"
+                      "toggleable" => true
+                      "help" => "PLUGIN_ADMIN.UNPUBLISHED_DATE_HELP"
+                      "name" => "header.unpublish_date"
+                    ]
+                    "header.metadata" => array:7 [
+                      "toggleable" => true
+                      "type" => "array"
+                      "label" => "PLUGIN_ADMIN.METADATA"
+                      "help" => "PLUGIN_ADMIN.METADATA_HELP"
+                      "placeholder_key" => "PLUGIN_ADMIN.METADATA_KEY"
+                      "placeholder_value" => "PLUGIN_ADMIN.METADATA_VALUE"
+                      "name" => "header.metadata"
+                    ]
+                  ]
+                  "name" => "publishing"
+                ]
+                "taxonomies" => array:5 [
+                  "type" => "section"
+                  "title" => "PLUGIN_ADMIN.TAXONOMIES"
+                  "underline" => true
+                  "fields" => array:1 [
+                    "header.taxonomy" => array:5 [
+                      "type" => "taxonomy"
+                      "label" => "PLUGIN_ADMIN.TAXONOMY"
+                      "multiple" => true
+                      "validate" => array:1 [
+                        "type" => "array"
+                      ]
+                      "name" => "header.taxonomy"
+                    ]
+                  ]
+                  "name" => "taxonomies"
+                ]
+              ]
+              "name" => "options"
+            ]
+            "advanced" => array:4 [
+              "type" => "tab"
+              "title" => "PLUGIN_ADMIN.ADVANCED"
+              "fields" => array:4 [
+                "columns" => array:3 [
+                  "type" => "columns"
+                  "fields" => array:2 [
+                    "column1" => array:3 [
+                      "type" => "column"
+                      "fields" => array:5 [
+                        "settings" => array:4 [
+                          "type" => "section"
+                          "title" => "PLUGIN_ADMIN.SETTINGS"
+                          "underline" => true
+                          "name" => "settings"
+                        ]
+                        "folder" => array:4 [
+                          "type" => "text"
+                          "label" => "PLUGIN_ADMIN.FOLDER_NAME"
+                          "validate" => array:1 [
+                            "rule" => "slug"
+                          ]
+                          "name" => "folder"
+                        ]
+                        "route" => array:4 [
+                          "type" => "parents"
+                          "label" => "PLUGIN_ADMIN.PARENT"
+                          "classes" => "fancy"
+                          "name" => "route"
+                        ]
+                        "name" => array:7 [
+                          "type" => "select"
+                          "classes" => "fancy"
+                          "label" => "PLUGIN_ADMIN.PAGE_FILE"
+                          "help" => "PLUGIN_ADMIN.PAGE_FILE_HELP"
+                          "default" => "default"
+                          "data-options@" => "\Grav\Common\Page\Pages::pageTypes"
+                          "name" => "name"
+                        ]
+                        "header.body_classes" => array:3 [
+                          "type" => "text"
+                          "label" => "PLUGIN_ADMIN.BODY_CLASSES"
+                          "name" => "header.body_classes"
+                        ]
+                      ]
+                      "name" => "column1"
+                    ]
+                    "column2" => array:3 [
+                      "type" => "column"
+                      "fields" => array:3 [
+                        "order_title" => array:4 [
+                          "type" => "section"
+                          "title" => "PLUGIN_ADMIN.ORDERING"
+                          "underline" => true
+                          "name" => "order_title"
+                        ]
+                        "ordering" => array:7 [
+                          "type" => "toggle"
+                          "label" => "PLUGIN_ADMIN.FOLDER_NUMERIC_PREFIX"
+                          "help" => "PLUGIN_ADMIN.FOLDER_NUMERIC_PREFIX_HELP"
+                          "highlight" => 1
+                          "options" => array:2 [
+                            1 => "PLUGIN_ADMIN.ENABLED"
+                            0 => "PLUGIN_ADMIN.DISABLED"
+                          ]
+                          "validate" => array:1 [
+                            "type" => "bool"
+                          ]
+                          "name" => "ordering"
+                        ]
+                        "order" => array:4 [
+                          "type" => "order"
+                          "label" => "PLUGIN_ADMIN.SORTABLE_PAGES"
+                          "sitemap" => null
+                          "name" => "order"
+                        ]
+                      ]
+                      "name" => "column2"
+                    ]
+                  ]
+                  "name" => "columns"
+                ]
+                "overrides" => array:5 [
+                  "type" => "section"
+                  "title" => "PLUGIN_ADMIN.OVERRIDES"
+                  "underline" => true
+                  "fields" => array:14 [
+                    "header.dateformat" => array:10 [
+                      "toggleable" => true
+                      "type" => "select"
+                      "size" => "medium"
+                      "selectize" => array:1 [
+                        "create" => true
+                      ]
+                      "label" => "PLUGIN_ADMIN.DEFAULT_DATE_FORMAT"
+                      "help" => "PLUGIN_ADMIN.DEFAULT_DATE_FORMAT_HELP"
+                      "placeholder" => "PLUGIN_ADMIN.DEFAULT_DATE_FORMAT_PLACEHOLDER"
+                      "data-options@" => "\Grav\Common\Utils::dateFormats"
+                      "validate" => array:1 [
+                        "type" => "string"
+                      ]
+                      "name" => "header.dateformat"
+                    ]
+                    "header.menu" => array:5 [
+                      "type" => "text"
+                      "label" => "PLUGIN_ADMIN.MENU"
+                      "toggleable" => true
+                      "help" => "PLUGIN_ADMIN.MENU_HELP"
+                      "name" => "header.menu"
+                    ]
+                    "header.slug" => array:6 [
+                      "type" => "text"
+                      "label" => "PLUGIN_ADMIN.SLUG"
+                      "toggleable" => true
+                      "help" => "PLUGIN_ADMIN.SLUG_HELP"
+                      "validate" => array:2 [
+                        "message" => "PLUGIN_ADMIN.SLUG_VALIDATE_MESSAGE"
+                        "rule" => "slug"
+                      ]
+                      "name" => "header.slug"
+                    ]
+                    "header.redirect" => array:5 [
+                      "type" => "text"
+                      "label" => "PLUGIN_ADMIN.REDIRECT"
+                      "toggleable" => true
+                      "help" => "PLUGIN_ADMIN.REDIRECT_HELP"
+                      "name" => "header.redirect"
+                    ]
+                    "header.process" => array:8 [
+                      "type" => "checkboxes"
+                      "label" => "PLUGIN_ADMIN.PROCESS"
+                      "toggleable" => true
+                      "config-default@" => "system.pages.process"
+                      "default" => array:2 [
+                        "markdown" => true
+                        "twig" => false
+                      ]
+                      "options" => array:2 [
+                        "markdown" => "Markdown"
+                        "twig" => "Twig"
+                      ]
+                      "use" => "keys"
+                      "name" => "header.process"
+                    ]
+                    "header.twig_first" => array:8 [
+                      "type" => "toggle"
+                      "toggleable" => true
+                      "label" => "PLUGIN_ADMIN.TWIG_FIRST"
+                      "help" => "PLUGIN_ADMIN.TWIG_FIRST_HELP"
+                      "highlight" => 0
+                      "options" => array:2 [
+                        1 => "PLUGIN_ADMIN.YES"
+                        0 => "PLUGIN_ADMIN.NO"
+                      ]
+                      "validate" => array:1 [
+                        "type" => "bool"
+                      ]
+                      "name" => "header.twig_first"
+                    ]
+                    "header.never_cache_twig" => array:8 [
+                      "type" => "toggle"
+                      "toggleable" => true
+                      "label" => "PLUGIN_ADMIN.NEVER_CACHE_TWIG"
+                      "help" => "PLUGIN_ADMIN.NEVER_CACHE_TWIG_HELP"
+                      "highlight" => 0
+                      "options" => array:2 [
+                        1 => "PLUGIN_ADMIN.YES"
+                        0 => "PLUGIN_ADMIN.NO"
+                      ]
+                      "validate" => array:1 [
+                        "type" => "bool"
+                      ]
+                      "name" => "header.never_cache_twig"
+                    ]
+                    "header.child_type" => array:7 [
+                      "type" => "select"
+                      "toggleable" => true
+                      "label" => "PLUGIN_ADMIN.DEFAULT_CHILD_TYPE"
+                      "default" => "default"
+                      "placeholder" => "PLUGIN_ADMIN.USE_GLOBAL"
+                      "data-options@" => "\Grav\Common\Page\Pages::types"
+                      "name" => "header.child_type"
+                    ]
+                    "header.routable" => array:8 [
+                      "type" => "toggle"
+                      "toggleable" => true
+                      "label" => "PLUGIN_ADMIN.ROUTABLE"
+                      "help" => "PLUGIN_ADMIN.ROUTABLE_HELP"
+                      "highlight" => 1
+                      "options" => array:2 [
+                        1 => "PLUGIN_ADMIN.ENABLED"
+                        0 => "PLUGIN_ADMIN.DISABLED"
+                      ]
+                      "validate" => array:1 [
+                        "type" => "bool"
+                      ]
+                      "name" => "header.routable"
+                    ]
+                    "header.cache_enable" => array:7 [
+                      "type" => "toggle"
+                      "toggleable" => true
+                      "label" => "PLUGIN_ADMIN.CACHING"
+                      "highlight" => 1
+                      "options" => array:2 [
+                        1 => "PLUGIN_ADMIN.ENABLED"
+                        0 => "PLUGIN_ADMIN.DISABLED"
+                      ]
+                      "validate" => array:1 [
+                        "type" => "bool"
+                      ]
+                      "name" => "header.cache_enable"
+                    ]
+                    "header.visible" => array:8 [
+                      "type" => "toggle"
+                      "toggleable" => true
+                      "label" => "PLUGIN_ADMIN.VISIBLE"
+                      "help" => "PLUGIN_ADMIN.VISIBLE_HELP"
+                      "highlight" => 1
+                      "options" => array:2 [
+                        1 => "PLUGIN_ADMIN.ENABLED"
+                        0 => "PLUGIN_ADMIN.DISABLED"
+                      ]
+                      "validate" => array:1 [
+                        "type" => "bool"
+                      ]
+                      "name" => "header.visible"
+                    ]
+                    "header.debugger" => array:8 [
+                      "type" => "toggle"
+                      "toggleable" => true
+                      "label" => "PLUGIN_ADMIN.DEBUGGER"
+                      "help" => "PLUGIN_ADMIN.DEBUGGER_HELP"
+                      "highlight" => 1
+                      "options" => array:2 [
+                        1 => "PLUGIN_ADMIN.ENABLED"
+                        0 => "PLUGIN_ADMIN.DISABLED"
+                      ]
+                      "validate" => array:1 [
+                        "type" => "bool"
+                      ]
+                      "name" => "header.debugger"
+                    ]
+                    "header.template" => array:4 [
+                      "type" => "text"
+                      "toggleable" => true
+                      "label" => "PLUGIN_ADMIN.DISPLAY_TEMPLATE"
+                      "name" => "header.template"
+                    ]
+                    "header.append_url_extension" => array:5 [
+                      "type" => "text"
+                      "label" => "PLUGIN_ADMIN.APPEND_URL_EXT"
+                      "toggleable" => true
+                      "help" => "PLUGIN_ADMIN.APPEND_URL_EXT_HELP"
+                      "name" => "header.append_url_extension"
+                    ]
+                  ]
+                  "name" => "overrides"
+                ]
+                "routes_only" => array:5 [
+                  "type" => "section"
+                  "title" => "PLUGIN_ADMIN.ROUTE_OVERRIDES"
+                  "underline" => true
+                  "fields" => array:3 [
+                    "header.routes.default" => array:4 [
+                      "type" => "text"
+                      "toggleable" => true
+                      "label" => "PLUGIN_ADMIN.ROUTE_DEFAULT"
+                      "name" => "header.routes.default"
+                    ]
+                    "header.routes.canonical" => array:4 [
+                      "type" => "text"
+                      "toggleable" => true
+                      "label" => "PLUGIN_ADMIN.ROUTE_CANONICAL"
+                      "name" => "header.routes.canonical"
+                    ]
+                    "header.routes.aliases" => array:6 [
+                      "type" => "array"
+                      "toggleable" => true
+                      "value_only" => true
+                      "size" => "large"
+                      "label" => "PLUGIN_ADMIN.ROUTE_ALIASES"
+                      "name" => "header.routes.aliases"
+                    ]
+                  ]
+                  "name" => "routes_only"
+                ]
+                "admin_only" => array:5 [
+                  "type" => "section"
+                  "title" => "PLUGIN_ADMIN.ADMIN_SPECIFIC_OVERRIDES"
+                  "underline" => true
+                  "fields" => array:4 [
+                    "header.admin.children_display_order" => array:8 [
+                      "type" => "select"
+                      "label" => "PLUGIN_ADMIN.ADMIN_CHILDREN_DISPLAY_ORDER"
+                      "help" => "PLUGIN_ADMIN.ADMIN_CHILDREN_DISPLAY_ORDER_HELP"
+                      "toggleable" => true
+                      "classes" => "fancy"
+                      "default" => "collection"
+                      "options" => array:2 [
+                        "default" => "Ordered by Folder name (default)"
+                        "collection" => "Ordered by Collection definition"
+                      ]
+                      "name" => "header.admin.children_display_order"
+                    ]
+                    "header.order_by" => array:2 [
+                      "type" => "hidden"
+                      "name" => "header.order_by"
+                    ]
+                    "header.order_manual" => array:3 [
+                      "type" => "hidden"
+                      "validate" => array:1 [
+                        "type" => "commalist"
+                      ]
+                      "name" => "header.order_manual"
+                    ]
+                    "blueprint" => array:2 [
+                      "type" => "blueprint"
+                      "name" => "blueprint"
+                    ]
+                  ]
+                  "name" => "admin_only"
+                ]
+              ]
+              "name" => "advanced"
+            ]
+            "security" => array:4 [
+              "fields" => array:2 [
+                "_site" => array:5 [
+                  "type" => "section"
+                  "title" => "PLUGIN_ADMIN.PAGE_ACCESS"
+                  "underline" => true
+                  "fields" => array:2 [
+                    "header.login.visibility_requires_access" => array:8 [
+                      "type" => "toggle"
+                      "toggleable" => true
+                      "label" => "PLUGIN_ADMIN.PAGE_VISIBILITY_REQUIRES_ACCESS"
+                      "help" => "PLUGIN_ADMIN.PAGE_VISIBILITY_REQUIRES_ACCESS_HELP"
+                      "highlight" => 0
+                      "options" => array:2 [
+                        1 => "PLUGIN_ADMIN.YES"
+                        0 => "PLUGIN_ADMIN.NO"
+                      ]
+                      "validate" => array:1 [
+                        "type" => "bool"
+                      ]
+                      "name" => "header.login.visibility_requires_access"
+                    ]
+                    "header.access" => array:7 [
+                      "type" => "acl_picker"
+                      "label" => "PLUGIN_ADMIN.PAGE_ACCESS"
+                      "help" => "PLUGIN_ADMIN.PAGE_ACCESS_HELP"
+                      "ignore_empty" => true
+                      "data_type" => "access"
+                      "validate" => array:2 [
+                        "type" => "array"
+                        "value_type" => "bool"
+                      ]
+                      "name" => "header.access"
+                    ]
+                  ]
+                  "name" => "_site"
+                ]
+                "_admin" => array:6 [
+                  "security@" => array:1 [
+                    "or" => array:2 [
+                      0 => "admin.super"
+                      1 => "admin.configuration.pages"
+                    ]
+                  ]
+                  "type" => "section"
+                  "title" => "PLUGIN_ADMIN.PAGE PERMISSIONS"
+                  "underline" => true
+                  "fields" => array:3 [
+                    "header.permissions.inherit" => array:8 [
+                      "type" => "toggle"
+                      "toggleable" => true
+                      "label" => "PLUGIN_ADMIN.PAGE_INHERIT_PERMISSIONS"
+                      "help" => "PLUGIN_ADMIN.PAGE_INHERIT_PERMISSIONS_HELP"
+                      "highlight" => 1
+                      "options" => array:2 [
+                        1 => "PLUGIN_ADMIN.YES"
+                        0 => "PLUGIN_ADMIN.NO"
+                      ]
+                      "validate" => array:1 [
+                        "type" => "bool"
+                      ]
+                      "name" => "header.permissions.inherit"
+                    ]
+                    "header.permissions.authors" => array:6 [
+                      "type" => "list"
+                      "toggleable" => true
+                      "label" => "PLUGIN_ADMIN.PAGE_AUTHORS"
+                      "help" => "PLUGIN_ADMIN.PAGE_AUTHORS_HELP"
+                      "fields" => array:1 [
+                        "value" => array:4 [
+                          "type" => "text"
+                          "placeholder" => "PLUGIN_ADMIN.USERNAME"
+                          "style" => "vertical"
+                          "name" => "value"
+                        ]
+                      ]
+                      "name" => "header.permissions.authors"
+                    ]
+                    "header.permissions.groups" => array:7 [
+                      "ignore@" => true
+                      "type" => "acl_picker"
+                      "label" => "PLUGIN_ADMIN.PAGE_GROUPS"
+                      "help" => "PLUGIN_ADMIN.PAGE_GROUPS_HELP"
+                      "ignore_empty" => true
+                      "data_type" => "permissions"
+                      "name" => "header.permissions.groups"
+                    ]
+                  ]
+                  "name" => "_admin"
+                ]
+              ]
+              "type" => "tab"
+              "title" => "PLUGIN_ADMIN.SECURITY"
+              "name" => "security"
+            ]
+          ]
+          "name" => "tabs"
+        ]
+        "lang" => array:3 [
+          "type" => "hidden"
+          "value" => ""
+          "name" => "lang"
+        ]
+        "tools_section" => array:4 [
+          "type" => "section"
+          "field_classes" => "overlay bottom"
+          "fields" => array:1 [
+            "_post_entries_save" => array:4 [
+              "label" => "PLUGIN_FLEX_OBJECTS.AFTER_SAVE"
+              "type" => "save-redirect"
+              "default" => "create-new"
+              "name" => "_post_entries_save"
+            ]
+          ]
+          "name" => "tools_section"
+        ]
+      ]
+    ]
+    "description" => "Manage your Grav Pages in the new Flex Pages admin. This allows you to use Flex Pages only in Admin plugin, while still using the old pages in the frontend."
+    "type" => "flex-objects"
+    "initialized" => true
+  ]
+  #filename: "blueprints://flex-objects/pages.yaml"
+  #overrides: []
+  #dynamic: array:6 [
+    "form/fields/tabs/fields/advanced/fields/columns/fields/column1/fields/name" => array:1 [
+      "options" => array:2 [
+        "action" => "data"
+        "params" => "\Grav\Common\Page\Pages::pageTypes"
+      ]
+    ]
+    "form/fields/tabs/fields/advanced/fields/overrides/fields/header.dateformat" => array:1 [
+      "options" => array:2 [
+        "action" => "data"
+        "params" => "\Grav\Common\Utils::dateFormats"
+      ]
+    ]
+    "form/fields/tabs/fields/advanced/fields/overrides/fields/header.process" => array:1 [
+      "default" => array:2 [
+        "action" => "config"
+        "params" => "system.pages.process"
+      ]
+    ]
+    "form/fields/tabs/fields/advanced/fields/overrides/fields/header.child_type" => array:1 [
+      "options" => array:2 [
+        "action" => "data"
+        "params" => "\Grav\Common\Page\Pages::types"
+      ]
+    ]
+    "form/fields/tabs/fields/security/fields/_admin" => array:1 [
+      "" => array:2 [
+        "action" => "security"
+        "params" => array:1 [
+          "or" => array:2 [
+            0 => "admin.super"
+            1 => "admin.configuration.pages"
+          ]
+        ]
+      ]
+    ]
+    "form/fields/tabs/fields/security/fields/_admin/fields/header.permissions.groups" => array:1 [
+      "" => array:2 [
+        "action" => "ignore"
+        "params" => true
+      ]
+    ]
+  ]
+  #nestedSeparator: "/"
+}

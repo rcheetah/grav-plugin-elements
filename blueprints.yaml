@@ -1,0 +1,35 @@
+name: Elements
+slug: elements
+type: plugin
+version: 0.1.0
+description: Build grav sites easier by using content elements (modules) for your page contents.
+icon: th-large
+author:
+  name: Roman Gebath
+  email: Roman.Gebath@gmail.com
+homepage: https://github.com/rcheetah/grav-plugin-elements
+demo: http://demo.yoursite.com
+keywords: grav, plugin, etc
+bugs: https://github.com/rcheetah/grav-plugin-elements/issues
+docs: https://github.com/rcheetah/grav-plugin-elements/blob/develop/README.md
+license: MIT
+
+dependencies:
+  - { name: grav, version: '>=1.7.0' }
+
+form:
+  validation: loose
+  fields:
+    enabled:
+      type: toggle
+      label: PLUGIN_ADMIN.PLUGIN_STATUS
+      highlight: 1
+      default: 0
+      options:
+        1: PLUGIN_ADMIN.ENABLED
+        0: PLUGIN_ADMIN.DISABLED
+      validate:
+        type: bool
+    custom_var:
+      type: text
+      label: Custom Variable

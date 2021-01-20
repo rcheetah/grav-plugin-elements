@@ -1,0 +1,10 @@
+extends@: 
+  - default
+  - partials/elementtab
+
+form:
+  fields:
+    tabs:
+      fields:
+        content:
+          ordering@: 0

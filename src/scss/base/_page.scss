@@ -1,0 +1,23 @@
+
+.page {
+
+    padding-top: $space-lg;
+    padding-bottom: $space-lg;
+
+    &__title {
+    }
+
+    &__content {
+    }
+
+    &--modular { 
+        padding-left: 0; 
+        padding-right: 0; 
+        max-width: none;
+    }
+}
+
+// section.module {
+//     background-size: cover;
+//     background-position: center;
+// }

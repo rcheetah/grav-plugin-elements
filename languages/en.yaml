@@ -1,0 +1,19 @@
+PLUGIN_ELEMENTS:
+  DEFAULT: "[Default]"
+  YES: Yes
+  NO: No
+  ELEMENT_TAB: Layout
+  ELEMENT_TAB_BASICS: Basics
+  ELEMENT_TAB_BGCOL: Background Color
+  ELEMENT_TAB_BGIMG: Background Image
+  ELEMENT_TAB_LAYOUT: Content width
+  ELEMENT_TAB_LAYOUT_STD: Constrain to container
+  ELEMENT_TAB_LAYOUT_FULL: Use full width
+  ELEMENT_TAB_LAYOUT_BGFULL: Background full width, content constrained
+  ELEMENT_TAB_NEGCOL: Use negative colors
+  ELEMENT_TAB_CLASSES: Additional CSS Classes
+  ELEMENT_TAB_SPACING: Spacing
+  ELEMENT_TAB_SPACING_MARGIN: Space outside
+  ELEMENT_TAB_SPACING_PADDING: Space inside
+  ELEMENT_TAB_SPACING_ABOVE: Above
+  ELEMENT_TAB_SPACING_BELOW: Below

@@ -1,0 +1,25 @@
+enabled: true
+custom_var: Custom Text added by the **Elements** plugin (disable plugin to remove)
+test: TEST
+
+css:
+  classname:
+    container: "container"
+  prefix:
+    padding-top: pt-
+    padding-bottom: pb-
+    margin-top: mt-
+    margin-bottom: mb-
+    background-color: bg-
+
+layoutoptions:
+  colors: 
+    default: PLUGIN_ELEMENTS.DEFAULT
+    primary: Primary Color
+    secondary: Secondary Color
+  spacing:
+    default: PLUGIN_ELEMENTS.DEFAULT
+    none: None
+    sm: Small
+    md: Medium
+    lg: Large

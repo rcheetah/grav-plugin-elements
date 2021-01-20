@@ -1,0 +1,55 @@
+/*
+    SCSS VARIABLES
+*/
+
+
+// COLORS
+$col-primary:   darkred;
+$col-secondary: cadetblue;
+
+// SASS map variant
+$colors: (
+    primary: $col-primary,
+    secondary: $col-secondary,
+    white: white,
+    black: black,
+    transparent: transparent
+);
+
+
+// MEDIA BREAKPOINTS
+// Set media breakpoints both as variables and as SASS map
+// SASS map is for the device mixins
+// Variables are for easier access in code without mapping functions
+
+$media-breakpoint-xs: 576px;
+$media-breakpoint-sm: 768px;
+$media-breakpoint-md: 992px;
+$media-breakpoint-lg: 1200px;
+$media-breakpoint-xl: 1440px;
+
+$media-breakpoints: (
+    xs: $media-breakpoint-xs,
+    sm: $media-breakpoint-sm,
+    md: $media-breakpoint-md,
+    lg: $media-breakpoint-lg,
+    xl: $media-breakpoint-xl
+);
+
+
+// SPACING
+$space-none: 0;
+$space-xs: 0.5rem;
+$space-sm: 1rem;
+$space-md: 2rem;
+$space-lg: 3rem;
+$space-xl: 5rem;
+
+$spacings: (
+    none: $space-none,
+    xs: $space-xs,
+    sm: $space-sm,
+    md: $space-md,
+    lg: $space-lg,
+    xl: $space-xl
+);

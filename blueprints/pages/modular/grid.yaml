@@ -1,0 +1,90 @@
+title: Spalten
+extends@: default
+
+form:
+  fields:
+    tabs:
+      fields:
+
+        # Extending Tab Content 
+        content:
+          type: tab
+          title: Spalten
+          fields:
+
+            content: 
+              unset@: true
+            
+            title:
+              label: "TEST"
+
+            header.media_order:
+              unset@: true
+
+            page_fieldset_title:
+              unset@: true
+
+            module_note:
+              type: display
+              size: long
+              label: "**HINWEIS**"
+              style: vertical
+              markdown: true
+              content: "Füge einfach Module unterhalb dieser Seite hinzu. Die Elemente werden dann in Spalten dargestellt. <br> ACHTUNG: Der Titel dieser Seite ist nur intern, und wird nicht ausgegeben!"
+
+            module_fieldset_grid:
+              type: fieldset
+              title: Spalten-Optionen
+              info: Einstellungen für die Spalten
+              icon: columns
+              collapsed: false
+              collapsible: false
+              fields:
+                header.grid.gap:
+                  type: select
+                  label: Spalten-Abstand
+                  default: default
+                  config-options@: theme.config.selectoptions.spacing
+                header.grid.minwidth:
+                  type: number
+                  label: 'Minimal-Größe der Spalten'
+                  toggleable: true
+                  validate:
+                    min: 100
+                    max: 3000
+                    step: 50
+                header.grid.count:
+                  type: number
+                  label: 'Spalten Anzahl fixieren'
+                  toggleable: true
+                  validate:
+                    min: 1
+                    max: 12
+                module_grid_count_hint:
+                  type: display
+                  label: "**Achtung**"
+                  markdown: true
+                  content: "Die Funktion `Spalten fixieren` ist experimentell, und nicht responsive. Auf mobilen Geräten kann das zu Problemen führen!"
+
+            modular_title:
+              type: spacer
+              title: PLUGIN_ADMIN.MODULAR_SETUP
+
+            header.content.items:
+              type: text
+              label: PLUGIN_ADMIN.ITEMS
+              default: '@self.modular'
+              size: medium
+
+            header.content.order.by:
+              type: text
+              label: PLUGIN_ADMIN.ORDER_BY
+              placeholder: date
+              size: small
+
+            header.content.order.dir:
+              type: text
+              label: PLUGIN_ADMIN.ORDER
+              help: '"desc" or "asc" are valid values'
+              placeholder: desc
+              size: small
