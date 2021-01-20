@@ -1,0 +1,68 @@
+
+
+{% block element %}
+
+    {% set PREFIXES = config.plugins.elements.css.prefix %}
+    {% set LAYOUTOPTIONS = config.plugins.elements.layoutoptions %}
+
+    {% set mt = header.element.spacing.margintop %}
+    {% set mb = header.element.spacing.marginbottom %}
+    {% set pt = header.element.spacing.paddingtop %}
+    {% set pb = header.element.spacing.paddingbottom %}
+    {% set pb = header.element.spacing.paddingbottom %}
+    {% set bgcol = header.element.bgcolor %}
+
+    {# Collect layout classes #}
+    {% set outerclasses = "" %}
+    {% if mt is defined and mt is not null and mt != LAYOUTOPTIONS.spacing.default %} {% set outerclasses = "#{outerclasses} #{PREFIXES['margin-top']}#{mt}" %} {% endif %}
+    {% if mb is defined and mb is not null and mb != LAYOUTOPTIONS.spacing.default %} {% set outerclasses = "#{outerclasses} #{PREFIXES['margin-bottom']}#{mb}" %} {% endif %}
+    {% if pt is defined and pt is not null and pt != LAYOUTOPTIONS.spacing.default %} {% set outerclasses = "#{outerclasses} #{PREFIXES['padding-top']}#{pt}" %} {% endif %}
+    {% if pb is defined and pb is not null and pb != LAYOUTOPTIONS.spacing.default %} {% set outerclasses = "#{outerclasses} #{PREFIXES['padding-bottom']}#{pb}" %} {% endif %}
+
+    {% if bgcol is defined and bgcol is not null and bgcol != LAYOUTOPTIONS.colors.default %} {% set outerclasses = "#{outerclasses} #{PREFIXES['background-color']}#{pb}" %} {% endif %}
+    {% if header.element.negative_mode %} {% set outerclasses = "#{outerclasses} #{config.plugins.elements.css.classname.negativecolors}" %} {% endif %}
+
+    {% set outerclasses = outerclasses|trim %}
+    {{ dump('"' ~ outerclasses ~ '"') }}
+    
+
+    {# Handle element _width #}
+    {% set p_adv_innercontainerclass = "" %}
+    {% switch header.element.layout %}
+        {% case 'full' %}
+            {% set outerclasses = outerclasses ~ " u-full-width" %}
+        {% case 'bgfull' %}
+            {% set outerclasses = outerclasses ~ " u-full-width" %}
+            {% set p_adv_innercontainerclass = "container" %}
+        {% default %}
+            {# default is chosen, nothing to do for now #}
+    {% endswitch %}
+
+    {# Handle background image #}
+    {% set p_adv_styleattr = "" %}
+    {% if header.element.bgimg %}
+        {% set bgimg_obj = page.media[header.element.bgimg] %}
+        {% set p_adv_styleattr = "style=\"background-image: url('" ~ bgimg_obj.cropResize(1920, 1280).url|e ~ "');\"" %}
+    {% endif %}
+
+
+
+    {% set pagevariant = "" %}
+
+
+
+
+    <div class="page {{pagevariant}} container {{ outerclasses|raw }} {{ header.element.classes }}" {{ p_adv_styleattr|raw }} >
+        <div class="{{ p_adv_innercontainerclass }}">
+            
+            {% block element_inner %}
+                <h1 class="page__title">{{ page.title }}</h1>
+                <div class="page__content"> {{ page.content|raw }} </div>
+            {% endblock element_inner %}
+            
+        </div>
+    </div>
+
+
+{% endblock element %}
+

@@ -2,16 +2,8 @@
 namespace Grav\Plugin;
 
 use Composer\Autoload\ClassLoader;
-use Grav\Common\Grav;
-use Grav\Common\Data;
-use Grav\Common\Page\Page;
 use Grav\Common\Plugin;
-use Grav\Common\Uri;
-use Grav\Common\Page\Pages;
-use Grav\Common\Utils;
-use Grav\Plugin\Sitemap\SitemapEntry;
 use RocketTheme\Toolbox\Event\Event;
-use RocketTheme\Toolbox\Blueprints;
 
 /**
  * Class ElementsPlugin
@@ -38,10 +30,9 @@ class ElementsPlugin extends Plugin
     public static function getSubscribedEvents(): array
     {
         return [
-            'onPluginsInitialized' => [
-                ['onPluginsInitialized', 0],
-            ],
-            'onGetPageBlueprints'  => ['onGetPageBlueprints', 0],
+            'onPluginsInitialized' => ['onPluginsInitialized', 0],
+            'onGetPageBlueprints'  => ['onGetPageBlueprints',  0],
+            'onGetPageTemplates'   => ['onGetPageTemplates',   0],
         ];
     }
 
@@ -67,8 +58,18 @@ class ElementsPlugin extends Plugin
             return;
         }
 
-        // Enable the main events we are interested in
-        // this->enable();
+        $this->enable([
+            'onTwigTemplatePaths' => ['onTwigTemplatePaths', 0],
+        ]);
+    }
+
+
+    /**
+     * Add current directory to twig lookup paths.
+     */
+    public function onTwigTemplatePaths()
+    {
+        $this->grav['twig']->twig_paths[] = __DIR__ . '/templates';
     }
 
 
@@ -84,4 +85,16 @@ class ElementsPlugin extends Plugin
         $types->scanBlueprints('plugins://elements/blueprints/pages/');
     }
 
+
+    /**
+     * Add page templates
+     */
+    public function onGetPageTemplates(Event $event)
+    {
+        /** @var Types $types */
+        $types = $event->types;
+        $types->register('plugins://elements/templates');
+    }
+
+    
 }

@@ -49,7 +49,7 @@ form:
                   validate:
                       type: bool
                 
-                header.element.class:
+                header.element.classes:
                   type: text
                   label: PLUGIN_ELEMENTS.ELEMENT_TAB_CLASSES
 

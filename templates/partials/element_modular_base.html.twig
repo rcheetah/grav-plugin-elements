@@ -1,0 +1,12 @@
+{% use "partials/element_base.html.twig" %}
+
+{% block element %}
+    {{ parent() }}
+{% endblock element %}
+
+
+{% block element_inner %}
+    {% for module in page.collection() %}
+        {{ module.content|raw }}
+    {% endfor %}
+{% endblock element_inner %}

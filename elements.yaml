@@ -5,6 +5,7 @@ test: TEST
 css:
   classname:
     container: "container"
+    negativecolors: "colors-negative"
   prefix:
     padding-top: pt-
     padding-bottom: pb-
@@ -14,11 +15,11 @@ css:
 
 layoutoptions:
   colors: 
-    default: PLUGIN_ELEMENTS.DEFAULT
+    default: default
     primary: Primary Color
     secondary: Secondary Color
   spacing:
-    default: PLUGIN_ELEMENTS.DEFAULT
+    default: default
     none: None
     sm: Small
     md: Medium
