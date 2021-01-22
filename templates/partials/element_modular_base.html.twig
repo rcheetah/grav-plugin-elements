@@ -1,12 +1,15 @@
 {% use "partials/element_base.html.twig" %}
 
+
 {% block element %}
+    {% set element_type = "#{ element_type ?? config.plugins.elements.css.classname.page }" %}
+    {% set element_variant = "#{ element_variant ?? element_type ~ '--modular' }" %}
     {{ parent() }}
 {% endblock element %}
 
 
-{% block element_inner %}
+{% block element_content %}
     {% for module in page.collection() %}
-        {{ module.content|raw }}
+    {{ module.content|raw }}
     {% endfor %}
-{% endblock element_inner %}
+{% endblock element_content %}

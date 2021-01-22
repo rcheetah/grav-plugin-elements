@@ -4,17 +4,12 @@ form:
   fields:
     tabs:
       fields:
-        content:
-          modular_title:
-            title: THIS IS A CUSTOM TITLE
-          header.content.custom:
-              type: text
-              label: CUSTOM FIELD
-              size: small
-
-        header_element_tab:
+        element.layouttab:
           fields:
-            header.element.tab.basics:
+            element.layouttab.basics:
               fields:
-                header.element.layout:           
-                  unset@: true
+                header.element.contentlayout:           
+                  default: full
+                  disabled: true
+                  help: PLUGIN_ELEMENTS.TAB.LAYOUT_MODULARNOTE
+                  classes: "field--locked"

@@ -5,42 +5,42 @@ form:
     tabs:
       fields:
       
-        header_element_tab:
+        element.layouttab:
           type: tab
-          title: PLUGIN_ELEMENTS.ELEMENT_TAB
+          title: PLUGIN_ELEMENTS.TAB.TITLE
           ordering@: 1
           fields:
 
-            header.element.tab.basics:
+            element.layouttab.basics:
               type: section
-              title: PLUGIN_ELEMENTS.ELEMENT_TAB_BASICS
+              title: PLUGIN_ELEMENTS.TAB.BASICS
               underline: true
               fields:
 
                 header.element.bgcolor:
                   type: select
-                  label: PLUGIN_ELEMENTS.ELEMENT_TAB_BGCOL
+                  label: PLUGIN_ELEMENTS.TAB.BGCOL
                   toggleable: true
                   default: default
                   config-options@: plugins.elements.layoutoptions.colors
 
                 header.element.bgimg:
                   type: pagemediaselect
-                  label: PLUGIN_ELEMENTS.ELEMENT_TAB_BGIMG
+                  label: PLUGIN_ELEMENTS.TAB.BGIMG
                   toggleable: true
 
-                header.element.layout:
+                header.element.contentlayout:
                   type: select
-                  label: PLUGIN_ELEMENTS.ELEMENT_TAB_LAYOUT
-                  default: std
+                  label: PLUGIN_ELEMENTS.TAB.LAYOUT
+                  default: default
                   options:
-                      std: PLUGIN_ELEMENTS.ELEMENT_TAB_LAYOUT_STD
-                      full: PLUGIN_ELEMENTS.ELEMENT_TAB_LAYOUT_FULL
-                      bgfull: PLUGIN_ELEMENTS.ELEMENT_TAB_LAYOUT_BGFULL
+                      default: PLUGIN_ELEMENTS.TAB.LAYOUT_DEFAULT
+                      full: PLUGIN_ELEMENTS.TAB.LAYOUT_FULL
+                      bgfull: PLUGIN_ELEMENTS.TAB.LAYOUT_BGFULL
 
                 header.element.negative_mode:
                   type: toggle
-                  label: PLUGIN_ELEMENTS.ELEMENT_TAB_NEGCOL
+                  label: PLUGIN_ELEMENTS.TAB.NEGCOL
                   highlight: 1
                   default: 0
                   options:
@@ -51,12 +51,12 @@ form:
                 
                 header.element.classes:
                   type: text
-                  label: PLUGIN_ELEMENTS.ELEMENT_TAB_CLASSES
+                  label: PLUGIN_ELEMENTS.TAB.CLASSES
 
             
-            header.element.tab.spacing:
+            element.layouttab.spacing:
               type: section
-              title: PLUGIN_ELEMENTS.ELEMENT_TAB_SPACING
+              title: PLUGIN_ELEMENTS.TAB.SPACING
               underline: true
               fields:
 
@@ -67,43 +67,43 @@ form:
                       type: column
                       fields:
 
-                        header.element.tab.spacing.margin:
+                        element.layouttab.spacing.margin:
                           type: fieldset
-                          title: PLUGIN_ELEMENTS.ELEMENT_TAB_SPACING_MARGIN
+                          title: PLUGIN_ELEMENTS.TAB.SPACING_MARGIN
                           icon: sort
                           collapsed: false
                           collapsible: false
                           fields:
                             header.element.spacing.margintop:
                               type: select
-                              label: PLUGIN_ELEMENTS.ELEMENT_TAB_SPACING_ABOVE
+                              label: PLUGIN_ELEMENTS.TAB.SPACING_ABOVE
                               default: default
                               config-options@: plugins.elements.layoutoptions.spacing
 
                             header.element.spacing.marginbottom:
                               type: select
-                              label: PLUGIN_ELEMENTS.ELEMENT_TAB_SPACING_BELOW
+                              label: PLUGIN_ELEMENTS.TAB.SPACING_BELOW
                               default: default
                               config-options@: plugins.elements.layoutoptions.spacing
 
                     column2:
                       type: column
                       fields:
-                        header.element.tab.spacing.padding:
+                        element.layouttab.spacing.padding:
                           type: fieldset
-                          title: PLUGIN_ELEMENTS.ELEMENT_TAB_SPACING_PADDING
+                          title: PLUGIN_ELEMENTS.TAB.SPACING_PADDING
                           icon: sort
                           collapsed: false
                           collapsible: false
                           fields:
                             header.element.spacing.paddingtop:
                               type: select
-                              label: PLUGIN_ELEMENTS.ELEMENT_TAB_SPACING_ABOVE
+                              label: PLUGIN_ELEMENTS.TAB.SPACING_ABOVE
                               default: default
                               config-options@: plugins.elements.layoutoptions.spacing
 
                             header.element.spacing.paddingbottom:
                               type: select
-                              label: PLUGIN_ELEMENTS.ELEMENT_TAB_SPACING_BELOW
+                              label: PLUGIN_ELEMENTS.TAB.SPACING_BELOW
                               default: default
                               config-options@: plugins.elements.layoutoptions.spacing

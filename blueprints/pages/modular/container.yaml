@@ -1,5 +1,5 @@
 title: Container
-extends@: default
+extends@: modular
 
 form:
   fields:
@@ -8,49 +8,48 @@ form:
 
         # Extending Tab Content 
         content:
-          type: tab
-          title: Spalten
+          title: Container
+          
           fields:
 
-            content: 
-              unset@: true
-            
-            title:
-              label: "TEST"
-
-            header.media_order:
+            content:
               unset@: true
 
-            page_fieldset_title:
-              unset@: true
+            element.spacer.main:
+              type: spacer
+              title: PLUGIN_ELEMENTS.ELEMENTS.CONTAINER.NAME
+              ordering@: header.title
 
-            module_note:
+            element.container.info:
               type: display
               size: long
-              label: "**HINWEIS**"
               style: vertical
               markdown: true
-              content: "Füge einfach Module unterhalb dieser Seite hinzu. Die Elemente werden dann untereinander dargestellt. <br> ACHTUNG: Der Titel dieser Seite ist nur intern, und wird nicht ausgegeben!"
+              label: PLUGIN_ELEMENTS.ELEMENTS.CONTAINER.NOTE.TITLE
+              content: PLUGIN_ELEMENTS.ELEMENTS.CONTAINER.NOTE.CONTENT
+              ordering@: element.spacer.main
 
-            modular_title:
-              type: spacer
-              title: PLUGIN_ADMIN.MODULAR_SETUP
 
-            header.content.items:
-              type: text
-              label: PLUGIN_ADMIN.ITEMS
-              default: '@self.modular'
-              size: medium
+            header.media_order:
+              ordering@: 1000
 
-            header.content.order.by:
-              type: text
-              label: PLUGIN_ADMIN.ORDER_BY
-              placeholder: date
-              size: small
 
-            header.content.order.dir:
-              type: text
-              label: PLUGIN_ADMIN.ORDER
-              help: '"desc" or "asc" are valid values'
-              placeholder: desc
-              size: small
+        element.layouttab:
+          fields:  
+            element.layouttab.basics:
+              fields:
+                header.element.contentlayout:           
+                  default: default
+                  disabled: false
+                  help: unset@
+                  classes: unset@
+       
+        # doesnt work
+        advanced:
+          fields:
+            columns:
+              fields:
+                column2:
+                  fields:
+                    ordering:
+                      default: 1

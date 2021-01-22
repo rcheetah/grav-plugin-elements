@@ -1,11 +1,13 @@
 
 {% use "partials/element_base.html.twig" %}
 
+
 {% block element %}
+    {% set element_type = "#{ element_type ?? config.plugins.elements.css.classname.page }" %}
     {{ parent() }}
 {% endblock element %}
 
 
-{% block element_inner %}
+{% block element_content %}
     {{ parent() }}
-{% endblock element_inner %}
+{% endblock element_content %}

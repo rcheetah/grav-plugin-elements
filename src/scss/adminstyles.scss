@@ -1,0 +1,9 @@
+
+.form-field .field--locked > .selectize-input{
+    &::before {
+        content: "\f023";
+        display: inline-block;
+        margin-right: 0.5em;
+        font-family: FontAwesome;
+    }
+}

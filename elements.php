@@ -53,15 +53,33 @@ class ElementsPlugin extends Plugin
     public function onPluginsInitialized(): void
     {
         // Don't proceed if we are in the admin plugin
-        if ($this->isAdmin()) {
-            $this->active = false;
-            return;
-        }
+        // if ($this->isAdmin()) {
+        //     $this->active = false;
+        //     return;
+        // }
 
         $this->enable([
+            'onPageInitialized' => ['onPageInitialized', 0],
             'onTwigTemplatePaths' => ['onTwigTemplatePaths', 0],
         ]);
     }
+
+
+
+    /**
+     * Push styles to Admin-plugin via Assets Manager
+     *
+     * @return void
+     */
+    public function onPageInitialized()
+    {
+        if ($this->isAdmin()) {
+            $assets = $this->grav['assets'];
+            $assets->addCss('plugin://elements/css/adminstyles.css', 1);
+        }
+        
+    }
+
 
 
     /**
@@ -71,6 +89,7 @@ class ElementsPlugin extends Plugin
     {
         $this->grav['twig']->twig_paths[] = __DIR__ . '/templates';
     }
+
 
 
     /**
@@ -84,6 +103,7 @@ class ElementsPlugin extends Plugin
         $types = $event->types;
         $types->scanBlueprints('plugins://elements/blueprints/pages/');
     }
+
 
 
     /**

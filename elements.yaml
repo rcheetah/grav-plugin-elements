@@ -1,10 +1,12 @@
 enabled: true
-custom_var: Custom Text added by the **Elements** plugin (disable plugin to remove)
-test: TEST
 
 css:
   classname:
-    container: "container"
+    page: page
+    module: module
+    container:
+      regular: container
+      fullwidth: container-full
     negativecolors: "colors-negative"
   prefix:
     padding-top: pt-
@@ -24,3 +26,8 @@ layoutoptions:
     sm: Small
     md: Medium
     lg: Large
+settings:
+  background-image:
+    max-width: 1920
+    max-height: 1280
+

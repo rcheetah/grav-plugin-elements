@@ -1,0 +1,7 @@
+.form-field .field--locked > .selectize-input::before {
+  content: "\f023";
+  display: inline-block;
+  margin-right: 0.5em;
+  font-family: FontAwesome; }
+
+/*# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImFkbWluc3R5bGVzLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQ0E7RUFFUSxnQkFBZ0I7RUFDaEIscUJBQXFCO0VBQ3JCLG1CQUFtQjtFQUNuQix3QkFBd0IsRUFBQSIsImZpbGUiOiJhZG1pbnN0eWxlcy5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyJcbi5mb3JtLWZpZWxkIC5maWVsZC0tbG9ja2VkID4gLnNlbGVjdGl6ZS1pbnB1dHtcbiAgICAmOjpiZWZvcmUge1xuICAgICAgICBjb250ZW50OiBcIlxcZjAyM1wiO1xuICAgICAgICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XG4gICAgICAgIG1hcmdpbi1yaWdodDogMC41ZW07XG4gICAgICAgIGZvbnQtZmFtaWx5OiBGb250QXdlc29tZTtcbiAgICB9XG59Il19 */

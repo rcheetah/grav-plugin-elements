@@ -1,0 +1,21 @@
+{% extends "partials/element_base.html.twig" %}
+
+
+{% block element %}
+    {% set element_type = "#{ element_type ?? config.plugins.elements.css.classname.module }" %}
+    {% set element_variant = "#{ element_variant ?? element_type ~ '--container' }" %}
+    {{ parent() }}
+{% endblock element %}
+
+
+{% block element_content %}
+
+    {% for module in page.collection() %}
+        {% if module.header.visible is defined and module.header.visible is not null and module.header.visible == false %}
+            {{ dump("#{moduel.title} was not rendered because it's set to visible: false") }}
+        {% else %}
+            {{ module.content|raw }}
+        {% endif %}
+    {% endfor %}
+
+{% endblock element_content %}

@@ -6,14 +6,14 @@ form:
       fields:
         content:
           fields:
-            header.element.module.section:
+            element.module.section:
               type: section
               title: MODULE
               underline: true
               fields:
                 header.element.module.bgcolor:
                   type: select
-                  label: PLUGIN_ELEMENTS.ELEMENT_TAB_BGCOL
+                  label: PLUGIN_ELEMENTS.TAB.BGCOL
                   toggleable: true
                   default: default
                   config-options@: plugins.elements.layoutoptions.colors
