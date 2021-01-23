@@ -7,6 +7,9 @@ css:
     container:
       regular: container
       fullwidth: container-full
+    grid:
+      row: row
+      column: col
     negativecolors: "colors-negative"
   prefix:
     padding-top: pt-
@@ -14,6 +17,8 @@ css:
     margin-top: mt-
     margin-bottom: mb-
     background-color: bg-
+    column-gap: colgap-
+    fixed-column: col-
 
 layoutoptions:
   colors: 

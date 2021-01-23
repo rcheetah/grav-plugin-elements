@@ -1,0 +1,62 @@
+title: Columns
+extends@: modular
+
+form:
+  fields:
+    tabs:
+      fields:
+
+        # Extending Tab Content 
+        content:
+          fields:
+
+            content: 
+              unset@: true
+
+            header.media_order:
+              unset@: true
+
+            element.columns.main:
+              type: section
+              title: PLUGIN_ELEMENTS.ELEMENTS.COLUMNS.NAME
+              ordering@: header.title
+
+              fields:
+
+                element.columns.info:
+                  type: display
+                  size: long
+                  style: vertical
+                  markdown: true
+                  label: PLUGIN_ELEMENTS.ELEMENTS.COLUMNS.NOTE.TITLE
+                  content: PLUGIN_ELEMENTS.ELEMENTS.COLUMNS.NOTE.CONTENT
+
+                header.element.columns.gap:
+                  type: select
+                  label: PLUGIN_ELEMENTS.ELEMENTS.COLUMNS.GAP
+                  default: default
+                  config-options@: plugins.elements.layoutoptions.spacing
+
+                header.element.columns.width:
+                  type: number
+                  label: PLUGIN_ELEMENTS.ELEMENTS.COLUMNS.WIDTH
+                  toggleable: true
+                  validate:
+                    min: 1
+                    max: 12
+                
+                header.element.columns.minwidth:
+                  type: number
+                  label: PLUGIN_ELEMENTS.ELEMENTS.COLUMNS.MIN_WIDTH
+                  toggleable: true
+                  validate:
+                    min: 100
+                    max: 3000
+                    step: 50
+                
+                element.columns.count_hint:
+                  type: display
+                  style: vertical
+                  markdown: true
+                  label: PLUGIN_ELEMENTS.ELEMENTS.COLUMNS.MIN_WIDTH_WARNING.TITLE
+                  content: PLUGIN_ELEMENTS.ELEMENTS.COLUMNS.MIN_WIDTH_WARNING.CONTENT

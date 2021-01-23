@@ -14,6 +14,10 @@
     {% set pb = header.element.spacing.paddingbottom %}
     {% set bgcol = header.element.bgcolor %}
 
+
+    {# redeem settings #}
+    {% set element_type = "#{ element_type ?? '' }" %}
+    {% set element_variant = "#{ element_variant ?? '' }" %}
     {% set outerclasses = "" %}
     {% set innerclasses = "" %}
     {% set style_attributes = "" %}
@@ -46,10 +50,9 @@
     {% endif %}
 
 
-
     {# final variable preparation #}
-    {% set element_type = "#{ element_type ?? '' }" %}
-    {% set element_variant = "#{ element_variant ?? '' }" %}
+    {% set outerclasses = "#{outerclasses} #{element_add_outerclasses ?? ''}" %}
+    {% set innerclasses = "#{innerclasses} #{element_add_innerclasses ?? ''}" %}
     {% set outerclasses = outerclasses|trim %}
     {% set innerclasses = innerclasses|trim %}
     {% set style_attributes = "style=\"#{style_attributes}\"" %}

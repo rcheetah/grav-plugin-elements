@@ -3,7 +3,7 @@
 
 {% block element %}
     {% set element_type = "#{ element_type ?? config.plugins.elements.css.classname.module }" %}
-    {% set element_variant = "#{ element_variant ?? element_type ~ '--container' }" %}
+    {% set element_variant = "#{ element_variant ?? element_type ~ '--wrapper' }" %}
     {{ parent() }}
 {% endblock element %}
 
@@ -12,6 +12,7 @@
 
     {% for module in page.collection() %}
         {% if module.header.visible is defined and module.header.visible is not null and module.header.visible == false %}
+            {# TODO: Remove #}    
             {{ dump("#{moduel.title} was not rendered because it's set to visible: false") }}
         {% else %}
             {{ module.content|raw }}

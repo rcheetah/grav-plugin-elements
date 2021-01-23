@@ -19,10 +19,20 @@ PLUGIN_ELEMENTS:
     SPACING_ABOVE: Above
     SPACING_BELOW: Below
   ELEMENTS:
-    CONTAINER:
-      NAME: Container
+    WRAPPER:
+      NAME: Wrapper
       NOTE:
         TITLE: "**About this Element**"
-        CONTENT: Add child modules in the page tree. You can change the default order here.
-      ORDERING: Content Elements
+        CONTENT: Add child modules in the page tree. The children are displayed underneath each other.
+    COLUMNS:
+      NAME: Columns
+      NOTE:
+        TITLE: "**About this Element**"
+        CONTENT: Add child modules in the page tree. The children are displayed in a grid. You can change the grid settings here.
+      GAP: Column gap
+      WIDTH: Column span (X out of 12)
+      MIN_WIDTH: Minimal column width 
+      MIN_WIDTH_WARNING: 
+        TITLE: "**Attention**"
+        CONTENT: This setting can break your page on small screens. If the minimal width is larger than the device width, it will not be responsive anymore.
 

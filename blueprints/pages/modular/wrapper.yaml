@@ -1,4 +1,4 @@
-title: Container
+title: Wrapper
 extends@: modular
 
 form:
@@ -8,8 +8,6 @@ form:
 
         # Extending Tab Content 
         content:
-          title: Container
-          
           fields:
 
             content:
@@ -17,16 +15,16 @@ form:
 
             element.spacer.main:
               type: spacer
-              title: PLUGIN_ELEMENTS.ELEMENTS.CONTAINER.NAME
+              title: PLUGIN_ELEMENTS.ELEMENTS.WRAPPER.NAME
               ordering@: header.title
 
-            element.container.info:
+            element.wrapper.info:
               type: display
               size: long
               style: vertical
               markdown: true
-              label: PLUGIN_ELEMENTS.ELEMENTS.CONTAINER.NOTE.TITLE
-              content: PLUGIN_ELEMENTS.ELEMENTS.CONTAINER.NOTE.CONTENT
+              label: PLUGIN_ELEMENTS.ELEMENTS.WRAPPER.NOTE.TITLE
+              content: PLUGIN_ELEMENTS.ELEMENTS.WRAPPER.NOTE.CONTENT
               ordering@: element.spacer.main
 
 

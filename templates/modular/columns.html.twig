@@ -1,0 +1,62 @@
+{% extends "partials/element_base.html.twig" %}
+
+
+{% block element %}
+
+    {% set element_type = "#{ element_type ?? config.plugins.elements.css.classname.module }" %}
+    {% set element_variant = "#{ element_variant ?? element_type ~ '--columns' }" %}
+    {{ parent() }}
+
+{% endblock element %}
+
+
+{% block element_content %}
+
+    {% set CONF = config.plugins.elements %}
+    {% set EL = header.element %}
+
+    {% set outerclasses = "" %}
+    {% set innerclasses = "" %}
+    {% set style_attributes = "" %}
+
+    {# outer #}
+    {% set outerclasses = "#{outerclasses} #{CONF.css.classname.grid.row}" %}
+    {% if EL.columns.gap is defined and EL.columns.gap is not null and EL.columns.gap != "default" %} 
+      {% set outerclasses = "#{outerclasses} #{CONF.css.prefix['column-gap']}#{EL.columns.gap}" %}
+    {% endif %}
+    
+    {# innner #}
+    {% set innerclasses = "#{innerclasses} #{CONF.css.classname.grid.column}" %}
+    {% if EL.columns.width is defined and EL.columns.width is not null %} 
+      {% set innerclasses = "#{innerclasses} #{CONF.css.prefix['fixed-column']}#{EL.columns.width}" %}
+    {% endif %}
+
+    {# styles #}
+    {% if EL.columns.minwidth is defined and EL.columns.minwidth is not null %} 
+      {% set style_attributes = "#{style_attributes} min-width: #{EL.columns.minwidth}px;" %}
+    {% endif %}
+
+    {# final variable preparation #}
+    {% set outerclasses = outerclasses|trim %}
+    {% set innerclasses = innerclasses|trim %}
+    {% set style_attributes = "style=\"#{style_attributes}\"" %}
+
+
+
+    {# Render Element #}
+    <div class="{{outerclasses|e}}" >
+        {% for column in page.collection() %}
+            
+            {% if column.header.visible is defined and column.header.visible is not null and column.header.visible == false %}
+                {# TODO: Remove #}
+                {{ dump("#{column.title} was not rendered because it's set to visible: false") }}
+            {% else %}
+                <div class="{{innerclasses|e}}" {{style_attributes|raw}}>
+                    {{ column.content|raw }}
+                </div>
+            {% endif %}
+            
+        {% endfor %}
+    </div>
+
+{% endblock element_content %}
