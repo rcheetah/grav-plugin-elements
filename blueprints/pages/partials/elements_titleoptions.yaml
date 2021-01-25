@@ -40,7 +40,7 @@ form:
                   type: select
                   label: PLUGIN_ELEMENTS.TITLEOPTIONS.TAG
                   default: default
-                  config-options@: plugins.elements.layoutoptions.title.tags
+                  config-options@: plugins.elements.layoutoptions.titletags
 
                 header.element.title.classes:
                   type: text

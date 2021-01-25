@@ -100,11 +100,11 @@ At the moment the Elements plugin does not offer it's own css rules. Maybe that 
 
 
 ### Create a modular template
-Create the file `templates/modular.html.twig` in your theme. For standard behaviour you just have to `use` the file `partials/element_modular_base.html.twig` that is offered by Elements. Add the block `element` where you want it to be, and call the parent function. That’s it. If you don’t need any fancy extras, this will display all child modules. 
+Create the file `templates/modular.html.twig` in your theme. For standard behaviour you just have to `use` the file `partials/elements_modular_base.html.twig` that is offered by Elements. Add the block `element` where you want it to be, and call the parent function. That’s it. If you don’t need any fancy extras, this will display all child modules. 
 
 ```php
 {% extends <!-- YOUR BASE TEMPLATE --> %}
-{% use 'partials/element_modular_base.html.twig' %}
+{% use 'partials/elements_modular_base.html.twig' %}
 
 {% block <!-- THE CONTENT BLOCK OF YOUR BASE TEMPLATE -->  %}
     {% block element %}
@@ -122,7 +122,7 @@ To setup custom elements you can extend upon Elements boilerplates. To build you
 
 ```yaml
 extends@: 
-  - partials/element_module_base
+  - partials/elements_module_base
 
   # form definitions
   # ...
@@ -132,7 +132,7 @@ extends@:
 Here is an example of a template extension:
 
 ```php
-{% extends "partials/element_base.html.twig" %}
+{% extends "partials/elements_base.html.twig" %}
 
 {% block element %}
     {% set element_type = "module" %}
@@ -154,7 +154,7 @@ Here is an example of a template extension:
 
 ```
 
-- In the first line we extend the file `partials/element_base.html.twig`. This is the base file for our custom elements.
+- In the first line we extend the file `partials/elements_base.html.twig`. This is the base file for our custom elements.
 - In the block `element` the only necessary line is `{{ parent() }}` which starts the inheritance process.
 - Note, that you can overwrite some variable before calling the parent. In this case we set the element type to `module` and the element_variant to `text`. The resulting template will automatically wrap our element with the classes `module module--text`. Thus we can create styling rules that apply to all modules, and styling rules that only target modules of the type text.
 - By default the module will display the page title and the content. We will most likely want to overwrite this. In this example we use a few header varibles to add an icon and the author name.
@@ -165,8 +165,8 @@ You can use the title options of the plugin in your own elements. To add the nec
 
 ```yaml
 extends@: 
-  - partials/element_module_base
-  - partials/element_titleoptions # here we add the title optioins
+  - partials/elements_module_base
+  - partials/elements_titleoptions # here we add the title optioins
 
   # form definitions
   # ...
@@ -175,10 +175,10 @@ extends@:
 We could now access all the header variables that are set by these fields and build our title based on that. But if we have a normal use case we can just use the standard title rendering that will take all the settings set by the title options into account:
 
 ```html
-{% extends "partials/element_base.html.twig" %}
+{% extends "partials/elements_base.html.twig" %}
 
 {# HERE WE IMPORT THE PLUGINS TITLE RENDERING #}
-{% use "partials/element_title.html.twig" %} 
+{% use "partials/elements_title.html.twig" %} 
 
 {% block element %}
     {{ parent() }}

@@ -1,7 +1,7 @@
 name: Elements
 slug: elements
 type: plugin
-version: 0.1.0
+version: 0.1.0a
 description: Build grav sites easier by using content elements (modules) for your page contents.
 icon: th-large
 author:
