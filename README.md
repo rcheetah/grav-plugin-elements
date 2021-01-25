@@ -18,7 +18,7 @@ The appearance of the elements title can be modified in the admin panel. You wan
 - Add additional css classes
 - Override margin and padding
 - And even override the html tag
-- 
+
 ### Layout Options
 Modules can be customized in their appearance. Once you set up the plugin, you can use it to create something like a jumbotron out of a simple text-element without writing a single line of code. Change the padding, add a background image and let the element span over the complete page width. Done. At the moment the following settings are possible:
 - Change the background color
@@ -32,15 +32,15 @@ Modules can be customized in their appearance. Once you set up the plugin, you c
 - Add additional css classes
 
 ### Default elements
-The plugin intentionally doesn't define default elements, to keep it a clean boilerplate. An additional plugin universal elements like text or image is planned. But the base plugin currently defines only two abstract elements, which have the purpose of *structuring* other elements:
-- **Columns:** Any other elements are displayed in columns. If you have a text element and an image element, you can display them beside each other, without creating a separate text-image-element.
-- **Wrapper:** This acts as a simple container and displays any other elements underneath each other. You can also use it have access to the layout options. So you can for example change the background of a (transparent) element that does not have the option for it's background to be changed.
+The plugin intentionally doesn't define default elements, to keep it a clean boilerplate. An additional plugin with universal elements like Text or Image is planned. But the base plugin currently defines only two very abstract elements. They are included, because their purpose is to *structure* other elements:
+- **Columns:** Any other child elements are displayed in columns. If you have a text element and an image element, you can display them beside each other, without creating a separate text-image-element.
+- **Wrapper:** This acts as a simple container and displays any child elements underneath each other. You can also use it to have access to the layout options. This allows you, for example, to change the background of a (transparent) element that does not offer the option to change it’s background.
 
-## Extendable to pages
+### Also works for pages
 You can use the title and layout options on any regular page too, not only on modules. 
 
 ### Based on the idea of reasonable defaults
-This plugin is based on the idea of default values. A good example for this concept are the color options. You define your brand colors once globally, so the editor can only choose from those colors, and thus cannot screw up your base design. Inentionally, there are no color-picker fields. This is an opinionated approach that will most likeley suit most users. However, nothing is stopping you from overwriting the default behaviour, if this suits your needs better.
+This plugin is based on the idea of default values. A good example for this concept are the color options. You define your brand colors once globally, so a backend user can choose only from the provided colors. Therefore he cannot screw up your corporate design. Inentionally, there are no color-picker fields. This is an opinionated approach that will most likeley suit most users. However, nothing stops you from overwriting the default behaviour, if this suits your needs better.
 
 
 
@@ -48,9 +48,9 @@ This plugin is based on the idea of default values. A good example for this conc
 
 ## Installation
 
-Installing the Elements plugin can be done in one of three ways: ~~The GPM (Grav Package Manager) installation method lets you quickly install the plugin with a simple terminal command,~~ the manual method lets you do so via a zip file, and the ~~admin method lets you do so via the Admin Plugin.~~
+**NOTE: This plugin is not available via the GPM repository yet. Therefore the GPM and Admin installation won't work at the moment. Clone the git repository into your plugin folder or create a zip out of this folder.**
 
-**NOTE:** This plugin is not yet available via the GPM repository. Clone the git repository into your plugin folder or create a zip out of the folder.
+Installing the Elements plugin can be done in one of three ways: ~~The GPM (Grav Package Manager) installation method lets you quickly install the plugin with a simple terminal command,~~ the manual method lets you do so via a zip file, and the ~~admin method lets you do so via the Admin Plugin.~~
 
 ### ~~GPM Installation (Preferred)~~
 
@@ -76,16 +76,16 @@ If you use the Admin Plugin, you can install the plugin directly by browsing the
 
 ## Configuration
 
-The plugin is customizable via the admin plugin. Go to Plugins and click on the name of the “elements” plugin. You will find (most of) the setup varialbes in a separate tab. 
+The plugin is customizable via the admin plugin. Go to Plugins and click on the name of the “elements” plugin. You will find (most of) the setup varialbes in a separate tab called “Configuration”. 
 
-You could also change the settings manually in the yaml file, but as this plugin only works (i.e. makes sense) with the admin plugin, you will have the admin plugin installed anyway. Using the plugin settings is the best way, as it prevents you from missing a variable.
+You could also change the settings manually in the yaml file, but as this plugin only works with the admin plugin, you have access to the admin plugin anyway. Using the admin panels settings is the best way, as it prevents you from missing a variable and breaking the plugin.
 
 If you need to check the default settings as a reference, you can check out the plugins configuration file in `user/plugins/elements/elements.yaml`. You should never change this file directly, as it get's overwritten when updating the plugin.
 
 ### Setup Classes and Options
 At first you have to setup the plugin. This mostly means setting the css classnames. The actual style changes have to be done via your themes css. Here is an example:
 
-IF you define the prefix for the background color to be `bg-` and addd the color options `primary`, `secondary` and `danger`, then you have to define the css classes `.bg-primary`, `.bg-secondary` and `.bg-danger` with the definitions, e.g. 
+IF you define the prefix for the background color to be `bg-` and add the color options `primary`, `secondary` and `danger`, then you have to define the css classes `.bg-primary`, `.bg-secondary` and `.bg-danger`. These could look like:
 ```css
 .bg-primary {
     background-color: #4166f5 !important;
@@ -94,14 +94,15 @@ IF you define the prefix for the background color to be `bg-` and addd the color
 At the moment the Elements plugin does not offer it's own css rules. Maybe that will be added as an option in a future release. 
 
 #### Hints
-- As the values set via the admin panel should be definite, it is recommended to add the `!imporant` statement in that case. 
-- Most of the standard settings will actually work with bootstrap. So if you already use bootstrap, you only need to setup a few css classes like the grid gap.
+- As these classes are very repetivie, I would recommend to use a css precompiler like SASS and use a mixin or the each statement.
+- Values that are set via the admin panel can be considered definite. Thus, it is recommended to add the `!imporant` statement to those rules, so they won’t be overruled by other css classes by accident. 
+- Most of the standard settings will actually work with bootstrap. So if you already use bootstrap, you only need to setup a few additional css classes like the grid gap.
 
 
 ### Create a modular template
-In your theme create the file `templates/modular.html.twig`. For standard behaviour you just have to `use` the file `partials/element_modular_base.html.twig` that is offered by Elements. Add the block `element` where you want it to be, and call the parent function. That’s it. If you don’t need any fancy extras, this will work. 
+Create the file `templates/modular.html.twig` in your theme. For standard behaviour you just have to `use` the file `partials/element_modular_base.html.twig` that is offered by Elements. Add the block `element` where you want it to be, and call the parent function. That’s it. If you don’t need any fancy extras, this will display all child modules. 
 
-```html
+```php
 {% extends <!-- YOUR BASE TEMPLATE --> %}
 {% use 'partials/element_modular_base.html.twig' %}
 
@@ -128,9 +129,9 @@ extends@:
 ```
 
 #### Extend your templates
-Here is an example of a valid template extension:
+Here is an example of a template extension:
 
-```html
+```php
 {% extends "partials/element_base.html.twig" %}
 
 {% block element %}
@@ -155,12 +156,12 @@ Here is an example of a valid template extension:
 
 - In the first line we extend the file `partials/element_base.html.twig`. This is the base file for our custom elements.
 - In the block `element` the only necessary line is `{{ parent() }}` which starts the inheritance process.
-- Note, that you can overwrite some variable before calling the parent. In this case we et the element type to `module` and the element_variant to `text`. resulting template will automatically wrap our element with the classes `module module--text`. Thus we can create styling rules that apply to all `modules`, and styling rules that only target modules of the type `text`.
+- Note, that you can overwrite some variable before calling the parent. In this case we set the element type to `module` and the element_variant to `text`. The resulting template will automatically wrap our element with the classes `module module--text`. Thus we can create styling rules that apply to all modules, and styling rules that only target modules of the type text.
 - By default the module will display the page title and the content. We will most likely want to overwrite this. In this example we use a few header varibles to add an icon and the author name.
 
 
-### Use tile options
-You can use the Elements-plugins title options in your own elements. To add the necessary backend field you have to extend the corresponding partial:
+### Using title options
+You can use the title options of the plugin in your own elements. To add the necessary backend field you have to extend the corresponding blueprint file:
 
 ```yaml
 extends@: 
@@ -171,7 +172,7 @@ extends@:
   # ...
 ```
 
-We could now access all the header variables that are set by these fields and build our title based on that. But if we have a normal use case we can just use the standard title rendering that will take all the standard settings into account
+We could now access all the header variables that are set by these fields and build our title based on that. But if we have a normal use case we can just use the standard title rendering that will take all the settings set by the title options into account:
 
 ```html
 {% extends "partials/element_base.html.twig" %}
@@ -180,13 +181,12 @@ We could now access all the header variables that are set by these fields and bu
 {% use "partials/element_title.html.twig" %} 
 
 {% block element %}
-    {# ... #}
     {{ parent() }}
 {% endblock element %}
 
+
 {% block element_content %} 
     {# ... #}
-    
     <div class="module--text__title">
         {# here we call the title rendering #}
         {% block element_title %} {% endblock %}
@@ -201,11 +201,11 @@ We could now access all the header variables that are set by these fields and bu
 
 ## Credits
 
-Thanks to all the people in the Grav discord channel that helped a hobby programme like me creating this plugin. 
+Thanks to all the people in the Grav discord channel that helped a hobby programmer like me creating this plugin. 
 
 ## To Do
 
-- [ ] Add an option to incorporate standard css rules, to let the plugin work out-of-the-box
-- [ ] Create docs
-- [ ] Add to GPM
+- [ ] Add an option to incorporate standard css rules, to let the plugin work better out-of-the-box
+- [ ] Create better docs
+- [ ] Add to plugin to the GPM
 
