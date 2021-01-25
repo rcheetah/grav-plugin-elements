@@ -1,0 +1,47 @@
+
+
+{% block element_title %}
+
+    {% if header.element.title.visible is defined and header.element.title.visible is not null and header.element.title.visible == true %}
+
+         {# CONFING ACCESSORS (for cleaner code) #}
+        {% set TITLE = header.element.title %}
+        {% set CONF = config.plugins.elements %}
+        {% set PREFIX = CONF.css.prefix %}
+        
+        {% set element_type = "#{ element_type ?? CONF.css.classname.page }" %}
+        {% set tag = TITLE.tag ?? "h1" %}
+
+        {% set classes = [] %}
+        {% set classes = classes|merge(["#{element_type|e}__title"]) %}
+        {% if TITLE.align is defined and TITLE.align is not null and TITLE.align != "default" %}
+            {% set classes = classes|merge(["#{CONF.css.prefix['text-align']}#{TITLE.align}"]) %}
+        {% endif %}
+        {% if TITLE.spacing.margin.margintop is defined and TITLE.align is not null and TITLE.align != "default" %}
+            {% set classes = classes|merge(["#{CONF.css.prefix['text-align']}#{TITLE.align}"]) %}
+        {% endif %}
+        {% set classes = classes|merge([TITLE.classes ?? ""]) %}
+        
+
+
+        {# spacing #}
+        {% set mt = TITLE.spacing.margin.top %}
+        {% set mb = TITLE.spacing.margin.bottom %}
+        {% set pt = TITLE.spacing.padding.top %}
+        {% set pb = TITLE.spacing.padding.bottom %}
+        {% if mt is defined and mt is not null and mt != 'default' %} {% set classes = classes|merge(["#{PREFIX['margin-top']}#{mt}"]) %}     {% endif %}
+        {% if mb is defined and mb is not null and mb != 'default' %} {% set classes = classes|merge(["#{PREFIX['margin-bottom']}#{mb}"]) %}  {% endif %}
+        {% if pt is defined and pt is not null and pt != 'default' %} {% set classes = classes|merge(["#{PREFIX['padding-top']}#{pt}"]) %}    {% endif %}
+        {% if pb is defined and pb is not null and pb != 'default' %} {% set classes = classes|merge(["#{PREFIX['padding-bottom']}#{pb}"]) %} {% endif %}
+
+
+        {# final preparation #}
+        {% set classes = classes|join(" ") %}
+
+        {# rendering #}
+        <{{tag|e}} class="{{classes}}">{{page.title|e}}<{{tag|e}}> 
+
+    {% endif %}
+
+{% endblock element_title %}
+

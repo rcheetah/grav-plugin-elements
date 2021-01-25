@@ -3,7 +3,7 @@
 
 {% block element %}
     {% set element_type = "#{ element_type ?? config.plugins.elements.css.classname.module }" %}
-    {% set element_variant = "#{ element_variant ?? element_type ~ '--wrapper' }" %}
+    {% set element_variant = "#{ element_variant ?? 'wrapper' }" %}
     {{ parent() }}
 {% endblock element %}
 

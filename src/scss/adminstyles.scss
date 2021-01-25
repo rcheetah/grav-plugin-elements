@@ -1,9 +1,39 @@
 
-.form-field .field--locked > .selectize-input{
-    &::before {
-        content: "\f023";
-        display: inline-block;
-        margin-right: 0.5em;
-        font-family: FontAwesome;
+.form-field {
+
+    &.field--locked {
+        .form-input-wrapper::before {
+            content: "\f023";
+            display: inline-block;
+            margin-right: 0.5em;
+            font-family: FontAwesome;
+            transform: translate(-150%,100%) ;
+        }
+    }
+
+    .field--locked > .selectize-input {
+        &::before {
+            content: "\f023";
+            display: inline-block;
+            margin-right: 0.5em;
+            font-family: FontAwesome;
+        }
+    }
+}
+
+.form-fieldset.fieldset--spacing {
+    > .form-data {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        .form-field {
+            align-items: center;
+            padding: 0 1rem;
+            margin-bottom: 0;
+            
+            .form-data { 
+                padding: 0; 
+                min-width: 30%;
+            }
+        }
     }
 }

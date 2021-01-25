@@ -18,6 +18,8 @@ PLUGIN_ELEMENTS:
     SPACING_PADDING: Space inside
     SPACING_ABOVE: Above
     SPACING_BELOW: Below
+    SPACING_LEFT: Left
+    SPACING_RIGHT: Right
   ELEMENTS:
     WRAPPER:
       NAME: Wrapper
@@ -35,4 +37,10 @@ PLUGIN_ELEMENTS:
       MIN_WIDTH_WARNING: 
         TITLE: "**Attention**"
         CONTENT: This setting can break your page on small screens. If the minimal width is larger than the device width, it will not be responsive anymore.
+  TITLEOPTIONS:
+    TITLE: Title options
+    VISIBLE: Show title?
+    ALIGN: Overwite title align
+    TAG: Set HTML Tag
+    CLASSES: Additional CSS Classes
 

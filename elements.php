@@ -71,12 +71,30 @@ class ElementsPlugin extends Plugin
      *
      * @return void
      */
-    public function onPageInitialized()
+    public function onPageInitialized(Event $event)
     {
         if ($this->isAdmin()) {
             $assets = $this->grav['assets'];
             $assets->addCss('plugin://elements/css/adminstyles.css', 1);
         }
+
+
+
+        // TODO: Fix or remove this
+        $this->grav['debugger']->addMessage($event);
+        /**
+         * Merge global and page configurations.
+         *
+         * @param PageInterface $page The page to merge the configurations with the
+         *                       plugin settings.
+         * @param mixed $deep false = shallow|true = recursive|merge = recursive+unique
+         * @param array $params Array of additional configuration options to
+         *                       merge with the plugin settings.
+         * @param string $type Is this 'plugins' or 'themes'
+         * @return Data
+         */        
+        $returnvalue = $this->mergeConfig($event['page'], false, array(), 'plugins');
+        $this->grav['debugger']->addMessage($returnvalue);
         
     }
 

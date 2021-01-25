@@ -73,16 +73,41 @@ form:
                           icon: sort
                           collapsed: false
                           collapsible: false
+                          classes: "fieldset--spacing"
                           fields:
-                            header.element.spacing.margintop:
+                            header.element.spacing.margin.top:
                               type: select
                               label: PLUGIN_ELEMENTS.TAB.SPACING_ABOVE
+                              style: vertical
                               default: default
                               config-options@: plugins.elements.layoutoptions.spacing
+                            
+                            columns:
+                              type: columns
+                              fields:
+                                column1:
+                                  type: column
+                                  fields:
+                                    header.element.spacing.margin.left:
+                                      type: select
+                                      label: PLUGIN_ELEMENTS.TAB.SPACING_LEFT
+                                      style: vertical
+                                      default: default
+                                      config-options@: plugins.elements.layoutoptions.spacing
+                                column2:
+                                  type: column
+                                  fields:
+                                    header.element.spacing.margin.right:
+                                      type: select
+                                      label: PLUGIN_ELEMENTS.TAB.SPACING_RIGHT
+                                      style: vertical
+                                      default: default
+                                      config-options@: plugins.elements.layoutoptions.spacing
 
-                            header.element.spacing.marginbottom:
+                            header.element.spacing.margin.bottom:
                               type: select
                               label: PLUGIN_ELEMENTS.TAB.SPACING_BELOW
+                              style: vertical
                               default: default
                               config-options@: plugins.elements.layoutoptions.spacing
 
@@ -95,15 +120,40 @@ form:
                           icon: sort
                           collapsed: false
                           collapsible: false
+                          classes: "fieldset--spacing"
                           fields:
-                            header.element.spacing.paddingtop:
+                            header.element.spacing.padding.top:
                               type: select
                               label: PLUGIN_ELEMENTS.TAB.SPACING_ABOVE
+                              style: vertical
                               default: default
                               config-options@: plugins.elements.layoutoptions.spacing
+                            
+                            columns:
+                              type: columns
+                              fields:
+                                column1:
+                                  type: column
+                                  fields:
+                                    header.element.spacing.padding.left:
+                                      type: select
+                                      label: PLUGIN_ELEMENTS.TAB.SPACING_LEFT
+                                      style: vertical
+                                      default: default
+                                      config-options@: plugins.elements.layoutoptions.spacing
+                                column2:
+                                  type: column
+                                  fields:
+                                    header.element.spacing.padding.right:
+                                      type: select
+                                      label: PLUGIN_ELEMENTS.TAB.SPACING_RIGHT
+                                      style: vertical
+                                      default: default
+                                      config-options@: plugins.elements.layoutoptions.spacing
 
-                            header.element.spacing.paddingbottom:
+                            header.element.spacing.padding.bottom:
                               type: select
                               label: PLUGIN_ELEMENTS.TAB.SPACING_BELOW
+                              style: vertical
                               default: default
                               config-options@: plugins.elements.layoutoptions.spacing

@@ -1,5 +1,5 @@
-
 {% use "partials/element_base.html.twig" %}
+{% use "partials/element_title.html.twig" %}
 
 
 {% block element %}
@@ -9,5 +9,6 @@
 
 
 {% block element_content %}
+    {% block element_title %} {% endblock %}
     {{ parent() }}
 {% endblock element_content %}

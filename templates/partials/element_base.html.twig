@@ -2,64 +2,89 @@
 
 {% block element %}
 
+    {# CONFING ACCESSORS (for convenience) #}
     {% set CONF = config.plugins.elements %}
-    {% set PREFIXES = CONF.css.prefix %}
+    {% set PREFIX = CONF.css.prefix %}
     {% set LAYOUTOPTIONS = CONF.layoutoptions %}
     {% set CLASSNAMES = CONF.css.classname %}
-
-    {% set mt = header.element.spacing.margintop %}
-    {% set mb = header.element.spacing.marginbottom %}
-    {% set pt = header.element.spacing.paddingtop %}
-    {% set pb = header.element.spacing.paddingbottom %}
-    {% set pb = header.element.spacing.paddingbottom %}
-    {% set bgcol = header.element.bgcolor %}
+    {% set EL = header.element %}
 
 
+
+    {# TODO: remove #}
+    {{ dump("TITLE TAGS") }}
+    {{ dump(CONF.settings.layoutoptions.title.tags) }}
+
+
+    
     {# redeem settings #}
     {% set element_type = "#{ element_type ?? '' }" %}
     {% set element_variant = "#{ element_variant ?? '' }" %}
-    {% set outerclasses = "" %}
-    {% set innerclasses = "" %}
-    {% set style_attributes = "" %}
+    {% set outerclasses = [] %}
+    {% set innerclasses = [] %}
+    {% set style_attributes = [] %}
+
 
     {# spacing #}
-    {% if mt is defined and mt is not null and mt != LAYOUTOPTIONS.spacing.default %} {% set outerclasses = "#{outerclasses} #{PREFIXES['margin-top']}#{mt}" %} {% endif %}
-    {% if mb is defined and mb is not null and mb != LAYOUTOPTIONS.spacing.default %} {% set outerclasses = "#{outerclasses} #{PREFIXES['margin-bottom']}#{mb}" %} {% endif %}
-    {% if pt is defined and pt is not null and pt != LAYOUTOPTIONS.spacing.default %} {% set outerclasses = "#{outerclasses} #{PREFIXES['padding-top']}#{pt}" %} {% endif %}
-    {% if pb is defined and pb is not null and pb != LAYOUTOPTIONS.spacing.default %} {% set outerclasses = "#{outerclasses} #{PREFIXES['padding-bottom']}#{pb}" %} {% endif %}
+    {% set mt = EL.spacing.margin.top %}
+    {% set mb = EL.spacing.margin.bottom %}
+    {% set ml = EL.spacing.margin.left %}
+    {% set mr = EL.spacing.margin.right %}
+    {% set pt = EL.spacing.padding.top %}
+    {% set pb = EL.spacing.padding.bottom %}
+    {% set pl = EL.spacing.padding.left %}
+    {% set pr = EL.spacing.padding.right %}
+    {% if mt is defined and mt is not null and mt != 'default' %} {% set outerclasses = outerclasses|merge(["#{PREFIX.margin.top}#{mt}"]) %} {% endif %}
+    {% if mb is defined and mb is not null and mb != 'default' %} {% set outerclasses = outerclasses|merge(["#{PREFIX.margin.bottom}#{mb}"]) %} {% endif %}
+    {% if ml is defined and ml is not null and ml != 'default' %} {% set outerclasses = outerclasses|merge(["#{PREFIX.margin.left}#{ml}"]) %} {% endif %}
+    {% if mr is defined and mr is not null and mr != 'default' %} {% set outerclasses = outerclasses|merge(["#{PREFIX.margin.right}#{mr}"]) %} {% endif %}
+    {% if pt is defined and pt is not null and pt != 'default' %} {% set outerclasses = outerclasses|merge(["#{PREFIX.padding.top}#{pt}"]) %} {% endif %}
+    {% if pb is defined and pb is not null and pb != 'default' %} {% set outerclasses = outerclasses|merge(["#{PREFIX.padding.bottom}#{pb}"]) %} {% endif %}
+    {% if pl is defined and pl is not null and pl != 'default' %} {% set outerclasses = outerclasses|merge(["#{PREFIX.padding.left}#{pl}"]) %} {% endif %}
+    {% if pr is defined and pr is not null and pr != 'default' %} {% set outerclasses = outerclasses|merge(["#{PREFIX.padding.right}#{pr}"]) %} {% endif %}
+
 
     {# color #}
-    {% if bgcol is defined and bgcol is not null and bgcol != LAYOUTOPTIONS.colors.default %} {% set outerclasses = "#{outerclasses} #{PREFIXES['background-color']}#{bgcol}" %} {% endif %}
-    {% if header.element.negative_mode %} {% set outerclasses = "#{outerclasses} #{CLASSNAMES.negativecolors}" %} {% endif %}
+    {% set bgcol = EL.bgcolor %}
+    {% if bgcol is defined and bgcol is not null and bgcol != 'default' %} {% set outerclasses = outerclasses|merge(["#{PREFIX['background-color']}#{bgcol}"]) %} {% endif %} 
 
+
+    {# settings #}
+    {% if EL.negative_mode %} {% set outerclasses = outerclasses|merge(["#{CLASSNAMES.negativecolors}"]) %} {% endif %}
+
+    
     {# content layout #}
-    {% switch header.element.contentlayout %}
+    {% switch EL.contentlayout %}
         {% case 'full' %}
-            {% set outerclasses = "#{outerclasses} #{CLASSNAMES.container.fullwidth}" %}
+            {% set outerclasses = outerclasses|merge(["#{CLASSNAMES.container.fullwidth}"]) %}
         {% case 'bgfull' %}
-            {% set outerclasses = "#{outerclasses} #{CLASSNAMES.container.fullwidth}" %}
-            {% set innerclasses = "#{innerclasses} #{CLASSNAMES.container.regular}" %}
+            {% set outerclasses = outerclasses|merge(["#{CLASSNAMES.container.fullwidth}"]) %}
+            {% set innerclasses = innerclasses|merge(["#{CLASSNAMES.container.regular}"]) %}
         {% default %}
-            {% set innerclasses = "#{innerclasses} #{CLASSNAMES.container.regular}" %}
+            {% set outerclasses = outerclasses|merge(["#{CLASSNAMES.container.regular}"]) %}
+            {% set innerclasses = innerclasses|merge(["#{CLASSNAMES.container.regular}"]) %}
     {% endswitch %}
 
     {# background image #}
-    {% if header.element.bgimg %}
-        {% set bgimg_obj = page.media[header.element.bgimg] %}
-        {% set style_attributes = "background-image: url('#{bgimg_obj.cropResize(CONF.settings['background-image']['max-width'], CONF.settings['background-image']['max-height']).url|e}');" %}
+    {% if EL.bgimg %}
+        {% set bgimg_obj = page.media[EL.bgimg] %}
+        {% set style_attributes = "background-image: url('#{bgimg_obj.cropResize(CONF.settings['background-image']['max-width'], CONF.settings['background-image']['max-height']).url|e}')" %}
     {% endif %}
+
+    {# add additional classes from outside #}
+    {% set outerclasses = outerclasses|merge(["#{element_add_outerclasses|trim|e}"]) %}
+    {% set innerclasses = innerclasses|merge(["#{element_add_innerclasses|trim|e}"]) %}
+
 
 
     {# final variable preparation #}
-    {% set outerclasses = "#{outerclasses} #{element_add_outerclasses ?? ''}" %}
-    {% set innerclasses = "#{innerclasses} #{element_add_innerclasses ?? ''}" %}
-    {% set outerclasses = outerclasses|trim %}
-    {% set innerclasses = innerclasses|trim %}
-    {% set style_attributes = "style=\"#{style_attributes}\"" %}
+    {% set outerclasses = outerclasses|join(" ") %}
+    {% set innerclasses = innerclasses|join(" ") %}
+    {% set style_attributes = "style=\"#{style_attributes|join('; ')}\"" %}
+    {% set variantclass = "#{element_type}--#{element_variant}" %}
 
-    
     {# render element #}
-    <div class="{{element_type|e}} {{element_variant|e}} {{outerclasses|e}} {{header.element.classes|e}}" {{style_attributes|raw}} >
+    <div class="{{element_type|e}} {{variantclass|e}} {{outerclasses|e}} {{EL.classes|e}}" {{style_attributes|raw}} >
         <div class="{{innerclasses|e}}">
             
             {% block element_content %}

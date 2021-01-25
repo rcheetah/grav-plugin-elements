@@ -1,6 +1,7 @@
 extends@: 
   - default
   - partials/elementtab
+  - partials/element_titleoptions
 
 form:
   fields:

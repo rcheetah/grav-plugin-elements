@@ -8,8 +8,17 @@ form:
           fields:
             element.layouttab.basics:
               fields:
-                header.element.contentlayout:           
+                header.element.contentlayout:
+                  unset@: true
+                  type: hidden
+                  default: full
+                element.contentlayout.readonly:
+                  type: select
+                  label: PLUGIN_ELEMENTS.TAB.LAYOUT
                   default: full
                   disabled: true
-                  help: PLUGIN_ELEMENTS.TAB.LAYOUT_MODULARNOTE
+                  options:
+                    full: PLUGIN_ELEMENTS.TAB.LAYOUT_FULL
                   classes: "field--locked"
+                  ordering@: header.element.contentlayout
+                

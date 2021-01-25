@@ -4,7 +4,7 @@
 {% block element %}
 
     {% set element_type = "#{ element_type ?? config.plugins.elements.css.classname.module }" %}
-    {% set element_variant = "#{ element_variant ?? element_type ~ '--columns' }" %}
+    {% set element_variant = "#{ element_variant ?? 'columns' }" %}
     {{ parent() }}
 
 {% endblock element %}

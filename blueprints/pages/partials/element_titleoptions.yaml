@@ -1,0 +1,95 @@
+
+
+form:
+  fields:
+    tabs:
+      fields:
+
+        # Extend content tab
+        content:
+          fields:
+            header.element.title.fieldset:
+              type: fieldset
+              title: PLUGIN_ELEMENTS.TITLEOPTIONS.TITLE
+              icon: header
+              collapsed: true
+              collapsible: true
+              toggleable: true
+              ordering@: header.title
+              fields:
+
+                header.element.title.visible:
+                  unset@: true
+                  type: toggle
+                  label: PLUGIN_ELEMENTS.TITLEOPTIONS.VISIBLE
+                  highlight: 1
+                  default: 1
+                  options:
+                      0: PLUGIN_ELEMENTS.NO
+                      1: PLUGIN_ELEMENTS.YES
+                  validate:
+                      type: bool
+
+                header.element.title.align:
+                  type: select
+                  label: Ausrichtung des Titels
+                  default: default
+                  config-options@: plugins.elements.layoutoptions.textalign
+
+                header.element.title.tag:
+                  type: select
+                  label: PLUGIN_ELEMENTS.TITLEOPTIONS.TAG
+                  default: default
+                  config-options@: plugins.elements.layoutoptions.title.tags
+
+                header.element.title.classes:
+                  type: text
+                  label: PLUGIN_ELEMENTS.TITLEOPTIONS.CLASSES
+
+                element.title.spacing:
+                  type: columns
+                  fields:
+                    column1:
+                      type: column
+                      fields:
+
+                        element.title.spacing.margin:
+                          type: fieldset
+                          title: PLUGIN_ELEMENTS.TAB.SPACING_MARGIN
+                          icon: sort
+                          collapsed: false
+                          collapsible: false
+                          fields:
+                            header.element.title.spacing.margin.top:
+                              type: select
+                              label: PLUGIN_ELEMENTS.TAB.SPACING_ABOVE
+                              default: default
+                              config-options@: plugins.elements.layoutoptions.spacing
+
+                            header.element.title.spacing.margin.bottom:
+                              type: select
+                              label: PLUGIN_ELEMENTS.TAB.SPACING_BELOW
+                              default: default
+                              config-options@: plugins.elements.layoutoptions.spacing
+
+                    column2:
+                      type: column
+                      fields:
+                        element.title.spacing.padding:
+                          type: fieldset
+                          title: PLUGIN_ELEMENTS.TAB.SPACING_PADDING
+                          icon: sort
+                          collapsed: false
+                          collapsible: false
+                          fields:
+                            header.element.title.spacing.padding.top:
+                              type: select
+                              label: PLUGIN_ELEMENTS.TAB.SPACING_ABOVE
+                              default: default
+                              config-options@: plugins.elements.layoutoptions.spacing
+
+                            header.element.title.spacing.padding.bottom:
+                              type: select
+                              label: PLUGIN_ELEMENTS.TAB.SPACING_BELOW
+                              default: default
+                              config-options@: plugins.elements.layoutoptions.spacing
