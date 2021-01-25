@@ -8,28 +8,207 @@ author:
   name: Roman Gebath
   email: Roman.Gebath@gmail.com
 homepage: https://github.com/rcheetah/grav-plugin-elements
-demo: http://demo.yoursite.com
-keywords: grav, plugin, etc
+keywords: grav, plugin, content, elements, element, editor, modules, modular, backend, amdin, pagebuilder
 bugs: https://github.com/rcheetah/grav-plugin-elements/issues
-docs: https://github.com/rcheetah/grav-plugin-elements/blob/develop/README.md
+docs: https://github.com/rcheetah/grav-plugin-elements/blob/master/README.md
 license: MIT
 
 dependencies:
   - { name: grav, version: '>=1.7.0' }
+  - { name: admin, version: '>=1.10.0' }
 
 form:
   validation: loose
   fields:
-    enabled:
-      type: toggle
-      label: PLUGIN_ADMIN.PLUGIN_STATUS
-      highlight: 1
-      default: 0
-      options:
-        1: PLUGIN_ADMIN.ENABLED
-        0: PLUGIN_ADMIN.DISABLED
-      validate:
-        type: bool
-    custom_var:
-      type: text
-      label: Custom Variable
+    element.settings.admintabs:
+      type: tabs
+      fields:
+
+
+        general:
+          type: tab
+          title: PLUGIN_ELEMENTS.SETTINGS.TABS.GENERAL
+          fields:
+
+            enabled:
+              type: toggle
+              label: PLUGIN_ADMIN.PLUGIN_STATUS
+              highlight: 1
+              default: 0
+              options:
+                1: PLUGIN_ADMIN.ENABLED
+                0: PLUGIN_ADMIN.DISABLED
+              validate:
+                type: bool
+
+
+        configuration:
+          type: tab
+          title: PLUGIN_ELEMENTS.SETTINGS.TABS.CONFIG
+          fields: 
+        
+
+            # CLASSNAMES
+            element.settings.classnames:
+              type: spacer
+              title: PLUGIN_ELEMENTS.SETTINGS.CLASSNAME.TITLE
+            css.classname.page:
+              type: text
+              label: PLUGIN_ELEMENTS.SETTINGS.CLASSNAME.PAGE.LABEL
+              help: PLUGIN_ELEMENTS.SETTINGS.CLASSNAME.PAGE.HELP
+            css.classname.module:
+              type: text
+              label: PLUGIN_ELEMENTS.SETTINGS.CLASSNAME.MODULE.LABEL
+              help: PLUGIN_ELEMENTS.SETTINGS.CLASSNAME.MODULE.HELP
+            css.classname.container.regular:
+              type: text
+              label: PLUGIN_ELEMENTS.SETTINGS.CLASSNAME.CONTAINER.REGULAR.LABEL
+              help: PLUGIN_ELEMENTS.SETTINGS.CLASSNAME.CONTAINER.REGULAR.HELP
+            css.classname.container.fullwidth:
+              type: text
+              label: PLUGIN_ELEMENTS.SETTINGS.CLASSNAME.CONTAINER.FULLWIDTH.LABEL
+              help: PLUGIN_ELEMENTS.SETTINGS.CLASSNAME.CONTAINER.FULLWIDTH.HELP
+            css.classname.grid.row:
+              type: text
+              label: PLUGIN_ELEMENTS.SETTINGS.CLASSNAME.GRID.ROW.LABEL
+              help: PLUGIN_ELEMENTS.SETTINGS.CLASSNAME.GRID.ROW.HELP
+            css.classname.grid.column:
+              type: text
+              label: PLUGIN_ELEMENTS.SETTINGS.CLASSNAME.GRID.COLUMN.LABEL
+              help: PLUGIN_ELEMENTS.SETTINGS.CLASSNAME.GRID.COLUMN.HELP
+            css.classname.negativecolors:
+              type: text
+              label: PLUGIN_ELEMENTS.SETTINGS.CLASSNAME.NEGATIVECOLORS.LABEL
+              help: PLUGIN_ELEMENTS.SETTINGS.CLASSNAME.NEGATIVECOLORS.HELP
+
+
+
+            # PREFIXES
+            element.settings.prefixes:
+              type: spacer
+              title: PLUGIN_ELEMENTS.SETTINGS.PREFIX.TITLE
+            css.prefix.background-color: 
+              type: text
+              label: PLUGIN_ELEMENTS.SETTINGS.PREFIX.BACKGROUND_COLOR
+            css.prefix.column-gap: 
+              type: text
+              label: PLUGIN_ELEMENTS.SETTINGS.PREFIX.COLUMN_GAP
+            css.prefix.fixed-column: 
+              type: text
+              label: PLUGIN_ELEMENTS.SETTINGS.PREFIX.FIXED_COLUMN
+            css.prefix.text-align: 
+              type: text
+              label: PLUGIN_ELEMENTS.SETTINGS.PREFIX.TEXT_ALIGN
+
+            element.settings.prefixes.spacing:
+              type: columns
+              fields:
+                column1:
+                  type: column
+                  fields:
+
+                    element.settings.prefixes.padding:
+                      type: fieldset
+                      title: PLUGIN_ELEMENTS.SETTINGS.PREFIX.PADDING
+                      collapsed: false
+                      collapsible: false
+                      fields:
+
+                        css.prefix.padding.top:
+                          type: text
+                          label: PLUGIN_ELEMENTS.SETTINGS.PREFIX.TOP
+                        css.prefix.padding.bottom:
+                          type: text
+                          label: PLUGIN_ELEMENTS.SETTINGS.PREFIX.BOTTOM
+                        css.prefix.padding.left:
+                          type: text
+                          label: PLUGIN_ELEMENTS.SETTINGS.PREFIX.LEFT
+                        css.prefix.padding.right:
+                          type: text
+                          label: PLUGIN_ELEMENTS.SETTINGS.PREFIX.RIGHT
+                
+                column2:
+                  type: column
+                  fields:
+
+                    element.settings.prefixes.padding:
+                      type: fieldset
+                      title: PLUGIN_ELEMENTS.SETTINGS.PREFIX.MARGIN
+                      collapsed: false
+                      collapsible: false
+                      fields:
+
+                        css.prefix.margin.top:
+                          type: text
+                          label: PLUGIN_ELEMENTS.SETTINGS.PREFIX.TOP
+                        css.prefix.margin.bottom:
+                          type: text
+                          label: PLUGIN_ELEMENTS.SETTINGS.PREFIX.BOTTOM
+                        css.prefix.margin.left:
+                          type: text
+                          label: PLUGIN_ELEMENTS.SETTINGS.PREFIX.LEFT
+                        css.prefix.margin.right:
+                          type: text
+                          label: PLUGIN_ELEMENTS.SETTINGS.PREFIX.RIGHT
+            
+
+
+            # LAYOUT OPTIONS
+            element.settings.layoutoptions:
+              type: spacer
+              title: PLUGIN_ELEMENTS.SETTINGS.LAYOUTOPTIONS.TITLE
+            element.settings.layoutoptions.hint:
+              type: display
+              label: PLUGIN_ELEMENTS.SETTINGS.LAYOUTOPTIONS.HINT.LABEL
+              markdown: true
+              content: PLUGIN_ELEMENTS.SETTINGS.LAYOUTOPTIONS.HINT.CONTENT
+            layoutoptions.colors:
+              type: array
+              label: PLUGIN_ELEMENTS.SETTINGS.LAYOUTOPTIONS.COLORS.LABEL
+              placeholder_key: PLUGIN_ELEMENTS.SETTINGS.LAYOUTOPTIONS.COLORS.KEY
+              placeholder_value: PLUGIN_ELEMENTS.SETTINGS.LAYOUTOPTIONS.COLORS.VALUE
+              required: true
+            layoutoptions.spacing:
+              type: array
+              label: PLUGIN_ELEMENTS.SETTINGS.LAYOUTOPTIONS.SPACING.LABEL
+              placeholder_key: PLUGIN_ELEMENTS.SETTINGS.LAYOUTOPTIONS.SPACING.KEY
+              placeholder_value: PLUGIN_ELEMENTS.SETTINGS.LAYOUTOPTIONS.SPACING.VALUE
+              required: true
+            layoutoptions.textalign:
+              type: array
+              label: PLUGIN_ELEMENTS.SETTINGS.LAYOUTOPTIONS.TEXTALIGN.LABEL
+              placeholder_key: PLUGIN_ELEMENTS.SETTINGS.LAYOUTOPTIONS.TEXTALIGN.KEY
+              placeholder_value: PLUGIN_ELEMENTS.SETTINGS.LAYOUTOPTIONS.TEXTALIGN.VALUE
+              required: true
+            layoutoptions.titletags:
+              type: array
+              label: PLUGIN_ELEMENTS.SETTINGS.LAYOUTOPTIONS.TITLETAGS.LABEL
+              placeholder_key: PLUGIN_ELEMENTS.SETTINGS.LAYOUTOPTIONS.TITLETAGS.KEY
+              placeholder_value: PLUGIN_ELEMENTS.SETTINGS.LAYOUTOPTIONS.TITLETAGS.VALUE
+              required: true
+            
+            # LAYOUT OPTIONS
+            element.settings.other:
+              type: spacer
+              title: PLUGIN_ELEMENTS.SETTINGS.OTHER.TITLE
+            element.other.background-image-help:
+              type: display
+              markdown: true
+              label: PLUGIN_ELEMENTS.SETTINGS.OTHER.BACKGROUND_IMAGE.TITLE
+              content: PLUGIN_ELEMENTS.SETTINGS.OTHER.BACKGROUND_IMAGE.DESCRIPTION
+            element.other.background-image:
+              type: columns
+              fields:
+                column1: 
+                  type: column
+                  fields:
+                    other.background-image.max-width:
+                      type: number
+                      label: PLUGIN_ELEMENTS.SETTINGS.OTHER.BACKGROUND_IMAGE.MAX_WIDTH.LABEL
+                column2: 
+                  type: column
+                  fields:
+                    other.background-image.max-height:
+                      type: number
+                      label: PLUGIN_ELEMENTS.SETTINGS.OTHER.BACKGROUND_IMAGE.MAX_HEIGHT.LABEL
+

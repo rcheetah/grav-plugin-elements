@@ -52,8 +52,7 @@ layoutoptions:
     center: Center
     right: Right
     justify: Justify
-settings:
+other:
   background-image:
     max-width: 1920
     max-height: 1280
-

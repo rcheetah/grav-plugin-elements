@@ -1,12 +1,14 @@
 PLUGIN_ELEMENTS:
+  
   YES: Yes
   NO: No
+  
   TAB:
     TITLE: Layout
     BASICS: Basics
     BGCOL: Background Color
     BGIMG: Background Image
-    LAYOUT: Content width
+    LAYOUT: Content Width
     LAYOUT_DEFAULT: Constrain to container
     LAYOUT_FULL: Use full width
     LAYOUT_BGFULL: Background full width, content constrained
@@ -14,12 +16,13 @@ PLUGIN_ELEMENTS:
     NEGCOL: Use negative colors
     CLASSES: Additional CSS Classes
     SPACING: Spacing
-    SPACING_MARGIN: Space outside
-    SPACING_PADDING: Space inside
+    SPACING_MARGIN: Space Outside
+    SPACING_PADDING: Space Inside
     SPACING_ABOVE: Above
     SPACING_BELOW: Below
     SPACING_LEFT: Left
     SPACING_RIGHT: Right
+  
   ELEMENTS:
     WRAPPER:
       NAME: Wrapper
@@ -31,16 +34,96 @@ PLUGIN_ELEMENTS:
       NOTE:
         TITLE: "**About this Element**"
         CONTENT: Add child modules in the page tree. The children are displayed in a grid. You can change the grid settings here.
-      GAP: Column gap
-      WIDTH: Column span (X out of 12)
-      MIN_WIDTH: Minimal column width 
+      GAP: Column Gap
+      WIDTH: Column Span (X out of 12)
+      MIN_WIDTH: Minimal Column Width 
       MIN_WIDTH_WARNING: 
         TITLE: "**Attention**"
         CONTENT: This setting can break your page on small screens. If the minimal width is larger than the device width, it will not be responsive anymore.
+  
   TITLEOPTIONS:
-    TITLE: Title options
-    VISIBLE: Show title?
-    ALIGN: Overwite title align
+    TITLE: Title Options
+    VISIBLE: Show Title?
+    ALIGN: Overwite Title Align
     TAG: Set HTML Tag
     CLASSES: Additional CSS Classes
+  
+  SETTINGS:
+    TABS: 
+      GENERAL: General
+      CONFIG: Configuration
+    
+    CLASSNAME:
+      TITLE: CSS Classnames
+      PAGE: 
+        LABEL: Default Page Class
+        HELP: This class will be added to pages (Default, Modular etc.)
+      MODULE:
+        LABEL: Default Module Class
+        HELP: This class will be added to modules (Grid, Wrapper etc.)
+      CONTAINER: 
+        REGULAR:
+          LABEL: Default container class
+          HELP: This class should constrain the width of the element, e.g. the bootsrap container.
+        FULLWIDTH:
+          LABEL: Fullwidth Container Class (additional)
+          HELP: This class – when added to the container – will overwrite the constrain to set the width to 100%. E.g. the bootstrap w-100 
+      GRID:
+        ROW: 
+          LABEL: Grid Row (outer class)
+          HELP: The outer class of your grid system, e.g. 'row' for bootstrap
+        COLUMN: 
+          LABEL: Grid Column (inner class)
+          HELP: The class for the column of your grid system, e.g. 'col' for bootstrap
+      NEGATIVECOLORS: 
+        LABEL: Negative Colors Class
+        HELP: "This class should overwrite the colors to be readable on a dark background. In the most simple form it would be 'color: white', but most elements will need more sophisticated rules."
+    
+    PREFIX:
+      TITLE: Prefixes
+      PADDING: Padding Prefix
+      MARGIN: Margin Prefix
+      TOP: Top
+      BOTTOM: Bottom
+      LEFT: Left
+      RIGHT: Right
+      BACKGROUND_COLOR: Background Color Prefix
+      COLUMN_GAP: Column Gap Prefix
+      FIXED_COLUMN: Fixed Column Width Prefix
+      TEXT_ALIGN: Text Align Prefix
 
+    LAYOUTOPTIONS:
+      TITLE: Layout Options
+      HINT:
+        LABEL: About these settings
+        CONTENT: "**The key-value pairs follow this syntax:** <br>
+        `key` is the css-class value (gets prepended by the prefix). So if it’s set to `large` and the prefix is set to `pt--`, then the element will have the class `pt--large`. You have to define the css classes for yourself, for the setting to take effect. The title tag is an exception, it’s key will be used as the tag. Every valid html tag should work, so you are not restricted to heading tags. <br>
+        `value` is the label that will be displayed in the backend select boxes. Use a descriptive label that your editors will understand. <br>
+        **NOTE:** Each of these options must at least contain the value `default`. This setting means, that the no class is added and the default values will not be overwritten. This is also the default option in the backend.
+        "
+      COLORS: 
+        LABEL: Available Colors
+        KEY: css-suffix
+        VALUE: Backend Color Label
+      SPACING:
+        LABEL: Available Sizes
+        KEY: css-suffix
+        VALUE: Backend Space Label
+      TEXTALIGN:
+        LABEL: Available Text Aligns
+        KEY: css-suffix
+        VALUE: Backend Align Label
+      TITLETAGS:
+        LABEL: Available Title Tags
+        KEY: css-suffix
+        VALUE: Backend Tag Label
+    
+    OTHER:
+      TITLE: Other
+      BACKGROUND_IMAGE: 
+        TITLE: "**Background Image Size**"
+        DESCRIPTION: The background image will be resized to save bandwidth. The images will be cropped using Gravs cropResize rule.
+        MAX_WIDTH:
+          LABEL: Background Image max. width
+        MAX_HEIGHT: 
+          LABEL: Background Image max. height
