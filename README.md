@@ -98,8 +98,19 @@ At the moment the Elements plugin does not offer it's own css rules. Maybe that 
 - Values that are set via the admin panel can be considered definite. Thus, it is recommended to add the `!imporant` statement to those rules, so they won’t be overruled by other css classes by accident. 
 - Most of the standard settings will actually work with bootstrap. So if you already use bootstrap, you only need to setup a few additional css classes like the grid gap.
 
+### Setup Modular Pages
 
-### Create a modular template
+#### Extend your blueprints
+In your blueprint `modular.yaml` you need to extend Elements’ blueprint file:
+
+```yaml
+extends@: 
+  - modular
+  - partials/elements_modular
+  # ...
+```
+
+#### Create a modular template
 Create the file `templates/modular.html.twig` in your theme. For standard behaviour you just have to `use` the file `partials/elements_modular_base.html.twig` that is offered by Elements. Add the block `element` where you want it to be, and call the parent function. That’s it. If you don’t need any fancy extras, this will display all child modules. 
 
 ```php
@@ -112,6 +123,14 @@ Create the file `templates/modular.html.twig` in your theme. For standard behavi
     {% endblock %}
 {% endblock %}
 ```
+
+### Optional: Setup Default Pages
+You can add the functionality of modules (like the layout tab and the title options) to normal pages too. I works just the same as with modular pages, you only have to use different extensions.
+
+- Blueprints: `partials/elements_default`
+- Templates: `partials/elements_default_base.html.twig`
+
+If you want to extend any other pages, you can do so the same way. In general you should use the default template for this, because the modular has some very special adaptions. You can also overwrite the settings further.
 
 ## Usage
 
@@ -132,7 +151,7 @@ extends@:
 Here is an example of a template extension:
 
 ```php
-{% extends "partials/elements_base.html.twig" %}
+{% extends "partials/elements_module_base.html.twig" %}
 
 {% block element %}
     {% set element_type = "module" %}
@@ -154,14 +173,14 @@ Here is an example of a template extension:
 
 ```
 
-- In the first line we extend the file `partials/elements_base.html.twig`. This is the base file for our custom elements.
+- In the first line we extend the file `partials/elements_module_base.html.twig`. This is the base file for our custom elements.
 - In the block `element` the only necessary line is `{{ parent() }}` which starts the inheritance process.
 - Note, that you can overwrite some variable before calling the parent. In this case we set the element type to `module` and the element_variant to `text`. The resulting template will automatically wrap our element with the classes `module module--text`. Thus we can create styling rules that apply to all modules, and styling rules that only target modules of the type text.
 - By default the module will display the page title and the content. We will most likely want to overwrite this. In this example we use a few header varibles to add an icon and the author name.
 
 
 ### Using title options
-You can use the title options of the plugin in your own elements. To add the necessary backend field you have to extend the corresponding blueprint file:
+You can use the title options of this plugin in your own elements. To add the necessary backend field you have to extend the corresponding blueprint file:
 
 ```yaml
 extends@: 
@@ -172,12 +191,12 @@ extends@:
   # ...
 ```
 
-We could now access all the header variables that are set by these fields and build our title based on that. But if we have a normal use case we can just use the standard title rendering that will take all the settings set by the title options into account:
+We could now access all the header variables that are set by these fields and build our title based on that. But in most cases that would be unnecessary. We can just use the standard title rendering that will take into account all the settings which are set by the title options:
 
-```html
-{% extends "partials/elements_base.html.twig" %}
+```php
+{% extends "partials/elements_module_base.html.twig" %}
 
-{# HERE WE IMPORT THE PLUGINS TITLE RENDERING #}
+{# here we import the plugins title rendering #}
 {% use "partials/elements_title.html.twig" %} 
 
 {% block element %}
@@ -189,7 +208,7 @@ We could now access all the header variables that are set by these fields and bu
     {# ... #}
     <div class="module--text__title">
         {# here we call the title rendering #}
-        {% block element_title %} {% endblock %}
+        {% block element_title %} {{ parent() }} {% endblock %}
     </div>
     <div class="module--text__content">
         {{ page.content|raw }}
@@ -198,6 +217,7 @@ We could now access all the header variables that are set by these fields and bu
 {% endblock element_content %}
 ```
 
+**Note:** The block `element_title` has to be called inside the block `element_content`.
 
 ## Credits
 
@@ -208,4 +228,7 @@ Thanks to all the people in the Grav discord channel that helped a hobby program
 - [ ] Add an option to incorporate standard css rules, to let the plugin work better out-of-the-box
 - [ ] Create better docs
 - [ ] Add to plugin to the GPM
-
+- [ ] check if subpages are visible
+- [x] correct standard title
+- [ ] only have variables in the backend that are being used
+- [ ] create twig function for setting adding a variable if definand and not null (and not default)
