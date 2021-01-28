@@ -34,7 +34,7 @@ form:
         # Extending the content tab
         content:
           fields:
-            header.element.title.fieldset:
+            element.title.fieldset:
               fields:
 
                 # Page title of modular pages not visible by default
@@ -46,6 +46,7 @@ form:
                 header.element.title.constrain:
                   type: toggle
                   label: PLUGIN_ELEMENTS.TITLEOPTIONS.CONSTRAIN
+                  toggleable: true
                   highlight: 1
                   default: 1
                   options:

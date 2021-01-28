@@ -29,17 +29,14 @@ css:
 
 layoutoptions:
   colors: 
-    default: "[Default]"
     primary: Primary Color
     secondary: Secondary Color
   spacing:
-    default: "[Default]"
     none: None
     sm: Small
     md: Medium
     lg: Large
   titletags:
-    default: "[Default]"
     h1: "H1"
     h2: "H2"
     h3: "H3"
@@ -47,7 +44,6 @@ layoutoptions:
     h5: "H5"
     h6: "H6"
   textalign:
-    default: "[Default]"
     left: Left
     center: Center
     right: Right

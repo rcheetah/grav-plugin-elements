@@ -8,7 +8,7 @@ form:
         # Extend content tab
         content:
           fields:
-            header.element.title.fieldset:
+            element.title.fieldset:
               type: fieldset
               title: PLUGIN_ELEMENTS.TITLEOPTIONS.TITLE
               icon: header
@@ -22,6 +22,7 @@ form:
                   unset@: true
                   type: toggle
                   label: PLUGIN_ELEMENTS.TITLEOPTIONS.VISIBLE
+                  toggleable: true
                   highlight: 1
                   default: 1
                   options:
@@ -33,13 +34,15 @@ form:
                 header.element.title.align:
                   type: select
                   label: Ausrichtung des Titels
+                  toggleable: true
                   default: default
                   config-options@: plugins.elements.layoutoptions.textalign
 
                 header.element.title.tag:
                   type: select
                   label: PLUGIN_ELEMENTS.TITLEOPTIONS.TAG
-                  default: default
+                  toggleable: true
+                  default: ''
                   config-options@: plugins.elements.layoutoptions.titletags
 
                 header.element.title.classes:
@@ -53,7 +56,7 @@ form:
                       type: column
                       fields:
 
-                        element.title.spacing.margin:
+                        title.spacing.margin:
                           type: fieldset
                           title: PLUGIN_ELEMENTS.TAB.SPACING_MARGIN
                           icon: sort
@@ -63,19 +66,21 @@ form:
                             header.element.title.spacing.margin.top:
                               type: select
                               label: PLUGIN_ELEMENTS.TAB.SPACING_ABOVE
-                              default: default
+                              toggleable: true
+                              default: 'default'
                               config-options@: plugins.elements.layoutoptions.spacing
 
                             header.element.title.spacing.margin.bottom:
                               type: select
                               label: PLUGIN_ELEMENTS.TAB.SPACING_BELOW
+                              toggleable: true
                               default: default
                               config-options@: plugins.elements.layoutoptions.spacing
 
                     column2:
                       type: column
                       fields:
-                        element.title.spacing.padding:
+                        title.spacing.padding:
                           type: fieldset
                           title: PLUGIN_ELEMENTS.TAB.SPACING_PADDING
                           icon: sort
@@ -85,11 +90,13 @@ form:
                             header.element.title.spacing.padding.top:
                               type: select
                               label: PLUGIN_ELEMENTS.TAB.SPACING_ABOVE
+                              toggleable: true
                               default: default
                               config-options@: plugins.elements.layoutoptions.spacing
 
                             header.element.title.spacing.padding.bottom:
                               type: select
                               label: PLUGIN_ELEMENTS.TAB.SPACING_BELOW
+                              toggleable: true
                               default: default
                               config-options@: plugins.elements.layoutoptions.spacing
