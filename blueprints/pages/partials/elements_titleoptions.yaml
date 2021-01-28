@@ -48,6 +48,7 @@ form:
                 header.element.title.classes:
                   type: text
                   label: PLUGIN_ELEMENTS.TITLEOPTIONS.CLASSES
+                  toggleable: true
 
                 element.title.spacing:
                   type: columns

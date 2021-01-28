@@ -16,7 +16,7 @@ form:
               title: PLUGIN_ELEMENTS.TAB.BASICS
               underline: true
               fields:
-              
+
                 import@: partials/_contentlayout
 
                 header.element.bgcolor:
@@ -46,6 +46,7 @@ form:
                 header.element.classes:
                   type: text
                   label: PLUGIN_ELEMENTS.TAB.CLASSES
+                  toggleable: true
 
             
             element.layouttab.spacing:
