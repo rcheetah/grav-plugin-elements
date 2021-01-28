@@ -1,4 +1,4 @@
-{% extends "partials/elements_base.html.twig" %}
+{% extends "partials/elements_module_base.html.twig" %}
 
 
 {% block element %}
@@ -11,10 +11,7 @@
 {% block element_content %}
 
     {% for module in page.collection() %}
-        {% if module.header.visible is defined and module.header.visible is not null and module.header.visible == false %}
-            {# TODO: Remove #}    
-            {{ dump("#{moduel.title} was not rendered because it's set to visible: false") }}
-        {% else %}
+        {% if ( not (module.header.visible is defined and module.header.visible == false) ) %}
             {{ module.content|raw }}
         {% endif %}
     {% endfor %}

@@ -1,15 +1,28 @@
-{% use "partials/elements_base.html.twig" %}
+{% use "partials/elements_module_base.html.twig" %}
+{% use "partials/elements_title.html.twig" %}
 
 
 {% block element %}
-    {% set element_type = "#{ element_type ?? config.plugins.elements.css.classname.page }" %}
-    {% set element_variant = "#{ element_variant ?? 'modular' }" %}
-    {{ parent() }}
+        
+        {% set element_type = "#{ element_type ?? config.plugins.elements.css.classname.page }" %}
+        {% set element_variant = "#{ element_variant ?? 'modular' }" %}
+        {{ parent() }}
+
 {% endblock element %}
 
 
 {% block element_content %}
+
+    {{ dump("Regular colleection") }}
+    {{ dump(page.collection|length) }}
+    {{ dump("Hopefully only visible") }}
+    {{ dump(page.collection.visible()|length) }}
+
+    {% block element_title %} {% endblock %}
     {% for module in page.collection() %}
-    {{ module.content|raw }}
+        {% if ( not (module.header.visible is defined and module.header.visible == false) ) %}
+            {{ module.content|raw }}
+        {% endif %}
     {% endfor %}
+
 {% endblock element_content %}

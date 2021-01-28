@@ -47,6 +47,7 @@ PLUGIN_ELEMENTS:
     ALIGN: Overwite Title Align
     TAG: Set HTML Tag
     CLASSES: Additional CSS Classes
+    CONSTRAIN: Constrain the title width
   
   SETTINGS:
     TABS: 

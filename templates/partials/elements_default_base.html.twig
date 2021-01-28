@@ -1,9 +1,10 @@
-{% use "partials/elements_base.html.twig" %}
+{% use "partials/elements_module_base.html.twig" %}
 {% use "partials/elements_title.html.twig" %}
 
 
 {% block element %}
     {% set element_type = "#{ element_type ?? config.plugins.elements.css.classname.page }" %}
+    {% set element_variant = "#{ element_variant ?? 'default' }" %}
     {{ parent() }}
 {% endblock element %}
 

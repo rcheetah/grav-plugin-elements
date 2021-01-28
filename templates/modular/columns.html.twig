@@ -1,4 +1,4 @@
-{% extends "partials/elements_base.html.twig" %}
+{% extends "partials/elements_module_base.html.twig" %}
 
 
 {% block element %}
@@ -46,16 +46,13 @@
     {# Render Element #}
     <div class="{{outerclasses|e}}" >
         {% for column in page.collection() %}
-            
-            {% if column.header.visible is defined and column.header.visible is not null and column.header.visible == false %}
-                {# TODO: Remove #}
-                {{ dump("#{column.title} was not rendered because it's set to visible: false") }}
-            {% else %}
+
+            {% if ( not (column.header.visible is defined and column.header.visible == false) ) %}
                 <div class="{{innerclasses|e}}" {{style_attributes|raw}}>
                     {{ column.content|raw }}
                 </div>
             {% endif %}
-            
+
         {% endfor %}
     </div>
 

@@ -9,13 +9,6 @@
     {% set CLASSNAMES = CONF.css.classname %}
     {% set EL = header.element %}
 
-
-
-    {# TODO: remove #}
-    {{ dump("TITLE TAGS") }}
-    {{ dump(CONF.settings.layoutoptions.title.tags) }}
-
-
     
     {# redeem settings #}
     {% set element_type = "#{ element_type ?? '' }" %}
@@ -88,8 +81,7 @@
         <div class="{{innerclasses|e}}">
             
             {% block element_content %}
-                <h1 class="page__title">{{page.title|e}}</h1>
-                <div class="page__content">{{page.content|raw}}</div>
+                <div class="{{element_type|e}}__content">{{page.content|raw}}</div>
             {% endblock element_content %}
             
         </div>
