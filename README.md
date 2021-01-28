@@ -228,7 +228,3 @@ Thanks to all the people in the Grav discord channel that helped a hobby program
 - [ ] Add an option to incorporate standard css rules, to let the plugin work better out-of-the-box
 - [ ] Create better docs
 - [ ] Add to plugin to the GPM
-- [x] check if subpages are visible
-- [x] correct standard title
-- [ ] only have variables in the backend that are being used
-- [ ] create twig function for setting adding a variable if definand and not null (and not default)

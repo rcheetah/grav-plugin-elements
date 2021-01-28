@@ -2,7 +2,7 @@
 
 {% block element_title %}
 
-    {% if header.element.title.visible is defined and header.element.title.visible is not null and header.element.title.visible == true %}
+    {% if ( not (header.element.title.visible is defined and header.element.title.visible == false) ) %}
 
         {# CONFING ACCESSORS (for cleaner code) #}
         {% set TITLE = header.element.title %}
@@ -17,30 +17,26 @@
         {# title tag #}
         {% set tag_default = "#{ element_titletag_default ?? 'h1' }" %}
         {% set tag = tag_default %}
-        {% if TITLE.tag is defined and TITLE.tag is not null and TITLE.tag != 'default' %} {% set tag = TITLE.tag %} {% endif %}
+        {% if TITLE.tag is defined %} {% set tag = TITLE.tag %} {% endif %}
 
 
         {# classes #}
         {% set classes = [] %}
         {% set classes = classes|merge(["#{element_type|e}__title"]) %}
-        {% if TITLE.align is defined and TITLE.align is not null and TITLE.align != "default" %}
+        {% if TITLE.align is defined %}
             {% set classes = classes|merge(["#{CONF.css.prefix['text-align']}#{TITLE.align}"]) %}
         {% endif %}
-        {% if TITLE.spacing.margin.margintop is defined and TITLE.align is not null and TITLE.align != "default" %}
+        {% if TITLE.spacing.margin.margintop is defined %}
             {% set classes = classes|merge(["#{CONF.css.prefix['text-align']}#{TITLE.align}"]) %}
         {% endif %}
         {% set classes = classes|merge([TITLE.classes ?? ""]) %}
         
 
         {# spacing #}
-        {% set mt = TITLE.spacing.margin.top %}
-        {% set mb = TITLE.spacing.margin.bottom %}
-        {% set pt = TITLE.spacing.padding.top %}
-        {% set pb = TITLE.spacing.padding.bottom %}
-        {% if mt is defined and mt is not null and mt != 'default' %} {% set classes = classes|merge(["#{PREFIX.margin.top}#{mt}"]) %}      {% endif %}
-        {% if mb is defined and mb is not null and mb != 'default' %} {% set classes = classes|merge(["#{PREFIX.margin.bottom}#{mb}"]) %}   {% endif %}
-        {% if pt is defined and pt is not null and pt != 'default' %} {% set classes = classes|merge(["#{PREFIX.padding.top}#{pt}"]) %}     {% endif %}
-        {% if pb is defined and pb is not null and pb != 'default' %} {% set classes = classes|merge(["#{PREFIX.padding.bottom}#{pb}"]) %} {% endif %}
+        {% if TITLE.spacing.margin.top is defined %}     {% set classes = classes|merge(["#{PREFIX.margin.top}#{TITLE.spacing.margin.top}"]) %}         {% endif %}
+        {% if TITLE.spacing.margin.bottom is defined %}  {% set classes = classes|merge(["#{PREFIX.margin.bottom}#{TITLE.spacing.margin.bottom}"]) %}   {% endif %}
+        {% if TITLE.spacing.padding.top is defined %}    {% set classes = classes|merge(["#{PREFIX.padding.top}#{TITLE.spacing.padding.top}"]) %}       {% endif %}
+        {% if TITLE.spacing.padding.bottom is defined %} {% set classes = classes|merge(["#{PREFIX.padding.bottom}#{TITLE.spacing.padding.bottom}"]) %} {% endif %}
 
 
         {# final preparation #}
@@ -48,7 +44,7 @@
         {# render the tag #}
         {% set rendered_title = "<#{tag|e} class='#{classes|e}'>#{page.title|e}</#{tag|e}>"  %}
         {# constrain the title tag #}
-        {% if TITLE.constrain is defined and TITLE.constrain is not null and TITLE.constrain == true %}
+        {% if TITLE.constrain is defined and TITLE.constrain and TITLE.constrain == true %}
             {% set rendered_title = "<div class=\"#{CONF.css.classname.container.regular|e}\">#{rendered_title}</div>"  %}
         {% endif %}
 

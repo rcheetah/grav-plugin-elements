@@ -19,31 +19,22 @@
 
 
     {# spacing #}
-    {% set mt = EL.spacing.margin.top %}
-    {% set mb = EL.spacing.margin.bottom %}
-    {% set ml = EL.spacing.margin.left %}
-    {% set mr = EL.spacing.margin.right %}
-    {% set pt = EL.spacing.padding.top %}
-    {% set pb = EL.spacing.padding.bottom %}
-    {% set pl = EL.spacing.padding.left %}
-    {% set pr = EL.spacing.padding.right %}
-    {% if mt is defined and mt is not null and mt != 'default' %} {% set outerclasses = outerclasses|merge(["#{PREFIX.margin.top}#{mt}"]) %} {% endif %}
-    {% if mb is defined and mb is not null and mb != 'default' %} {% set outerclasses = outerclasses|merge(["#{PREFIX.margin.bottom}#{mb}"]) %} {% endif %}
-    {% if ml is defined and ml is not null and ml != 'default' %} {% set outerclasses = outerclasses|merge(["#{PREFIX.margin.left}#{ml}"]) %} {% endif %}
-    {% if mr is defined and mr is not null and mr != 'default' %} {% set outerclasses = outerclasses|merge(["#{PREFIX.margin.right}#{mr}"]) %} {% endif %}
-    {% if pt is defined and pt is not null and pt != 'default' %} {% set outerclasses = outerclasses|merge(["#{PREFIX.padding.top}#{pt}"]) %} {% endif %}
-    {% if pb is defined and pb is not null and pb != 'default' %} {% set outerclasses = outerclasses|merge(["#{PREFIX.padding.bottom}#{pb}"]) %} {% endif %}
-    {% if pl is defined and pl is not null and pl != 'default' %} {% set outerclasses = outerclasses|merge(["#{PREFIX.padding.left}#{pl}"]) %} {% endif %}
-    {% if pr is defined and pr is not null and pr != 'default' %} {% set outerclasses = outerclasses|merge(["#{PREFIX.padding.right}#{pr}"]) %} {% endif %}
+    {% if EL.spacing.margin.top is defined %}     {% set outerclasses = outerclasses|merge(["#{PREFIX.margin.top}#{EL.spacing.margin.top}"]) %}         {% endif %}
+    {% if EL.spacing.margin.bottom is defined %}  {% set outerclasses = outerclasses|merge(["#{PREFIX.margin.bottom}#{EL.spacing.margin.bottom}"]) %}   {% endif %}
+    {% if EL.spacing.margin.left is defined %}    {% set outerclasses = outerclasses|merge(["#{PREFIX.margin.left}#{EL.spacing.margin.left}"]) %}       {% endif %}
+    {% if EL.spacing.margin.right is defined %}   {% set outerclasses = outerclasses|merge(["#{PREFIX.margin.right}#{EL.spacing.margin.right}"]) %}     {% endif %}
+    {% if EL.spacing.padding.top is defined %}    {% set outerclasses = outerclasses|merge(["#{PREFIX.padding.top}#{EL.spacing.padding.top}"]) %}       {% endif %}
+    {% if EL.spacing.padding.bottom is defined %} {% set outerclasses = outerclasses|merge(["#{PREFIX.padding.bottom}#{EL.spacing.padding.bottom}"]) %} {% endif %}
+    {% if EL.spacing.padding.left is defined %}   {% set outerclasses = outerclasses|merge(["#{PREFIX.padding.left}#{EL.spacing.padding.left}"]) %}     {% endif %}
+    {% if EL.spacing.padding.right is defined %}  {% set outerclasses = outerclasses|merge(["#{PREFIX.padding.right}#{EL.spacing.padding.right}"]) %}   {% endif %}
 
 
     {# color #}
-    {% set bgcol = EL.bgcolor %}
-    {% if bgcol is defined and bgcol is not null and bgcol != 'default' %} {% set outerclasses = outerclasses|merge(["#{PREFIX['background-color']}#{bgcol}"]) %} {% endif %} 
+    {% if EL.bgcolor is defined %} {% set outerclasses = outerclasses|merge(["#{PREFIX['background-color']}#{EL.bgcolor}"]) %} {% endif %} 
 
-
+    
     {# settings #}
-    {% if EL.negative_mode %} {% set outerclasses = outerclasses|merge(["#{CLASSNAMES.negativecolors}"]) %} {% endif %}
+    {% if EL.negative_mode is defined and EL.negative_mode == true %} {% set outerclasses = outerclasses|merge(["#{CLASSNAMES.negativecolors}"]) %} {% endif %}
 
     
     {# content layout #}
@@ -58,16 +49,18 @@
             {% set innerclasses = innerclasses|merge(["#{CLASSNAMES.container.regular}"]) %}
     {% endswitch %}
 
+
     {# background image #}
     {% if EL.bgimg %}
         {% set bgimg_obj = page.media[EL.bgimg] %}
-        {% set style_attributes = "background-image: url('#{bgimg_obj.cropResize(CONF.other['background-image']['max-width'], CONF.other['background-image']['max-height']).url|e}')" %}
+        {% set bgimg_obj = bgimg_obj.cropResize( CONF.other['background-image']['max-width'], CONF.other['background-image']['max-height'] ) %}
+        {% set style_attributes = "background-image: url('#{bgimg_obj.url|e}')" %}
     {% endif %}
+
 
     {# add additional classes from outside #}
     {% set outerclasses = outerclasses|merge(["#{element_add_outerclasses|trim|e}"]) %}
     {% set innerclasses = innerclasses|merge(["#{element_add_innerclasses|trim|e}"]) %}
-
 
 
     {# final variable preparation #}
