@@ -37,10 +37,6 @@ form:
             element.title.fieldset:
               fields:
 
-                # Page title of modular pages not visible by default
-                header.element.title.visible:
-                  default: 0
-
                 # As modular pages always have to be of content layout 'full' 
                 # an additional option to constrain the title is given
                 header.element.title.constrain:
