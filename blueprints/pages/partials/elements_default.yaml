@@ -1,5 +1,4 @@
 extends@: 
-  - default
   - partials/elements_layouttab
   - partials/elements_titleoptions
 
