@@ -13,11 +13,6 @@
 
 {% block element_content %}
 
-    {{ dump("Regular colleection") }}
-    {{ dump(page.collection|length) }}
-    {{ dump("Hopefully only visible") }}
-    {{ dump(page.collection.visible()|length) }}
-
     {% block element_title %} {% endblock %}
     {% for module in page.collection() %}
         {% if ( not (module.header.visible is defined and module.header.visible == false) ) %}

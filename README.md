@@ -228,3 +228,4 @@ Thanks to all the people in the Grav discord channel that helped a hobby program
 - [ ] Add an option to incorporate standard css rules, to let the plugin work better out-of-the-box
 - [ ] Create better docs
 - [ ] Add to plugin to the GPM
+- [ ] System modules can't display title
