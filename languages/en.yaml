@@ -38,7 +38,7 @@ PLUGIN_ELEMENTS:
       WIDTH: Column Span (X out of 12)
       MIN_WIDTH: Minimal Column Width 
       MIN_WIDTH_WARNING: 
-        TITLE: "**Attention**"
+        TITLE: "**USE `Minimal Column Width` WITH CARE!**"
         CONTENT: This setting can break your page on small screens. If the minimal width is larger than the device width, it will not be responsive anymore.
   
   TITLEOPTIONS:

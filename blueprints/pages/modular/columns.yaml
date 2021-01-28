@@ -19,7 +19,7 @@ form:
             element.columns.main:
               type: section
               title: PLUGIN_ELEMENTS.ELEMENTS.COLUMNS.NAME
-              ordering@: header.title
+              ordering@: 3
 
               fields:
 
@@ -34,6 +34,7 @@ form:
                 header.element.columns.gap:
                   type: select
                   label: PLUGIN_ELEMENTS.ELEMENTS.COLUMNS.GAP
+                  toggleable: true
                   default: default
                   config-options@: plugins.elements.layoutoptions.spacing
 
