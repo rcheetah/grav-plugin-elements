@@ -16,6 +16,8 @@ form:
               title: PLUGIN_ELEMENTS.TAB.BASICS
               underline: true
               fields:
+              
+                import@: partials/_contentlayout
 
                 header.element.bgcolor:
                   type: select
@@ -28,16 +30,6 @@ form:
                   type: pagemediaselect
                   label: PLUGIN_ELEMENTS.TAB.BGIMG
                   toggleable: true
-
-                header.element.contentlayout:
-                  type: select
-                  label: PLUGIN_ELEMENTS.TAB.LAYOUT
-                  toggleable: true
-                  default: default
-                  options:
-                      default: PLUGIN_ELEMENTS.TAB.LAYOUT_DEFAULT
-                      full: PLUGIN_ELEMENTS.TAB.LAYOUT_FULL
-                      bgfull: PLUGIN_ELEMENTS.TAB.LAYOUT_BGFULL
 
                 header.element.negative_mode:
                   type: toggle

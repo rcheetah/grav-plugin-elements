@@ -60,3 +60,16 @@ form:
                   markdown: true
                   label: PLUGIN_ELEMENTS.ELEMENTS.COLUMNS.MIN_WIDTH_WARNING.TITLE
                   content: PLUGIN_ELEMENTS.ELEMENTS.COLUMNS.MIN_WIDTH_WARNING.CONTENT
+
+
+        element.layouttab:
+          fields:
+            element.layouttab.basics:
+              fields:
+
+                # deactivated in modular, should be reactivated in columns
+                element.contentlayout.readonly:
+                  unset@: true
+                header.element.contentlayout:
+                  unset@: true
+                import@: partials/_contentlayout

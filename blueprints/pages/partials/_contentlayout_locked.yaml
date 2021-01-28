@@ -1,0 +1,14 @@
+form:
+  header.element.contentlayout:
+    replace@: true
+    type: hidden
+    default: full
+  element.contentlayout.readonly:
+    type: select
+    label: PLUGIN_ELEMENTS.TAB.LAYOUT
+    default: full
+    disabled: true
+    options:
+      full: PLUGIN_ELEMENTS.TAB.LAYOUT_FULL
+    classes: "field--locked"
+    ordering@: header.element.contentlayout

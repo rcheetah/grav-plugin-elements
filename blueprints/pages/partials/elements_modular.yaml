@@ -15,19 +15,11 @@ form:
                 # modular pages should always be 'full', otherwise the
                 # modules wouldnt be able to span the full page
                 # add a hidden field to set the value
+                element.contentlayout.readonly:
+                  unset@: true
                 header.element.contentlayout:
                   unset@: true
-                  type: hidden
-                  default: full
-                element.contentlayout.readonly:
-                  type: select
-                  label: PLUGIN_ELEMENTS.TAB.LAYOUT
-                  default: full
-                  disabled: true
-                  options:
-                    full: PLUGIN_ELEMENTS.TAB.LAYOUT_FULL
-                  classes: "field--locked"
-                  ordering@: header.element.contentlayout
+                import@: partials/_contentlayout_locked
                 
 
 
