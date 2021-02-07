@@ -51,15 +51,14 @@
 
 
     {# fixed height #}
-    {% if EL.height %}
-        {% set style_attributes = "height: #{EL.height|int}vh" %}
-    {% endif %}
+    {% if EL.height %} {% set style_attributes = style_attributes|merge(["height: #{EL.height|int}vh"]) %} {% endif %}
 
+    
     {# background image #}
     {% if EL.bgimg %}
         {% set bgimg_obj = page.media[EL.bgimg] %}
         {% set bgimg_obj = bgimg_obj.cropResize( CONF.other['background-image']['max-width'], CONF.other['background-image']['max-height'] ) %}
-        {% set style_attributes = "background-image: url('#{bgimg_obj.url|e}')" %}
+        {% set style_attributes = style_attributes|merge(["background-image: url('#{bgimg_obj.url|e}')"]) %}
     {% endif %}
 
 
