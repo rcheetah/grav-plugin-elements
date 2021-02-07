@@ -50,10 +50,10 @@
     {% endswitch %}
 
 
-    {# transitions #}
-    {% if EL.transition.above is defined %} {% set outerclasses = outerclasses|merge(["#{PREFIX.transition.main}#{PREFIX.transition.above}#{EL.transition.above}"]) %} {% endif %}
-    {% if EL.transition.below is defined %} {% set outerclasses = outerclasses|merge(["#{PREFIX.transition.main}#{PREFIX.transition.below}#{EL.transition.below}"]) %} {% endif %}
-
+    {# fixed height #}
+    {% if EL.height %}
+        {% set style_attributes = "height: #{EL.height|int}vh" %}
+    {% endif %}
 
     {# background image #}
     {% if EL.bgimg %}
@@ -61,6 +61,11 @@
         {% set bgimg_obj = bgimg_obj.cropResize( CONF.other['background-image']['max-width'], CONF.other['background-image']['max-height'] ) %}
         {% set style_attributes = "background-image: url('#{bgimg_obj.url|e}')" %}
     {% endif %}
+
+
+    {# transitions #}
+    {% if EL.transition.above is defined %} {% set outerclasses = outerclasses|merge(["#{PREFIX.transition.main}#{PREFIX.transition.above}#{EL.transition.above}"]) %} {% endif %}
+    {% if EL.transition.below is defined %} {% set outerclasses = outerclasses|merge(["#{PREFIX.transition.main}#{PREFIX.transition.below}#{EL.transition.below}"]) %} {% endif %}
 
 
     {# add additional classes from outside #}

@@ -13,6 +13,9 @@ PLUGIN_ELEMENTS:
     LAYOUT_FULL: Use full width
     LAYOUT_BGFULL: Background full width, content constrained
     LAYOUT_MODULARNOTE: This setting can’t be changed for modular pages.
+    HEIGHT: 
+      LABEL: Fixed Height
+      HELP: This set the height in relation to the devices screen height (vh). 100 means exactly 100% of the screen height for this element.
     NEGCOL: Use negative colors
     CLASSES: Additional CSS Classes
     SPACING: Spacing

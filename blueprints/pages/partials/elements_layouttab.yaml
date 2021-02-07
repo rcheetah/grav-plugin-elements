@@ -19,6 +19,16 @@ form:
 
                 import@: partials/_contentlayout
 
+                header.element.height:
+                  type: number
+                  label: PLUGIN_ELEMENTS.TAB.HEIGHT.LABEL
+                  help: PLUGIN_ELEMENTS.TAB.HEIGHT.HELP
+                  toggleable: true
+                  validate:
+                    min: 10
+                    max: 100
+                    step: 5
+
                 header.element.bgcolor:
                   type: select
                   label: PLUGIN_ELEMENTS.TAB.BGCOL
