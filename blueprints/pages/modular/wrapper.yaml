@@ -13,10 +13,19 @@ form:
             content:
               unset@: true
 
+
+            # Hide Title by default
+            element.title.fieldset:
+              fields:
+                header.element.title.visible:
+                  default: 0
+                  
+
+            # Wrapper settings
             element.spacer.main:
               type: spacer
               title: PLUGIN_ELEMENTS.ELEMENTS.WRAPPER.NAME
-              ordering@: header.title
+              ordering@: element.title.fieldset
 
             element.wrapper.info:
               type: display

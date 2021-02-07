@@ -1,4 +1,5 @@
 {% extends "partials/elements_module_base.html.twig" %}
+{% use "partials/elements_title.html.twig" %}
 
 
 {% block element %}
@@ -10,10 +11,20 @@
 
 {% block element_content %}
 
-    {% for module in page.collection() %}
-        {% if ( not (module.header.visible is defined and module.header.visible == false) ) %}
-            {{ module.content|raw }}
-        {% endif %}
-    {% endfor %}
+    {# Render Title #}
+    {% if EL.title.visible is defined and EL.title.visible == true %}
+        <div class="{{element_type|e}}__title">
+            {% block element_title %} {{ parent() }} {% endblock %}
+        </div>      
+    {% endif %}
+
+    {# Render Children #}
+    <div class="{{element_type|e}}__content">
+        {% for module in page.collection() %}
+            {% if ( not (module.header.visible is defined and module.header.visible == false) ) %}
+                {{ module.content|raw }}
+            {% endif %}
+        {% endfor %}
+    </div>
 
 {% endblock element_content %}

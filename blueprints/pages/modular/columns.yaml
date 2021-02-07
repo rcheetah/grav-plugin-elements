@@ -16,6 +16,15 @@ form:
             header.media_order:
               unset@: true
 
+
+            # Hide Title by default
+            element.title.fieldset:
+              fields:
+                header.element.title.visible:
+                  default: 0
+
+
+            # Columns settings 
             element.columns.main:
               type: section
               title: PLUGIN_ELEMENTS.ELEMENTS.COLUMNS.NAME
@@ -61,7 +70,7 @@ form:
                   markdown: true
                   label: PLUGIN_ELEMENTS.ELEMENTS.COLUMNS.MIN_WIDTH_WARNING.TITLE
                   content: PLUGIN_ELEMENTS.ELEMENTS.COLUMNS.MIN_WIDTH_WARNING.CONTENT
-
+            
 
         element.layouttab:
           fields:
