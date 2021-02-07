@@ -50,6 +50,11 @@
     {% endswitch %}
 
 
+    {# transitions #}
+    {% if EL.transition.above is defined %} {% set outerclasses = outerclasses|merge(["#{PREFIX.transition.main}#{PREFIX.transition.above}#{EL.transition.above}"]) %} {% endif %}
+    {% if EL.transition.below is defined %} {% set outerclasses = outerclasses|merge(["#{PREFIX.transition.main}#{PREFIX.transition.below}#{EL.transition.below}"]) %} {% endif %}
+
+
     {# background image #}
     {% if EL.bgimg %}
         {% set bgimg_obj = page.media[EL.bgimg] %}

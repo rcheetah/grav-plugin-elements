@@ -26,6 +26,10 @@ css:
     column-gap: colgap-
     fixed-column: col-
     text-align: text-
+    transition:
+      main: transition-
+      above: above-
+      below: below-
 
 layoutoptions:
   colors: 
@@ -48,7 +52,9 @@ layoutoptions:
     center: Center
     right: Right
     justify: Justify
-other:
+  transitions:
+    default: Default
+other: 
   background-image:
     max-width: 1920
     max-height: 1280

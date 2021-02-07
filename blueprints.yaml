@@ -1,7 +1,7 @@
 name: Elements
 slug: elements
 type: plugin
-version: 0.1.0a
+version: 0.1.1a
 description: Build grav sites easier by using content elements (modules) for your page contents.
 icon: th-large
 author:
@@ -99,6 +99,16 @@ form:
             css.prefix.text-align: 
               type: text
               label: PLUGIN_ELEMENTS.SETTINGS.PREFIX.TEXT_ALIGN
+            css.prefix.transition.main: 
+              type: text
+              label: PLUGIN_ELEMENTS.SETTINGS.PREFIX.TRANSITION.MAIN
+              help: PLUGIN_ELEMENTS.SETTINGS.PREFIX.TRANSITION.HELP
+            css.prefix.transition.above: 
+              type: text
+              label: PLUGIN_ELEMENTS.SETTINGS.PREFIX.TRANSITION.ABOVE
+            css.prefix.transition.below: 
+              type: text
+              label: PLUGIN_ELEMENTS.SETTINGS.PREFIX.TRANSITION.BELOW
 
             element.settings.prefixes.spacing:
               type: columns
@@ -186,6 +196,11 @@ form:
               placeholder_key: PLUGIN_ELEMENTS.SETTINGS.LAYOUTOPTIONS.TITLETAGS.KEY
               placeholder_value: PLUGIN_ELEMENTS.SETTINGS.LAYOUTOPTIONS.TITLETAGS.VALUE
               required: true
+            layoutoptions.transition:
+              type: array
+              label: PLUGIN_ELEMENTS.SETTINGS.LAYOUTOPTIONS.TRANSITION.LABEL
+              placeholder_key: PLUGIN_ELEMENTS.SETTINGS.LAYOUTOPTIONS.TRANSITION.KEY
+              placeholder_value: PLUGIN_ELEMENTS.SETTINGS.LAYOUTOPTIONS.TRANSITION.VALUE
             
             # LAYOUT OPTIONS
             element.settings.other:

@@ -22,6 +22,10 @@ PLUGIN_ELEMENTS:
     SPACING_BELOW: Below
     SPACING_LEFT: Left
     SPACING_RIGHT: Right
+    ADVANCED: Advanced
+    TRANSITION: 
+      ABOVE: Transition above
+      BELOW: Transition below
   
   ELEMENTS:
     WRAPPER:
@@ -92,6 +96,12 @@ PLUGIN_ELEMENTS:
       COLUMN_GAP: Column Gap Prefix
       FIXED_COLUMN: Fixed Column Width Prefix
       TEXT_ALIGN: Text Align Prefix
+      TRANSITION:
+        MAIN: Transitions Main Prefix
+        HELP: "The class will be built up to something like: transition-above-fade (main-modifier-class)"
+        ABOVE: Transitions Above Modifier
+        BELOW: Transitions Below Modifier
+
 
     LAYOUTOPTIONS:
       TITLE: Layout Options
@@ -118,6 +128,10 @@ PLUGIN_ELEMENTS:
         LABEL: Available Title Tags
         KEY: css-suffix
         VALUE: Backend Tag Label
+      TRANSITION:
+        LABEL: Available Transitions for Elements
+        KEY: css-suffix
+        VALUE: Backend Transition Label
     
     OTHER:
       TITLE: Other

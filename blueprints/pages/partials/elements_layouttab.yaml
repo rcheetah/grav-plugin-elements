@@ -160,3 +160,35 @@ form:
                               style: vertical
                               default: default
                               config-options@: plugins.elements.layoutoptions.spacing
+
+
+            element.layouttab.advanced:
+              type: section
+              title: PLUGIN_ELEMENTS.TAB.ADVANCED
+              underline: true
+              fields:
+                element.transition.columns:
+                  type: columns
+                  fields:
+
+                    column1:
+                      type: column
+                      fields:
+                        header.element.transition.above:
+                          type: select
+                          label: PLUGIN_ELEMENTS.TAB.TRANSITION.ABOVE
+                          toggleable: true
+                          config-options@: plugins.elements.layoutoptions.transitions
+                    
+                    column2:
+                      type: column
+                      fields:
+                        header.element.transition.below:
+                          type: select
+                          label: PLUGIN_ELEMENTS.TAB.TRANSITION.BELOW
+                          toggleable: true
+                          config-options@: plugins.elements.layoutoptions.transitions
+
+
+
+
