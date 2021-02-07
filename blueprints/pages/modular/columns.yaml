@@ -44,7 +44,6 @@ form:
                   type: select
                   label: PLUGIN_ELEMENTS.ELEMENTS.COLUMNS.GAP
                   toggleable: true
-                  default: default
                   config-options@: plugins.elements.layoutoptions.spacing
 
                 header.element.columns.width:
