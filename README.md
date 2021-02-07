@@ -29,6 +29,7 @@ Modules can be customized in their appearance. Once you set up the plugin, you c
   - Let the background span the whole page, while the content is still constrained to a container
 - Use a different color scheme on a dark background
 - Change the margin and padding of the element
+- Add transitions obove and below the element
 - Add additional css classes
 
 ### Default elements
