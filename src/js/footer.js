@@ -13,4 +13,4 @@
 // import statement is not possible, unless with browserify extensions (if needed)
 
 
-console.log("footer.js loaded")
+// console.log("footer.js loaded")

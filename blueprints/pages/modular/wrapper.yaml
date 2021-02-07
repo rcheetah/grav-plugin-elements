@@ -45,8 +45,7 @@ form:
           fields:  
             element.layouttab.basics:
               fields:
-                header.element.contentlayout:           
-                  default: default
+                header.element.contentlayout:
                   disabled: false
                   help: unset@
                   classes: unset@
