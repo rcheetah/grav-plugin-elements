@@ -34,7 +34,6 @@ form:
                 header.element.title.constrain:
                   type: toggle
                   label: PLUGIN_ELEMENTS.TITLEOPTIONS.CONSTRAIN
-                  toggleable: true
                   highlight: 1
                   default: 1
                   options:
