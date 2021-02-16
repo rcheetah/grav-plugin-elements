@@ -22,6 +22,7 @@ form:
                   unset@: true
                   type: toggle
                   label: PLUGIN_ELEMENTS.TITLEOPTIONS.VISIBLE
+                  toggleable: true
                   highlight: 1
                   default: 1
                   options:
