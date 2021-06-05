@@ -27,6 +27,7 @@ Modules can be customized in their appearance. Once you set up the plugin, you c
   - Let the element be constrained in it's container (default)
   - Let the element span the whole page
   - Let the background span the whole page, while the content is still constrained to a container
+- Set fixed heights for elements
 - Use a different color scheme on a dark background
 - Change the margin and padding of the element
 - Add transitions obove and below the element
@@ -229,3 +230,7 @@ Thanks to all the people in the Grav discord channel that helped a hobby program
 - [ ] Add an option to incorporate standard css rules, to let the plugin work better out-of-the-box
 - [ ] Create better docs
 - [ ] Add to plugin to the GPM
+- [ ] Add option for subtitles
+- [ ] Add option for fixed heights (maybe percent using `vh`)
+- [ ] Add option for custom module id (for inpage links) or maybe use folder name from slug (unique and well formated)
+- [ ] Add option for background layer effects

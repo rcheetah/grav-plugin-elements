@@ -13,11 +13,24 @@
 
 {% block element_content %}
 
+
+    {% block element_title_before %} {% endblock %}
+
     {% block element_title %} {% endblock %}
+
+    {% block element_title_after %} {% endblock %}
+    
+
+
+    {% block element_main_before %} {% endblock %}
+
     {% for module in page.collection() %}
         {% if ( not (module.header.visible is defined and module.header.visible == false) ) %}
             {{ module.content|raw }}
         {% endif %}
     {% endfor %}
+
+    {% block element_main_after %} {% endblock %}
+
 
 {% endblock element_content %}

@@ -20,3 +20,16 @@
     * and more …
 3. [](#bugfix)
     * Yes :) (didn’t record)
+
+
+# v0.3.0a (in progress)
+##  06/05/2021
+
+1. [](#new)
+    * Added option for fixed height of elements
+    * Added placeholders to insert content before and after the title and the main section
+2. [](#improved)
+    * 
+3. [](#bugfix)
+    * Fixed wrappers contentlayout setting being set to `default` instead of `full` (and possibly more similar problems with default)
+    * Fixed typo for backend configuration
