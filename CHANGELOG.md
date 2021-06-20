@@ -28,6 +28,8 @@
 1. [](#new)
     * Added option for fixed height of elements
     * Added placeholders to insert content before and after the title and the main section
+    * `Columns` was renamed to `Grid` and is now clearly intended for a `display: grid` system.
+    * New `Columns` element works with classic grid systems like bootstrap
 2. [](#improved)
     * 
 3. [](#bugfix)

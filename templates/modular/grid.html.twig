@@ -5,7 +5,7 @@
 {% block element %}
 
     {% set element_type = "#{ element_type ?? config.plugins.elements.css.classname.module }" %}
-    {% set element_variant = "#{ element_variant ?? 'columns' }" %}
+    {% set element_variant = "#{ element_variant ?? 'grid' }" %}
     {{ parent() }}
 
 {% endblock element %}
@@ -18,20 +18,30 @@
 
     {% set outerclasses = "" %}
     {% set innerclasses = "" %}
+    {% set style_attributes = "" %}
 
     {# outer #}
-    {% set outerclasses = "#{outerclasses} #{CONF.css.classname.columns.row}" %}
-    {% if EL.columns.no_gutters %} 
-      {% set outerclasses = "#{outerclasses} #{CONF.css.classname.columns['no-gutters']}" %}
+    {% set outerclasses = "#{outerclasses} #{CONF.css.classname.grid.container}" %}
+    {% if EL.grid.gap is defined and EL.grid.gap is not null and EL.grid.gap != "default" %} 
+      {% set outerclasses = "#{outerclasses} #{CONF.css.prefix['grid-gap']}#{EL.grid.gap}" %}
     {% endif %}
     
     {# innner #}
-    {% set innerclasses = "#{innerclasses} #{CONF.css.classname.columns.column}" %}
+    {% set innerclasses = "#{innerclasses} #{CONF.css.classname.grid.item}" %}
+    {% if EL.grid.width is defined and EL.grid.width is not null %} 
+      {% set innerclasses = "#{innerclasses} #{CONF.css.prefix['fixed-column']}#{EL.grid.width}" %}
+    {% endif %}
 
+    {# styles #}
+    {% if EL.grid.minwidth is defined and EL.grid.minwidth is not null %} 
+      {% set style_attributes = "#{style_attributes} min-width: #{EL.grid.minwidth}px;" %}
+    {% endif %}
 
     {# final variable preparation #}
     {% set outerclasses = outerclasses|trim %}
     {% set innerclasses = innerclasses|trim %}
+    {% set style_attributes = "style=\"#{style_attributes}\"" %}
+
 
 
     {# Render Title #}
@@ -45,23 +55,11 @@
     <div class="{{element_type|e}}__content {{outerclasses|e}}" >
         {% for column in page.collection() %}
 
-            {% if ( (header.element.columns.items[loop.index0] is defined) or (header.element.columns.render_overflow) ) %}
-              
-              {% set this_col = header.element.columns.items[loop.index0] %}
-
-              {% set specific_classes = "" %}
-              {% if this_col.width is defined %}
-                {% set specific_classes = "#{CONF.css.prefix['fixed-column']}#{this_col.width}" %}
-              {% endif %}
-              {% if this_col.additional_classes is defined %}
-                {% set specific_classes = "#{specific_classes} #{this_col.additional_classes}" %}
-              {% endif %}
-
-              <div class="{{innerclasses|e}} {{specific_classes|e}}">
+          {% if ( not (column.header.visible is defined and column.header.visible == false) ) %}
+              <div class="{{innerclasses|e}}" {{style_attributes|raw}}>
                   {{ column.content|raw }}
               </div>
-
-            {% endif %}
+          {% endif %}
 
         {% endfor %}
     </div>

@@ -38,11 +38,28 @@ PLUGIN_ELEMENTS:
         CONTENT: Add child modules in the page tree. The children are displayed underneath each other.
     COLUMNS:
       NAME: Columns
+      ITEMS: Columns
+      NO_GUTTERS: 
+        LABEL: Remove Gaps
+      OVERFLOW:
+        LABEL: Render overflowing children
+        HELP: If this option is set, then all children of this page are being rendered. If there is no more definition by the array, the rest is rendered as standard columns. If this option is set to `no`, then only the number of columns set in the list below is rendered, and the rest of the children are ignored, 
+      ITEM:
+        WIDTH: 
+          LABEL: Width
+          HELP: How many colums the colums should span in 1/12 units.
+        ADDITIONAL_CLASSES: 
+          LABEL: Configuration (CSS Classes)
+          HELP: Here you can add additional classes e.g. to change the width depending on the width of the device, or changing the visual order.
+        
+
+    GRID:
+      NAME: Grid
       NOTE:
         TITLE: "**About this Element**"
         CONTENT: Add child modules in the page tree. The children are displayed in a grid. You can change the grid settings here.
-      GAP: Column Gap
-      WIDTH: Column Span (X out of 12)
+      GAP: Grid Gap
+      WIDTH: Grid Span (X out of 12)
       MIN_WIDTH: Minimal Column Width 
       MIN_WIDTH_WARNING: 
         TITLE: "**USE `Minimal Column Width` WITH CARE!**"
@@ -76,13 +93,23 @@ PLUGIN_ELEMENTS:
         FULLWIDTH:
           LABEL: Fullwidth Container Class (additional)
           HELP: This class – when added to the container – will overwrite the constrain to set the width to 100%. E.g. the bootstrap w-100 
-      GRID:
+      COLUMNS:
         ROW: 
-          LABEL: Grid Row (outer class)
-          HELP: The outer class of your grid system, e.g. 'row' for bootstrap
+          LABEL: Row (outer class)
+          HELP: The outer class of your grid system
         COLUMN: 
-          LABEL: Grid Column (inner class)
-          HELP: The class for the column of your grid system, e.g. 'col' for bootstrap
+          LABEL: Column Item (inner class)
+          HELP: The base class for each column
+        NO_GUTTERS: 
+          LABEL: No-Gutter-Class
+          HELP: A class to render the columns without any gutters
+      GRID:
+        CONTAINER: 
+          LABEL: Grid container (outer class)
+          HELP: The outer class of your grid system
+        ITEM: 
+          LABEL: Grid Item (inner class)
+          HELP: The class for each item inside the grid
       NEGATIVECOLORS: 
         LABEL: Negative Colors Class
         HELP: "This class should overwrite the colors to be readable on a dark background. In the most simple form it would be 'color: white', but most elements will need more sophisticated rules."
@@ -96,7 +123,7 @@ PLUGIN_ELEMENTS:
       LEFT: Left
       RIGHT: Right
       BACKGROUND_COLOR: Background Color Prefix
-      COLUMN_GAP: Column Gap Prefix
+      GRID_GAP: Grid Gap Prefix
       FIXED_COLUMN: Fixed Column Width Prefix
       TEXT_ALIGN: Text Align Prefix
       TRANSITION:

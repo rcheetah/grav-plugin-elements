@@ -1,0 +1,84 @@
+title: Grid
+extends@: modular
+
+form:
+  fields:
+    tabs:
+      fields:
+
+        # Extending Tab Content 
+        content:
+          fields:
+
+            content: 
+              unset@: true
+
+            header.media_order:
+              unset@: true
+
+
+            # Hide Title by default
+            element.title.fieldset:
+              fields:
+                header.element.title.visible:
+                  default: 0
+
+
+            # Columns settings 
+            element.grid.main:
+              type: section
+              title: PLUGIN_ELEMENTS.ELEMENTS.GRID.NAME
+              ordering@: 3
+
+              fields:
+
+                element.grid.info:
+                  type: display
+                  size: long
+                  style: vertical
+                  markdown: true
+                  label: PLUGIN_ELEMENTS.ELEMENTS.GRID.NOTE.TITLE
+                  content: PLUGIN_ELEMENTS.ELEMENTS.GRID.NOTE.CONTENT
+
+                header.element.grid.gap:
+                  type: select
+                  label: PLUGIN_ELEMENTS.ELEMENTS.GRID.GAP
+                  toggleable: true
+                  config-options@: plugins.elements.layoutoptions.spacing
+
+                header.element.grid.width:
+                  type: number
+                  label: PLUGIN_ELEMENTS.ELEMENTS.GRID.WIDTH
+                  toggleable: true
+                  validate:
+                    min: 1
+                    max: 12
+                
+                header.element.grid.minwidth:
+                  type: number
+                  label: PLUGIN_ELEMENTS.ELEMENTS.GRID.MIN_WIDTH
+                  toggleable: true
+                  validate:
+                    min: 100
+                    max: 3000
+                    step: 50
+                
+                element.grid.count_hint:
+                  type: display
+                  style: vertical
+                  markdown: true
+                  label: PLUGIN_ELEMENTS.ELEMENTS.GRID.MIN_WIDTH_WARNING.TITLE
+                  content: PLUGIN_ELEMENTS.ELEMENTS.GRID.MIN_WIDTH_WARNING.CONTENT
+            
+
+        element.layouttab:
+          fields:
+            element.layouttab.basics:
+              fields:
+
+                # deactivated in modular, should be reactivated in grid
+                element.contentlayout.readonly:
+                  unset@: true
+                header.element.contentlayout:
+                  unset@: true
+                import@: partials/_contentlayout

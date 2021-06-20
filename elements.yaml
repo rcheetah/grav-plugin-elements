@@ -7,9 +7,13 @@ css:
     container:
       regular: container
       fullwidth: container-full
-    grid:
+    columns:
       row: row
       column: col
+      no-gutters: no-gutters
+    grid:
+      container: grid
+      item: grid__inner
     negativecolors: "colors-negative"
   prefix:
     padding:
@@ -23,7 +27,7 @@ css:
       left: ml-
       right: mr-
     background-color: bg-
-    column-gap: colgap-
+    grid-gap: colgap-
     fixed-column: col-
     text-align: text-
     transition:

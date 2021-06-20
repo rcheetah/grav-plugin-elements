@@ -68,14 +68,26 @@ form:
               type: text
               label: PLUGIN_ELEMENTS.SETTINGS.CLASSNAME.CONTAINER.FULLWIDTH.LABEL
               help: PLUGIN_ELEMENTS.SETTINGS.CLASSNAME.CONTAINER.FULLWIDTH.HELP
-            css.classname.grid.row:
+            css.classname.columns.row:
               type: text
-              label: PLUGIN_ELEMENTS.SETTINGS.CLASSNAME.GRID.ROW.LABEL
-              help: PLUGIN_ELEMENTS.SETTINGS.CLASSNAME.GRID.ROW.HELP
-            css.classname.grid.column:
+              label: PLUGIN_ELEMENTS.SETTINGS.CLASSNAME.COLUMNS.CONTAINER.LABEL
+              help: PLUGIN_ELEMENTS.SETTINGS.CLASSNAME.COLUMNS.CONTAINER.HELP
+            css.classname.columns.column:
               type: text
-              label: PLUGIN_ELEMENTS.SETTINGS.CLASSNAME.GRID.COLUMN.LABEL
-              help: PLUGIN_ELEMENTS.SETTINGS.CLASSNAME.GRID.COLUMN.HELP
+              label: PLUGIN_ELEMENTS.SETTINGS.CLASSNAME.COLUMNS.ITEM.LABEL
+              help: PLUGIN_ELEMENTS.SETTINGS.CLASSNAME.COLUMNS.ITEM.HELP
+            css.classname.columns.no-gutters:
+              type: text
+              label: PLUGIN_ELEMENTS.SETTINGS.CLASSNAME.COLUMNS.NO_GUTTERS.LABEL
+              help: PLUGIN_ELEMENTS.SETTINGS.CLASSNAME.COLUMNS.NO_GUTTERS.HELP
+            css.classname.grid.container:
+              type: text
+              label: PLUGIN_ELEMENTS.SETTINGS.CLASSNAME.GRID.CONTAINER.LABEL
+              help: PLUGIN_ELEMENTS.SETTINGS.CLASSNAME.GRID.CONTAINER.HELP
+            css.classname.grid.item:
+              type: text
+              label: PLUGIN_ELEMENTS.SETTINGS.CLASSNAME.GRID.ITEM.LABEL
+              help: PLUGIN_ELEMENTS.SETTINGS.CLASSNAME.GRID.ITEM.HELP
             css.classname.negativecolors:
               type: text
               label: PLUGIN_ELEMENTS.SETTINGS.CLASSNAME.NEGATIVECOLORS.LABEL
@@ -90,9 +102,9 @@ form:
             css.prefix.background-color: 
               type: text
               label: PLUGIN_ELEMENTS.SETTINGS.PREFIX.BACKGROUND_COLOR
-            css.prefix.column-gap: 
+            css.prefix.grid-gap: 
               type: text
-              label: PLUGIN_ELEMENTS.SETTINGS.PREFIX.COLUMN_GAP
+              label: PLUGIN_ELEMENTS.SETTINGS.PREFIX.GRID_GAP
             css.prefix.fixed-column: 
               type: text
               label: PLUGIN_ELEMENTS.SETTINGS.PREFIX.FIXED_COLUMN
