@@ -6,31 +6,41 @@
         
         {% set element_type = "#{ element_type ?? config.plugins.elements.css.classname.page }" %}
         {% set element_variant = "#{ element_variant ?? 'modular' }" %}
+        {% set element_modules_position = "#{ element_modules_position ?? 'above' }" %}
         {{ parent() }}
 
 {% endblock element %}
 
 
+
+{% block element_main_before %} 
+
+    {% if content is not empty and element_modules_position != "below" %}
+        <div class="{{element_type|e}}__content">{{page.content|raw}}</div>
+    {% endif %}
+
+{% endblock element_main_before %}
+
+
+
 {% block element_content %}
 
-
-    {% block element_title_before %} {% endblock %}
-
-    {% block element_title %} {% endblock %}
-
-    {% block element_title_after %} {% endblock %}
-    
-
-
-    {% block element_main_before %} {% endblock %}
-
-    {% for module in page.collection() %}
-        {% if ( not (module.header.visible is defined and module.header.visible == false) ) %}
-            {{ module.content|raw }}
-        {% endif %}
-    {% endfor %}
-
-    {% block element_main_after %} {% endblock %}
-
+    <div class="{{element_type|e}}__modules">
+        {% for module in page.collection() %}
+            {% if ( not (module.header.visible is defined and module.header.visible == false) ) %}
+                {{ module.content|raw }}
+            {% endif %}
+        {% endfor %}
+    </div>
 
 {% endblock element_content %}
+
+
+
+{% block element_main_after %} 
+
+    {% if content is not empty and element_modules_position == "below" %}
+        <div class="{{element_type|e}}__content">{{page.content|raw}}</div>
+    {% endif %}
+
+{% endblock element_main_after %}

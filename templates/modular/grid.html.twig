@@ -42,15 +42,7 @@
     {% set innerclasses = innerclasses|trim %}
     {% set style_attributes = "style=\"#{style_attributes}\"" %}
 
-
-
-    {# Render Title #}
-    {% if EL.title.visible is defined and EL.title.visible == true %}
-      <div class="{{element_type|e}}__title">
-        {% block element_title %} {{ parent() }} {% endblock %}
-      </div>      
-    {% endif %}
-
+    
     {# Render Children #}
     <div class="{{element_type|e}}__content {{outerclasses|e}}" >
         {% for column in page.collection() %}

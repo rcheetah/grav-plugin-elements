@@ -18,6 +18,7 @@ PLUGIN_ELEMENTS:
       HELP: This set the height in relation to the devices screen height (vh). 100 means exactly 100% of the screen height for this element.
     NEGCOL: Use negative colors
     CLASSES: Additional CSS Classes
+    ID: Specific HTML Id for outer Container
     SPACING: Spacing
     SPACING_MARGIN: Space Outside
     SPACING_PADDING: Space Inside
@@ -43,7 +44,9 @@ PLUGIN_ELEMENTS:
         LABEL: Remove Gaps
       OVERFLOW:
         LABEL: Render overflowing children
-        HELP: If this option is set, then all children of this page are being rendered. If there is no more definition by the array, the rest is rendered as standard columns. If this option is set to `no`, then only the number of columns set in the list below is rendered, and the rest of the children are ignored, 
+        HELP: > 
+          If this option is set, then all children of this page are being rendered. If there is no more definition by the array, the rest is rendered as standard columns. 
+          If this option is set to `no`, then only the number of columns set in the list below is rendered, and the rest of the children are ignored, 
       ITEM:
         WIDTH: 
           LABEL: Width
@@ -92,7 +95,7 @@ PLUGIN_ELEMENTS:
           HELP: This class should constrain the width of the element, e.g. the bootsrap container.
         FULLWIDTH:
           LABEL: Fullwidth Container Class (additional)
-          HELP: This class – when added to the container – will overwrite the constrain to set the width to 100%. E.g. the bootstrap w-100 
+          HELP: This class – when added to the container – will overwrite the constrain to set the width to 100%. E.g. the bootstrap w-100 
       COLUMNS:
         ROW: 
           LABEL: Row (outer class)
@@ -137,11 +140,14 @@ PLUGIN_ELEMENTS:
       TITLE: Layout Options
       HINT:
         LABEL: About these settings
-        CONTENT: "**The key-value pairs follow this syntax:** <br>
-        `key` is the css-class value (gets prepended by the prefix). So if it’s set to `large` and the prefix is set to `pt--`, then the element will have the class `pt--large`. You have to define the css classes for yourself, for the setting to take effect. The title tag is an exception, it’s key will be used as the tag. Every valid html tag should work, so you are not restricted to heading tags. <br>
-        `value` is the label that will be displayed in the backend select boxes. Use a descriptive label that your editors will understand. <br>
-        **NOTE:** Each of these options must at least contain the value `default`. This setting means, that the no class is added and the default values will not be overwritten. This is also the default option in the backend.
-        "
+        CONTENT: >
+          "**The key-value pairs follow this syntax:** <br>
+          `key` is the css-class value (gets prepended by the prefix). So if it’s set to `large` and the prefix is set to `pt--`, then the element will have the class `pt--large`. 
+          You have to define the css classes for yourself, for the setting to take effect. The title tag is an exception, it’s key will be used as the tag. 
+          Every valid html tag should work, so you are not restricted to heading tags. <br>
+          `value` is the label that will be displayed in the backend select boxes. Use a descriptive label that your editors will understand. <br>
+          **NOTE:** Each of these options must at least contain the value `default`. This setting means, that the no class is added and the default values will not be overwritten. 
+          This is also the default option in the backend.
       COLORS: 
         LABEL: Available Colors
         KEY: css-suffix

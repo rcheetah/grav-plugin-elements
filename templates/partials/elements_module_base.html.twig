@@ -13,9 +13,11 @@
     {# redeem settings #}
     {% set element_type = "#{ element_type ?? '' }" %}
     {% set element_variant = "#{ element_variant ?? '' }" %}
-    {% set outerclasses = [] %}
-    {% set innerclasses = [] %}
-    {% set style_attributes = [] %}
+    {% set outerclasses = "#{ element_outerclasses ?? [] }" %}
+    {% set innerclasses = "#{ element_innerclasses ?? [] }" %}
+    {% set style_attributes = "#{ element_style_attributes ?? [] }" %}
+    {% set element_default_title = "#{ element_default_title ?? true }" %}
+
 
 
     {# spacing #}
@@ -71,21 +73,45 @@
     {% set outerclasses = outerclasses|merge(["#{element_add_outerclasses|trim|e}"]) %}
     {% set innerclasses = innerclasses|merge(["#{element_add_innerclasses|trim|e}"]) %}
 
-
+    
+    {# add specific id if give #}
+    {% set outer_id = "" %}
+    {% if EL.id is defined %} {% set outer_id = "id=\"#{EL.id|e}\"" %} {% endif %}
+    
+    
     {# final variable preparation #}
     {% set outerclasses = outerclasses|join(" ") %}
     {% set innerclasses = innerclasses|join(" ") %}
-    {% set style_attributes = "style=\"#{style_attributes|join('; ')}\"" %}
     {% set variantclass = "#{element_type}--#{element_variant}" %}
+    
+    {% if style_attributes is not empty %}
+        {% set style_attributes = "style=\"#{style_attributes|join('; ')}\"" %}
+    {% else %}
+        {% set style_attributes = "" %}
+    {% endif %}
 
     {# render element #}
-    <div class="{{element_type|e}} {{variantclass|e}} {{outerclasses|e}} {{EL.classes|e}}" {{style_attributes|raw}} >
+    <div class="{{element_type|e}} {{variantclass|e}} {{outerclasses|e}} {{EL.classes|e}}" {{style_attributes|raw}} {{outer_id|raw}} >
         <div class="{{innerclasses|e}}">
+
+            {% block element_title_before %} {% endblock %}
+
+            {% if element_default_title %}
+                {% block element_title %} {% endblock %}
+            {% endif %}
+        
+            {% block element_title_after %} {% endblock %}
             
+            {% block element_main_before %} {% endblock %}
+            
+
             {% block element_content %}
                 <div class="{{element_type|e}}__content">{{page.content|raw}}</div>
             {% endblock element_content %}
             
+            
+            {% block element_main_after %} {% endblock %}
+
         </div>
     </div>
 

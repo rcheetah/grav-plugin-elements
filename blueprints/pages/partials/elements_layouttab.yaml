@@ -57,6 +57,13 @@ form:
                   label: PLUGIN_ELEMENTS.TAB.CLASSES
                   toggleable: true
 
+                header.element.id:
+                  type: text
+                  label: PLUGIN_ELEMENTS.TAB.ID
+                  toggleable: true
+                  validate:
+                    pattern: '^[a-zA-Z][\w:.-]*$'
+
             
             element.layouttab.spacing:
               type: section

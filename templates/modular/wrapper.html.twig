@@ -11,13 +11,6 @@
 
 {% block element_content %}
 
-    {# Render Title #}
-    {% if EL.title.visible is defined and EL.title.visible == true %}
-        <div class="{{element_type|e}}__title">
-            {% block element_title %} {{ parent() }} {% endblock %}
-        </div>      
-    {% endif %}
-
     {# Render Children #}
     <div class="{{element_type|e}}__content">
         {% for module in page.collection() %}

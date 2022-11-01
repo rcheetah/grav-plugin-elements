@@ -22,8 +22,8 @@
     * Yes :) (didn’t record)
 
 
-# v0.3.0a (in progress)
-##  06/05/2021
+# v0.3.0a
+##  01/11/2022
 
 1. [](#new)
     * Added option for fixed height of elements
