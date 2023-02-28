@@ -31,7 +31,6 @@
     * `Columns` was renamed to `Grid` and is now clearly intended for a `display: grid` system.
     * New `Columns` element works with classic grid systems like bootstrap
 2. [](#improved)
-    * 
 3. [](#bugfix)
     * Fixed wrappers contentlayout setting being set to `default` instead of `full` (and possibly more similar problems with default)
     * Fixed typo for backend configuration
@@ -40,8 +39,15 @@
 ##  02/18/2023
 
 1. [](#new)
-
 2. [](#improved)
     * Added to additional content layouts: 'Constrain to small container' and 'Background full width, content small'
 3. [](#bugfix)
     * Version number was not updated in last release
+
+# v0.3.2a
+##  02/18/2023
+
+1. [](#new)
+2. [](#improved)
+3. [](#bugfix)
+    * Added the class for the small container variant into the settings menu

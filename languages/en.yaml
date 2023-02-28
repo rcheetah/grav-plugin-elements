@@ -98,6 +98,9 @@ PLUGIN_ELEMENTS:
         FULLWIDTH:
           LABEL: Fullwidth Container Class (additional)
           HELP: This class – when added to the container – will overwrite the constrain to set the width to 100%. E.g. the bootstrap w-100 
+        SMALL:
+          LABEL: Small Container Class (additional)
+          HELP: This class – when added to the container – will change the width of the container to a narrower variant. 
       COLUMNS:
         ROW: 
           LABEL: Row (outer class)

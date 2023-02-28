@@ -1,7 +1,7 @@
 name: Elements
 slug: elements
 type: plugin
-version: v0.3.1a
+version: v0.3.2a
 description: Build grav sites easier by using content elements (modules) for your page contents.
 icon: th-large
 author:
@@ -68,6 +68,10 @@ form:
               type: text
               label: PLUGIN_ELEMENTS.SETTINGS.CLASSNAME.CONTAINER.FULLWIDTH.LABEL
               help: PLUGIN_ELEMENTS.SETTINGS.CLASSNAME.CONTAINER.FULLWIDTH.HELP
+            css.classname.container.small:
+              type: text
+              label: PLUGIN_ELEMENTS.SETTINGS.CLASSNAME.CONTAINER.SMALL.LABEL
+              help: PLUGIN_ELEMENTS.SETTINGS.CLASSNAME.CONTAINER.SMALL.HELP
             css.classname.columns.row:
               type: text
               label: PLUGIN_ELEMENTS.SETTINGS.CLASSNAME.COLUMNS.CONTAINER.LABEL
