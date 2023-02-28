@@ -46,6 +46,12 @@
         {% case 'bgfull' %}
             {% set outerclasses = outerclasses|merge(["#{CLASSNAMES.container.fullwidth}"]) %}
             {% set innerclasses = innerclasses|merge(["#{CLASSNAMES.container.regular}"]) %}
+        {% case 'small' %}
+            {% set outerclasses = outerclasses|merge(["#{CLASSNAMES.container.regular}", "#{CLASSNAMES.container.small}"]) %}
+            {% set innerclasses = innerclasses|merge(["#{CLASSNAMES.container.regular}"]) %}
+        {% case 'bgsmall' %}
+            {% set outerclasses = outerclasses|merge(["#{CLASSNAMES.container.fullwidth}"]) %}
+            {% set innerclasses = innerclasses|merge(["#{CLASSNAMES.container.regular}", "#{CLASSNAMES.container.small}"]) %}
         {% default %}
             {% set outerclasses = outerclasses|merge(["#{CLASSNAMES.container.regular}"]) %}
             {% set innerclasses = innerclasses|merge(["#{CLASSNAMES.container.regular}"]) %}

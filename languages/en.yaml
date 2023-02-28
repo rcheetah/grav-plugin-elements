@@ -12,6 +12,8 @@ PLUGIN_ELEMENTS:
     LAYOUT_DEFAULT: Constrain to container
     LAYOUT_FULL: Use full width
     LAYOUT_BGFULL: Background full width, content constrained
+    LAYOUT_SMALL: Constrain to small container
+    LAYOUT_BGSMALL: Background full width, content small
     LAYOUT_MODULARNOTE: This setting can’t be changed for modular pages.
     HEIGHT: 
       LABEL: Fixed Height

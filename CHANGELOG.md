@@ -35,3 +35,13 @@
 3. [](#bugfix)
     * Fixed wrappers contentlayout setting being set to `default` instead of `full` (and possibly more similar problems with default)
     * Fixed typo for backend configuration
+
+# v0.3.1a
+##  02/18/2023
+
+1. [](#new)
+
+2. [](#improved)
+    * Added to additional content layouts: 'Constrain to small container' and 'Background full width, content small'
+3. [](#bugfix)
+    * Version number was not updated in last release

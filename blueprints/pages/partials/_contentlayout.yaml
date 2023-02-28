@@ -7,5 +7,7 @@ form:
       default: PLUGIN_ELEMENTS.TAB.LAYOUT_DEFAULT
       full: PLUGIN_ELEMENTS.TAB.LAYOUT_FULL
       bgfull: PLUGIN_ELEMENTS.TAB.LAYOUT_BGFULL
+      small: PLUGIN_ELEMENTS.TAB.LAYOUT_SMALL
+      bgsmall: PLUGIN_ELEMENTS.TAB.LAYOUT_BGSMALL
   element.contentlayout.readonly:
     unset@: true
