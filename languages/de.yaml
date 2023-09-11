@@ -1,0 +1,185 @@
+PLUGIN_ELEMENTS:
+
+  YES: Ja
+  NO: Nein
+
+  TAB:
+    TITLE: Layout
+    BASICS: Grundlagen
+    BGCOL: Hintergrundfarbe
+    BGIMG: Hintergrundbild
+    LAYOUT: Inhaltsbreite
+    LAYOUT_DEFAULT: Auf Container beschränken
+    LAYOUT_FULL: Volle Breite nutzen
+    LAYOUT_BGFULL: Hintergrund volle Breite, Inhalt angepasst
+    LAYOUT_SMALL: Auf kleinen Container beschränken
+    LAYOUT_BGSMALL: Hintergrund volle Breite, Inhalt klein
+    LAYOUT_MODULARNOTE: Diese Einstellung kann für modulare Seiten nicht geändert werden.
+    HEIGHT:
+      LABEL: Feste Höhe
+      HELP: Diese Einstellung setzt die Höhe in Bezug zur Gerätebildschirmhöhe (vh). 100 bedeutet genau 100% der Bildschirmhöhe für dieses Element.
+    NEGCOL: Negative Farben verwenden
+    CLASSES: Zusätzliche CSS-Klassen
+    ID: Spezifische HTML-ID für äußeren Container
+    SPACING: Abstände
+    SPACING_MARGIN: Abstand außen
+    SPACING_PADDING: Abstand innen
+    SPACING_ABOVE: Oben
+    SPACING_BELOW: Unten
+    SPACING_LEFT: Links
+    SPACING_RIGHT: Rechts
+    ADVANCED: Erweitert
+    TRANSITION:
+      ABOVE: Übergang oben
+      BELOW: Übergang unten
+
+  ELEMENTS:
+    WRAPPER:
+      NAME: Wrapper
+      NOTE:
+        TITLE: "**Über dieses Element**"
+        CONTENT: Füge im Seitenbaum Kindmodule hinzu. Die Kinder werden untereinander angezeigt.
+    COLUMNS:
+      NAME: Spalten
+      ITEMS: Spalten
+      NO_GUTTERS:
+        LABEL: Abstände entfernen
+      OVERFLOW:
+        LABEL: Zusätzliche Kinder rendern
+        HELP: >
+          Wenn diese Option gesetzt ist, werden alle Kinder dieser Seite gerendert. Falls keine weitere Definition durch das Array vorhanden ist, wird der Rest als Standardspalten gerendert.
+          Ist diese Option auf `nein` gesetzt, werden nur die in der Liste unten festgelegten Spalten gerendert, der Rest der Kinder wird ignoriert.
+      ITEM:
+        WIDTH:
+          LABEL: Breite
+          HELP: Wie viele Spalten die Spalte in 1/12 Einheiten einnehmen soll.
+        ADDITIONAL_CLASSES:
+          LABEL: Konfiguration (CSS-Klassen)
+          HELP: Hier kannst du zusätzliche Klassen hinzufügen, z.B. um die Breite je nach Gerätebreite zu ändern oder die visuelle Reihenfolge zu ändern.
+
+
+    GRID:
+      NAME: Raster
+      NOTE:
+        TITLE: "**Über dieses Element**"
+        CONTENT: Füge im Seitenbaum Kindmodule hinzu. Die Kinder werden in einem Raster angezeigt. Du kannst die Rastereinstellungen hier ändern.
+      GAP: Rasterabstand
+      WIDTH: Rasterspanne (X von 12)
+      MIN_WIDTH: Minimale Spaltenbreite
+      MIN_WIDTH_WARNING:
+        TITLE: "**VERWENDE `Minimale Spaltenbreite` MIT VORSICHT!**"
+        CONTENT: Diese Einstellung kann deine Seite auf kleinen Bildschirmen unbrauchbar machen. Wenn die minimale Breite größer als die Gerätebreite ist, wird sie nicht mehr responsiv sein.
+
+  TITLEOPTIONS:
+    TITLE: Titeloptionen
+    VISIBLE: Titel anzeigen?
+    ALIGN: Titelausrichtung überschreiben
+    TAG: HTML-Tag überschreiben
+    CLASSES: Zusätzliche CSS-Klassen
+    CONSTRAIN: Titelbreite einschränken
+
+  SETTINGS:
+    TABS:
+      GENERAL: Allgemein
+      CONFIG: Konfiguration
+
+    CLASSNAME:
+      TITLE: CSS-Klassennamen
+      PAGE:
+        LABEL: Standardseitenklasse
+        HELP: Diese Klasse wird zu Seiten hinzugefügt (Standard, Modular usw.)
+      MODULE:
+        LABEL: Standardmodulklasse
+        HELP: Diese Klasse wird zu Modulen hinzugefügt (Raster, Wrapper usw.)
+      CONTAINER:
+        REGULAR:
+          LABEL: Standard-Containerklasse
+          HELP: Diese Klasse sollte die Breite des Elements einschränken, z.B. der Bootstrap-Container.
+        FULLWIDTH:
+          LABEL: Volle Breiten-Containerklasse (zusätzlich)
+          HELP: Diese Klasse - wenn zum Container hinzugefügt - wird die Einschränkung überschreiben und die Breite auf 100% setzen. Z.B. die Bootstrap w-100.
+        SMALL:
+          LABEL: Kleine Containerklasse (zusätzlich)
+          HELP: Diese Klasse – wenn zum Container hinzugefügt – wird die Breite des Containers auf eine schmalere Variante ändern.
+      COLUMNS:
+        ROW:
+          LABEL: Zeilen-Klasse (äußere Klasse)
+          HELP: Die äußere Klasse deines Rastersystems
+        COLUMN:
+          LABEL: Spalten-Klasse (innere Klasse)
+          HELP: Die Basisklasse für jede Spalte
+        NO_GUTTERS:
+          LABEL: Kein-Abstand-Klasse
+          HELP: Eine Klasse, um die Spalten ohne Zwischenräume darzustellen
+      GRID:
+        CONTAINER:
+          LABEL: Grid-Container (äußere Klasse)
+          HELP: Die äußere Klasse deines Rastersystems
+        ITEM:
+          LABEL: Grid-Element (innere Klasse)
+          HELP: Die Klasse für jedes Element im Raster
+      NEGATIVECOLORS:
+        LABEL: Klasse für negative Farben
+        HELP: "Diese Klasse sollte die Farben so überschreiben, dass sie auf einem dunklen Hintergrund lesbar sind. In der einfachsten Form wäre es 'color: white', aber die meisten Elemente benötigen komplexere Regeln."
+
+    PREFIX:
+      TITLE: Präfixe
+      PADDING: Padding-Präfix
+      MARGIN: Margin-Präfix
+      TOP: Oben
+      BOTTOM: Unten
+      LEFT: Links
+      RIGHT: Rechts
+      BACKGROUND_COLOR: Hintergrundfarben-Präfix
+      GRID_GAP: Grid-Abstand-Präfix
+      FIXED_COLUMN: Feste Spaltenbreite-Präfix
+      TEXT_ALIGN: Textausrichtungs-Präfix
+      TRANSITION:
+        MAIN: Präfix für Übergänge
+        HELP: "Die Klasse wird zu etwas wie: transition-above-fade"
+        ABOVE: Suffix für Übergänge oben
+        BELOW: Suffix für Übergänge unten
+
+
+    LAYOUTOPTIONS:
+      TITLE: Layout-Optionen
+      HINT:
+        LABEL: Über diese Einstellungen
+        CONTENT: >
+          "**Die Schlüssel-Wert-Paare folgen dieser Syntax:** <br>
+          `key` ist der CSS-Klassenwert (wird mit dem Präfix ergänzt). Wenn also `large` eingestellt und das Präfix auf `pt--` gesetzt ist, hat das Element die Klasse `pt--large`.
+          Du musst die CSS-Klassen selbst definieren, damit die Einstellung wirksam wird. Der Titel-Tag ist eine Ausnahme, sein Schlüssel wird als Tag verwendet.
+          Jeder gültige HTML-Tag sollte funktionieren, also bist du nicht auf Überschrift-Tags beschränkt. <br>
+          `value` ist das Label, das in den Backend-Auswahlboxen angezeigt wird. Verwende ein beschreibendes Label, das deine Redakteure verstehen werden. <br>
+          **ANMERKUNG:** Jede dieser Optionen muss mindestens den Wert `Standard` enthalten. Diese Einstellung bedeutet, dass keine Klasse hinzugefügt wird und die Standardwerte nicht überschrieben werden.
+          Das ist auch die Standardoption im Backend.
+      COLORS:
+        LABEL: Verfügbare Farben
+        KEY: CSS-Suffix
+        VALUE: Backend-Farbname
+      SPACING:
+        LABEL: Verfügbare Größen
+        KEY: CSS-Suffix
+        VALUE: Backend-Abstandsname
+      TEXTALIGN:
+        LABEL: Verfügbare Textausrichtungen
+        KEY: CSS-Suffix
+        VALUE: Backend-Ausrichtungsname
+      TITLETAGS:
+        LABEL: Verfügbare Titel-Tags
+        KEY: CSS-Suffix
+        VALUE: Backend-Tag-Name
+      TRANSITION:
+        LABEL: Verfügbare Übergänge für Elemente
+        KEY: CSS-Suffix
+        VALUE: Backend-Übergangsname
+
+    OTHER:
+      TITLE: Anderes
+      BACKGROUND_IMAGE:
+        TITLE: "**Größe des Hintergrundbilds**"
+        DESCRIPTION: Das Hintergrundbild wird skaliert, um Bandbreite zu sparen. Die Bilder werden mit der cropResize-Regel von Grav zugeschnitten.
+        MAX_WIDTH:
+          LABEL: Max. Breite des Hintergrundbilds
+        MAX_HEIGHT:
+          LABEL: Max. Höhe des Hintergrundbilds
