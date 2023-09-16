@@ -20,7 +20,7 @@ form:
                 header.element.contentlayout:
                   unset@: true
                 import@: partials/_contentlayout_locked
-                
+
 
 
         # Extending the content tab
@@ -29,7 +29,7 @@ form:
             element.title.fieldset:
               fields:
 
-                # As modular pages always have to be of content layout 'full' 
+                # As modular pages always have to be of content layout 'full'
                 # an additional option to constrain the title is given
                 header.element.title.constrain:
                   type: toggle
@@ -43,3 +43,11 @@ form:
                   validate:
                       type: bool
                   ordering@: header.element.title.visible
+
+            # Header image
+            header.element.pagehead.image:
+              type: pagemediaselect
+              label: PLUGIN_ELEMENTS.PAGEHEAD.IMAGE.LABEL
+              help: PLUGIN_ELEMENTS.PAGEHEAD.IMAGE.HELP
+              toggleable: true
+              ordering@: content

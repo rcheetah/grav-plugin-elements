@@ -9,7 +9,7 @@
     {% set CLASSNAMES = CONF.css.classname %}
     {% set EL = header.element %}
 
-    
+
     {# redeem settings #}
     {% set element_type = "#{ element_type ?? '' }" %}
     {% set element_variant = "#{ element_variant ?? '' }" %}
@@ -17,7 +17,8 @@
     {% set innerclasses = "#{ element_innerclasses ?? [] }" %}
     {% set style_attributes = "#{ element_style_attributes ?? [] }" %}
     {% set element_default_title = "#{ element_default_title ?? true }" %}
-
+    {% set element_default_header = "#{ element_default_header ?? true }" %}
+    {% set element_has_header = (header.element.pagehead.image is defined) ? true : false %}
 
 
     {# spacing #}
@@ -32,13 +33,13 @@
 
 
     {# color #}
-    {% if EL.bgcolor is defined %} {% set outerclasses = outerclasses|merge(["#{PREFIX['background-color']}#{EL.bgcolor}"]) %} {% endif %} 
+    {% if EL.bgcolor is defined %} {% set outerclasses = outerclasses|merge(["#{PREFIX['background-color']}#{EL.bgcolor}"]) %} {% endif %}
 
-    
+
     {# settings #}
     {% if EL.negative_mode is defined and EL.negative_mode == true %} {% set outerclasses = outerclasses|merge(["#{CLASSNAMES.negativecolors}"]) %} {% endif %}
 
-    
+
     {# content layout #}
     {% switch EL.contentlayout %}
         {% case 'full' %}
@@ -61,7 +62,7 @@
     {# fixed height #}
     {% if EL.height %} {% set style_attributes = style_attributes|merge(["height: #{EL.height|int}vh"]) %} {% endif %}
 
-    
+
     {# background image #}
     {% if EL.bgimg %}
         {% set bgimg_obj = page.media[EL.bgimg] %}
@@ -79,17 +80,21 @@
     {% set outerclasses = outerclasses|merge(["#{element_add_outerclasses|trim|e}"]) %}
     {% set innerclasses = innerclasses|merge(["#{element_add_innerclasses|trim|e}"]) %}
 
-    
+
     {# add specific id if give #}
     {% set outer_id = "" %}
     {% if EL.id is defined %} {% set outer_id = "id=\"#{EL.id|e}\"" %} {% endif %}
-    
-    
+
+
+    {# add info about header #}
+    {% set outerclasses = (element_has_header) ? outerclasses|merge(["has_header"]) : outerclasses %}
+
+
     {# final variable preparation #}
     {% set outerclasses = outerclasses|join(" ") %}
     {% set innerclasses = innerclasses|join(" ") %}
     {% set variantclass = "#{element_type}--#{element_variant}" %}
-    
+
     {% if style_attributes is not empty %}
         {% set style_attributes = "style=\"#{style_attributes|join('; ')}\"" %}
     {% else %}
@@ -100,26 +105,26 @@
     <div class="{{element_type|e}} {{variantclass|e}} {{outerclasses|e}} {{EL.classes|e}}" {{style_attributes|raw}} {{outer_id|raw}} >
         <div class="{{innerclasses|e}}">
 
-            {% block element_title_before %} {% endblock %}
+        {% block element_header_before %} {% endblock %}
+        {% if element_default_header %}
+            {% block element_header %} {% endblock %}
+        {% endif %}
+        {% block element_header_after %} {% endblock %}
 
+            {% block element_title_before %} {% endblock %}
             {% if element_default_title %}
                 {% block element_title %} {% endblock %}
             {% endif %}
-        
             {% block element_title_after %} {% endblock %}
-            
-            {% block element_main_before %} {% endblock %}
-            
 
+
+            {% block element_main_before %} {% endblock %}
             {% block element_content %}
                 <div class="{{element_type|e}}__content">{{page.content|raw}}</div>
             {% endblock element_content %}
-            
-            
             {% block element_main_after %} {% endblock %}
 
         </div>
     </div>
 
 {% endblock element %}
-

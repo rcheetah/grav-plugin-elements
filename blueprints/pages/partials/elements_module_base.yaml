@@ -1,3 +1,14 @@
 extends@:
   - default
-  
+
+
+form:
+  fields:
+    tabs:
+      fields:
+        content:
+          fields:
+
+            # Hide page header
+            header.element.pagehead.image:
+              unset@: true

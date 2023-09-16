@@ -1,0 +1,36 @@
+
+
+{% block element_header %}
+
+    {% if ( header.element.pagehead.image is defined ) %}
+
+        {# CONFING ACCESSORS (for cleaner code) #}
+        {% set CONF = config.plugins.elements %}
+        {% set EL = header.element.pagehead %}
+
+        {# element type #}
+        {% set element_type = "#{ element_type ?? CONF.css.classname.page }" %}
+
+        {# classes #}
+        {% set header_classes = [] %}
+        {% set header_classes = header_classes|merge(["#{element_type|e}__header"]) %}
+        {# final preparation #}
+        {% set header_classes = header_classes|join(" ") %}
+
+        {# background image #}
+        {% set header_style_attributes = [] %}
+        {# {{ dump(EL.image) }} #}
+        {# {{ dump(page.media[EL.image]) }} #}
+        {% set header_bgimg_obj = page.media[EL.image] %}
+        {% set header_bgimg_obj = header_bgimg_obj.cropResize( CONF.other['background-image']['max-width'], CONF.other['background-image']['max-height'] ) %}
+        {% set header_style_attributes = header_style_attributes|merge(["background-image: url('#{header_bgimg_obj.url|e}')"]) %}
+        {% set header_style_attributes = "style=\"#{header_style_attributes|join('; ')}\"" %}
+
+        {# render the tag #}
+        {% set rendered_header = "<div class='#{header_classes|e}' #{header_style_attributes|raw}></div>" %}
+
+        {{rendered_header|raw}}
+
+    {% endif %}
+
+{% endblock element_header %}

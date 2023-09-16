@@ -6,7 +6,7 @@ form:
     tabs:
       fields:
 
-        # Extending Tab Content 
+        # Extending Tab Content
         content:
           fields:
 
@@ -19,7 +19,10 @@ form:
               fields:
                 header.element.title.visible:
                   default: 0
-                  
+
+            # Hide page header
+            header.element.pagehead.image:
+              unset@: true
 
             # Wrapper settings
             element.spacer.main:
@@ -42,14 +45,14 @@ form:
 
 
         element.layouttab:
-          fields:  
+          fields:
             element.layouttab.basics:
               fields:
                 header.element.contentlayout:
                   disabled: false
                   help: unset@
                   classes: unset@
-       
+
         # doesnt work
         advanced:
           fields:

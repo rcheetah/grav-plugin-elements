@@ -6,16 +6,15 @@ form:
     tabs:
       fields:
 
-        # Extending Tab Content 
+        # Extending Tab Content
         content:
           fields:
 
-            content: 
+            content:
               unset@: true
 
             header.media_order:
               unset@: true
-
 
             # Hide Title by default
             element.title.fieldset:
@@ -23,8 +22,11 @@ form:
                 header.element.title.visible:
                   default: 0
 
+            # Hide page header
+            header.element.pagehead.image:
+              unset@: true
 
-            # Columns settings 
+            # Columns settings
             element.columns.main:
               type: section
               title: PLUGIN_ELEMENTS.ELEMENTS.COLUMNS.NAME
@@ -42,7 +44,7 @@ form:
                     1: PLUGIN_ELEMENTS.YES
                   validate:
                     type: bool
-                
+
                 header.element.columns.render_overflow:
                   type: toggle
                   label: PLUGIN_ELEMENTS.ELEMENTS.COLUMNS.OVERFLOW.LABEL
@@ -76,7 +78,7 @@ form:
                       help: PLUGIN_ELEMENTS.ELEMENTS.COLUMNS.ITEM.ADDITIONAL_CLASSES.HELP
                       autofocus: false
                       rows: 2
-            
+
 
         element.layouttab:
           fields:

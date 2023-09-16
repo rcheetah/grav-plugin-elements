@@ -6,16 +6,15 @@ form:
     tabs:
       fields:
 
-        # Extending Tab Content 
+        # Extending Tab Content
         content:
           fields:
 
-            content: 
+            content:
               unset@: true
 
             header.media_order:
               unset@: true
-
 
             # Hide Title by default
             element.title.fieldset:
@@ -23,8 +22,11 @@ form:
                 header.element.title.visible:
                   default: 0
 
+            # Hide page header
+            header.element.pagehead.image:
+              unset@: true
 
-            # Columns settings 
+            # Columns settings
             element.grid.main:
               type: section
               title: PLUGIN_ELEMENTS.ELEMENTS.GRID.NAME
@@ -53,7 +55,7 @@ form:
                   validate:
                     min: 1
                     max: 12
-                
+
                 header.element.grid.minwidth:
                   type: number
                   label: PLUGIN_ELEMENTS.ELEMENTS.GRID.MIN_WIDTH
@@ -62,14 +64,14 @@ form:
                     min: 100
                     max: 3000
                     step: 50
-                
+
                 element.grid.count_hint:
                   type: display
                   style: vertical
                   markdown: true
                   label: PLUGIN_ELEMENTS.ELEMENTS.GRID.MIN_WIDTH_WARNING.TITLE
                   content: PLUGIN_ELEMENTS.ELEMENTS.GRID.MIN_WIDTH_WARNING.CONTENT
-            
+
 
         element.layouttab:
           fields:

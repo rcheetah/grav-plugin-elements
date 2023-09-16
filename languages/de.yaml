@@ -78,6 +78,12 @@ PLUGIN_ELEMENTS:
     CLASSES: Zusätzliche CSS-Klassen
     CONSTRAIN: Titelbreite einschränken
 
+  PAGEHEAD:
+    IMAGE:
+      LABEL: Header
+      HELP:  Header-Bild, das oben an der Seite angezeigt wird.
+
+
   SETTINGS:
     TABS:
       GENERAL: Allgemein

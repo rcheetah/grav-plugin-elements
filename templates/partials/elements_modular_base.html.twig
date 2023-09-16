@@ -1,9 +1,10 @@
 {% use "partials/elements_module_base.html.twig" %}
+{% use "partials/elements_header.html.twig" %}
 {% use "partials/elements_title.html.twig" %}
 
 
 {% block element %}
-        
+
         {% set element_type = "#{ element_type ?? config.plugins.elements.css.classname.page }" %}
         {% set element_variant = "#{ element_variant ?? 'modular' }" %}
         {% set element_modules_position = "#{ element_modules_position ?? 'above' }" %}
@@ -13,7 +14,7 @@
 
 
 
-{% block element_main_before %} 
+{% block element_main_before %}
 
     {% if content is not empty and element_modules_position != "below" %}
         <div class="{{element_type|e}}__content">{{page.content|raw}}</div>
@@ -37,7 +38,7 @@
 
 
 
-{% block element_main_after %} 
+{% block element_main_after %}
 
     {% if content is not empty and element_modules_position == "below" %}
         <div class="{{element_type|e}}__content">{{page.content|raw}}</div>

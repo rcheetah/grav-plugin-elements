@@ -1,8 +1,8 @@
 PLUGIN_ELEMENTS:
-  
+
   YES: Yes
   NO: No
-  
+
   TAB:
     TITLE: Layout
     BASICS: Basics
@@ -15,7 +15,7 @@ PLUGIN_ELEMENTS:
     LAYOUT_SMALL: Constrain to small container
     LAYOUT_BGSMALL: Background full width, content small
     LAYOUT_MODULARNOTE: This setting can’t be changed for modular pages.
-    HEIGHT: 
+    HEIGHT:
       LABEL: Fixed Height
       HELP: This set the height in relation to the devices screen height (vh). 100 means exactly 100% of the screen height for this element.
     NEGCOL: Use negative colors
@@ -29,10 +29,10 @@ PLUGIN_ELEMENTS:
     SPACING_LEFT: Left
     SPACING_RIGHT: Right
     ADVANCED: Advanced
-    TRANSITION: 
+    TRANSITION:
       ABOVE: Transition above
       BELOW: Transition below
-  
+
   ELEMENTS:
     WRAPPER:
       NAME: Wrapper
@@ -42,21 +42,21 @@ PLUGIN_ELEMENTS:
     COLUMNS:
       NAME: Columns
       ITEMS: Columns
-      NO_GUTTERS: 
+      NO_GUTTERS:
         LABEL: Remove Gaps
       OVERFLOW:
         LABEL: Render overflowing children
-        HELP: > 
-          If this option is set, then all children of this page are being rendered. If there is no more definition by the array, the rest is rendered as standard columns. 
-          If this option is set to `no`, then only the number of columns set in the list below is rendered, and the rest of the children are ignored, 
+        HELP: >
+          If this option is set, then all children of this page are being rendered. If there is no more definition by the array, the rest is rendered as standard columns.
+          If this option is set to `no`, then only the number of columns set in the list below is rendered, and the rest of the children are ignored,
       ITEM:
-        WIDTH: 
+        WIDTH:
           LABEL: Width
           HELP: How many colums the colums should span in 1/12 units.
-        ADDITIONAL_CLASSES: 
+        ADDITIONAL_CLASSES:
           LABEL: Configuration (CSS Classes)
           HELP: Here you can add additional classes e.g. to change the width depending on the width of the device, or changing the visual order.
-        
+
 
     GRID:
       NAME: Grid
@@ -65,11 +65,11 @@ PLUGIN_ELEMENTS:
         CONTENT: Add child modules in the page tree. The children are displayed in a grid. You can change the grid settings here.
       GAP: Grid Gap
       WIDTH: Grid Span (X out of 12)
-      MIN_WIDTH: Minimal Column Width 
-      MIN_WIDTH_WARNING: 
+      MIN_WIDTH: Minimal Column Width
+      MIN_WIDTH_WARNING:
         TITLE: "**USE `Minimal Column Width` WITH CARE!**"
         CONTENT: This setting can break your page on small screens. If the minimal width is larger than the device width, it will not be responsive anymore.
-  
+
   TITLEOPTIONS:
     TITLE: Title Options
     VISIBLE: Show Title?
@@ -77,51 +77,57 @@ PLUGIN_ELEMENTS:
     TAG: Override HTML Tag
     CLASSES: Additional CSS Classes
     CONSTRAIN: Constrain the title width
-  
+
+  PAGEHEAD:
+    IMAGE:
+      LABEL: Header
+      HELP:  Header image, that is being displayed on the top of the page.
+
+
   SETTINGS:
-    TABS: 
+    TABS:
       GENERAL: General
       CONFIG: Configuration
-    
+
     CLASSNAME:
       TITLE: CSS Classnames
-      PAGE: 
+      PAGE:
         LABEL: Default Page Class
         HELP: This class will be added to pages (Default, Modular etc.)
       MODULE:
         LABEL: Default Module Class
         HELP: This class will be added to modules (Grid, Wrapper etc.)
-      CONTAINER: 
+      CONTAINER:
         REGULAR:
           LABEL: Default container class
           HELP: This class should constrain the width of the element, e.g. the bootsrap container.
         FULLWIDTH:
           LABEL: Fullwidth Container Class (additional)
-          HELP: This class – when added to the container – will overwrite the constrain to set the width to 100%. E.g. the bootstrap w-100 
+          HELP: This class – when added to the container – will overwrite the constrain to set the width to 100%. E.g. the bootstrap w-100
         SMALL:
           LABEL: Small Container Class (additional)
-          HELP: This class – when added to the container – will change the width of the container to a narrower variant. 
+          HELP: This class – when added to the container – will change the width of the container to a narrower variant.
       COLUMNS:
-        ROW: 
+        ROW:
           LABEL: Row (outer class)
           HELP: The outer class of your grid system
-        COLUMN: 
+        COLUMN:
           LABEL: Column Item (inner class)
           HELP: The base class for each column
-        NO_GUTTERS: 
+        NO_GUTTERS:
           LABEL: No-Gutter-Class
           HELP: A class to render the columns without any gutters
       GRID:
-        CONTAINER: 
+        CONTAINER:
           LABEL: Grid container (outer class)
           HELP: The outer class of your grid system
-        ITEM: 
+        ITEM:
           LABEL: Grid Item (inner class)
           HELP: The class for each item inside the grid
-      NEGATIVECOLORS: 
+      NEGATIVECOLORS:
         LABEL: Negative Colors Class
         HELP: "This class should overwrite the colors to be readable on a dark background. In the most simple form it would be 'color: white', but most elements will need more sophisticated rules."
-    
+
     PREFIX:
       TITLE: Prefixes
       PADDING: Padding Prefix
@@ -147,13 +153,13 @@ PLUGIN_ELEMENTS:
         LABEL: About these settings
         CONTENT: >
           "**The key-value pairs follow this syntax:** <br>
-          `key` is the css-class value (gets prepended by the prefix). So if it’s set to `large` and the prefix is set to `pt--`, then the element will have the class `pt--large`. 
-          You have to define the css classes for yourself, for the setting to take effect. The title tag is an exception, it’s key will be used as the tag. 
+          `key` is the css-class value (gets prepended by the prefix). So if it’s set to `large` and the prefix is set to `pt--`, then the element will have the class `pt--large`.
+          You have to define the css classes for yourself, for the setting to take effect. The title tag is an exception, it’s key will be used as the tag.
           Every valid html tag should work, so you are not restricted to heading tags. <br>
           `value` is the label that will be displayed in the backend select boxes. Use a descriptive label that your editors will understand. <br>
-          **NOTE:** Each of these options must at least contain the value `default`. This setting means, that the no class is added and the default values will not be overwritten. 
+          **NOTE:** Each of these options must at least contain the value `default`. This setting means, that the no class is added and the default values will not be overwritten.
           This is also the default option in the backend.
-      COLORS: 
+      COLORS:
         LABEL: Available Colors
         KEY: css-suffix
         VALUE: Backend Color Label
@@ -173,13 +179,13 @@ PLUGIN_ELEMENTS:
         LABEL: Available Transitions for Elements
         KEY: css-suffix
         VALUE: Backend Transition Label
-    
+
     OTHER:
       TITLE: Other
-      BACKGROUND_IMAGE: 
+      BACKGROUND_IMAGE:
         TITLE: "**Background Image Size**"
         DESCRIPTION: The background image will be resized to save bandwidth. The images will be cropped using Gravs cropResize rule.
         MAX_WIDTH:
           LABEL: Background Image max. width
-        MAX_HEIGHT: 
+        MAX_HEIGHT:
           LABEL: Background Image max. height
