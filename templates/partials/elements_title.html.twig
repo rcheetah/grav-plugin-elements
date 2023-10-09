@@ -1,5 +1,3 @@
-
-
 {% block element_title %}
 
     {% if ( not (header.element.title.visible is defined and header.element.title.visible == false) ) %}
@@ -8,7 +6,7 @@
         {% set TITLE = header.element.title %}
         {% set CONF = config.plugins.elements %}
         {% set PREFIX = CONF.css.prefix %}
-        
+
 
         {# element type #}
         {% set element_type = "#{ element_type ?? CONF.css.classname.page }" %}
@@ -23,6 +21,9 @@
         {# classes #}
         {% set classes = [] %}
         {% set classes = classes|merge(["#{element_type|e}__title"]) %}
+        {% if TITLE.tag_visual is defined %}
+            {% set classes = classes|merge([TITLE.tag_visual]) %}
+        {% endif %}
         {% if TITLE.align is defined %}
             {% set classes = classes|merge(["#{CONF.css.prefix['text-align']}#{TITLE.align}"]) %}
         {% endif %}
@@ -30,7 +31,7 @@
             {% set classes = classes|merge(["#{CONF.css.prefix['text-align']}#{TITLE.align}"]) %}
         {% endif %}
         {% set classes = classes|merge([TITLE.classes ?? ""]) %}
-        
+
 
         {# spacing #}
         {% if TITLE.spacing.margin.top is defined %}     {% set classes = classes|merge(["#{PREFIX.margin.top}#{TITLE.spacing.margin.top}"]) %}         {% endif %}
@@ -53,4 +54,3 @@
     {% endif %}
 
 {% endblock element_title %}
-

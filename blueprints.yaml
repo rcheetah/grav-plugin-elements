@@ -1,7 +1,7 @@
 name: Elements
 slug: elements
 type: plugin
-version: v0.3.2a
+version: v0.3.3a
 description: Build grav sites easier by using content elements (modules) for your page contents.
 icon: th-large
 author:
@@ -45,8 +45,8 @@ form:
         configuration:
           type: tab
           title: PLUGIN_ELEMENTS.SETTINGS.TABS.CONFIG
-          fields: 
-        
+          fields:
+
 
             # CLASSNAMES
             element.settings.classnames:
@@ -103,26 +103,26 @@ form:
             element.settings.prefixes:
               type: spacer
               title: PLUGIN_ELEMENTS.SETTINGS.PREFIX.TITLE
-            css.prefix.background-color: 
+            css.prefix.background-color:
               type: text
               label: PLUGIN_ELEMENTS.SETTINGS.PREFIX.BACKGROUND_COLOR
-            css.prefix.grid-gap: 
+            css.prefix.grid-gap:
               type: text
               label: PLUGIN_ELEMENTS.SETTINGS.PREFIX.GRID_GAP
-            css.prefix.fixed-column: 
+            css.prefix.fixed-column:
               type: text
               label: PLUGIN_ELEMENTS.SETTINGS.PREFIX.FIXED_COLUMN
-            css.prefix.text-align: 
+            css.prefix.text-align:
               type: text
               label: PLUGIN_ELEMENTS.SETTINGS.PREFIX.TEXT_ALIGN
-            css.prefix.transition.main: 
+            css.prefix.transition.main:
               type: text
               label: PLUGIN_ELEMENTS.SETTINGS.PREFIX.TRANSITION.MAIN
               help: PLUGIN_ELEMENTS.SETTINGS.PREFIX.TRANSITION.HELP
-            css.prefix.transition.above: 
+            css.prefix.transition.above:
               type: text
               label: PLUGIN_ELEMENTS.SETTINGS.PREFIX.TRANSITION.ABOVE
-            css.prefix.transition.below: 
+            css.prefix.transition.below:
               type: text
               label: PLUGIN_ELEMENTS.SETTINGS.PREFIX.TRANSITION.BELOW
 
@@ -152,7 +152,7 @@ form:
                         css.prefix.padding.right:
                           type: text
                           label: PLUGIN_ELEMENTS.SETTINGS.PREFIX.RIGHT
-                
+
                 column2:
                   type: column
                   fields:
@@ -176,7 +176,7 @@ form:
                         css.prefix.margin.right:
                           type: text
                           label: PLUGIN_ELEMENTS.SETTINGS.PREFIX.RIGHT
-            
+
 
 
             # LAYOUT OPTIONS
@@ -217,7 +217,7 @@ form:
               label: PLUGIN_ELEMENTS.SETTINGS.LAYOUTOPTIONS.TRANSITION.LABEL
               placeholder_key: PLUGIN_ELEMENTS.SETTINGS.LAYOUTOPTIONS.TRANSITION.KEY
               placeholder_value: PLUGIN_ELEMENTS.SETTINGS.LAYOUTOPTIONS.TRANSITION.VALUE
-            
+
             # LAYOUT OPTIONS
             element.settings.other:
               type: spacer
@@ -230,16 +230,15 @@ form:
             element.other.background-image:
               type: columns
               fields:
-                column1: 
+                column1:
                   type: column
                   fields:
                     other.background-image.max-width:
                       type: number
                       label: PLUGIN_ELEMENTS.SETTINGS.OTHER.BACKGROUND_IMAGE.MAX_WIDTH.LABEL
-                column2: 
+                column2:
                   type: column
                   fields:
                     other.background-image.max-height:
                       type: number
                       label: PLUGIN_ELEMENTS.SETTINGS.OTHER.BACKGROUND_IMAGE.MAX_HEIGHT.LABEL
-

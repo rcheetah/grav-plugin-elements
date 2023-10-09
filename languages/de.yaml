@@ -75,6 +75,7 @@ PLUGIN_ELEMENTS:
     VISIBLE: Titel anzeigen?
     ALIGN: Titelausrichtung überschreiben
     TAG: HTML-Tag überschreiben
+    TAG_VISUAL: Darstellung überschreiben
     CLASSES: Zusätzliche CSS-Klassen
     CONSTRAIN: Titelbreite einschränken
 

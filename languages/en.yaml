@@ -75,6 +75,7 @@ PLUGIN_ELEMENTS:
     VISIBLE: Show Title?
     ALIGN: Overwite Title Align
     TAG: Override HTML Tag
+    TAG_VISUAL: Override Appearance
     CLASSES: Additional CSS Classes
     CONSTRAIN: Constrain the title width
 

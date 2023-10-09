@@ -51,3 +51,11 @@
 2. [](#improved)
 3. [](#bugfix)
     * Added the class for the small container variant into the settings menu
+
+# v0.3.3a
+##  10/09/2023
+
+1. [](#new)
+2. [](#improved)
+    * Added option for visual title headings (class)
+3. [](#bugfix)

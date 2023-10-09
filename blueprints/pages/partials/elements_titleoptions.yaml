@@ -44,6 +44,13 @@ form:
                   default: ''
                   config-options@: plugins.elements.layoutoptions.titletags
 
+                header.element.title.tag_visual:
+                  type: select
+                  label: PLUGIN_ELEMENTS.TITLEOPTIONS.TAG_VISUAL
+                  toggleable: true
+                  default: ''
+                  config-options@: plugins.elements.layoutoptions.titletags
+
                 header.element.title.classes:
                   type: text
                   label: PLUGIN_ELEMENTS.TITLEOPTIONS.CLASSES
